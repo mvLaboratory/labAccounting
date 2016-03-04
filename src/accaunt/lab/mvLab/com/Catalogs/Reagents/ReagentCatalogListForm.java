@@ -4,12 +4,14 @@ import accaunt.lab.mvLab.com.DB_Helper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,6 +25,31 @@ public class ReagentCatalogListForm {
     }
 
     public static void display() {
+        BorderPane mainLayout = new BorderPane();
+
+        //Command panel+++
+        HBox commandPanel = new HBox();
+
+        //ADD button
+        Button ButtonAdd = new Button("Add");
+        ButtonAdd.setMinWidth(60);
+        ButtonAdd.setId("AddReagent");
+        ButtonAdd.setOnAction(new ReagentCatalogListFormActionHandler());
+        //--
+
+        //Edit button
+        Button ButtonEdit = new Button("Edit");
+        ButtonEdit.setMinWidth(60);
+        ButtonEdit.setId("EditReagent");
+        ButtonEdit.setOnAction(new ReagentCatalogListFormActionHandler());
+        //--
+
+        commandPanel.getChildren().addAll(ButtonAdd, ButtonEdit);
+
+        mainLayout.setTop(commandPanel);
+        //---
+
+        //Table++++
         TableColumn<ReagentCatalog, Integer> idColumn = new TableColumn<ReagentCatalog, Integer>("ID");
         idColumn.setMinWidth(50);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -38,6 +65,7 @@ public class ReagentCatalogListForm {
         reagentTable = new TableView<>();
         reagentTable.setItems(getCatalogData());
         reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn);
+        //Table---
 
         window.setTitle("Lab accaunting");
         window.setMinWidth(300);
@@ -45,9 +73,15 @@ public class ReagentCatalogListForm {
         VBox layout = new VBox();
         layout.getChildren().addAll(reagentTable);
 
-        Scene scene = new Scene(layout, 800, 400);
+        mainLayout.setCenter(layout);
+
+        Scene scene = new Scene(mainLayout, 800, 400);
         window.setScene(scene);
         window.show();
+    }
+
+    public static void update() {
+        reagentTable.setItems(getCatalogData());
     }
 
     private static ObservableList<ReagentCatalog> getCatalogData() {
@@ -57,5 +91,9 @@ public class ReagentCatalogListForm {
             catalogData.add(new ReagentCatalog((int) element.get("id"), (String)element.get("name"), (String)element.get("description")));
         }
         return catalogData;
+    }
+
+    public static DB_Helper getLabDB() {
+        return labDB;
     }
 }

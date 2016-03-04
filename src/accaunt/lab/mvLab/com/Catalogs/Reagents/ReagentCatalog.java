@@ -1,8 +1,5 @@
 package accaunt.lab.mvLab.com.Catalogs.Reagents;
 
-/**
- * Created by mv on 03.03.2016.
- */
 public class ReagentCatalog {
     private int id;
     private String name;
@@ -12,6 +9,10 @@ public class ReagentCatalog {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public ReagentCatalog getElement() {
+        return this;
     }
 
     public int getId() {
