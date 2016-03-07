@@ -1,6 +1,7 @@
 package com.mvLab.lab.accaunt;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -52,15 +53,20 @@ public class Window {
         centralElements = new  ArrayList<Node>();
 
         topCommandPanel = new HBox();
+        topCommandPanel.setSpacing(8);
         topElements = new  ArrayList<Node>();
 
         bottomCommandPanel = new HBox();
+        bottomCommandPanel.setSpacing(8);
+        bottomCommandPanel.setAlignment(Pos.BOTTOM_RIGHT);
         bottomElements = new  ArrayList<Node>();
 
         leftCommandPanel = new VBox();
+        leftCommandPanel.setSpacing(8);
         leftElements = new  ArrayList<Node>();
 
         rightCommandPanel = new VBox();
+        rightCommandPanel.setSpacing(8);
         rightElements = new  ArrayList<Node>();
 
         mainLayout = new BorderPane();
@@ -69,6 +75,22 @@ public class Window {
     public void addCenterElement(Node element, int col, int row) {
         GridPane.setConstraints(element, col, row);
         centralElements.add(element);
+    }
+
+    public void addTopElement(Node element) {
+        topElements.add(element);
+    }
+
+    public void addBottomElement(Node element) {
+        bottomElements.add(element);
+    }
+
+    public void addLeftElement(Node element) {
+        leftElements.add(element);
+    }
+
+    public void addRightElement(Node element) {
+        rightElements.add(element);
     }
 
     public void display() {
