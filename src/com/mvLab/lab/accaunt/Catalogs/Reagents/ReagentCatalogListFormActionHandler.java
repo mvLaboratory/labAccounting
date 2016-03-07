@@ -1,5 +1,6 @@
 package com.mvLab.lab.accaunt.Catalogs.Reagents;
 
+import com.mvLab.lab.accaunt.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -12,9 +13,7 @@ public class ReagentCatalogListFormActionHandler implements EventHandler<ActionE
             Button source = (Button) event.getSource();
             String buttonID = source.idProperty().getValue();
             if (buttonID == "AddReagent") {
-                //ReagentCatalogListForm.getLabDB().addReagentCatalogElement(new ReagentCatalog(3, "new2", "brend new"));
-                ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
-                listForm.display();
+                WindowManager.openReagentCatalogElementForm();
                 ReagentCatalogListForm.update();
             }
         }

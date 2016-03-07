@@ -16,8 +16,8 @@ public class Window {
     private String title;
     private int windowMinWidth, windowWidth, windowHeight;
     private GridPane centerLayout;
-    private HBox topCommandPanel, bottomCommandPannel;
-    private VBox leftCommandPanel,rightCommandPannel;
+    private HBox topCommandPanel, bottomCommandPanel;
+    private VBox leftCommandPanel,rightCommandPanel;
     private BorderPane mainLayout;
     private ArrayList<Node> centralElements, leftElements, rightElements, topElements, bottomElements;
 
@@ -48,8 +48,20 @@ public class Window {
         centerLayout = new GridPane();
         centerLayout.setPadding(new Insets(20, 20, 20, 20));
         centerLayout.setVgap(8);
-        centerLayout.setHgap(10);
+        centerLayout.setHgap(8);
         centralElements = new  ArrayList<Node>();
+
+        topCommandPanel = new HBox();
+        topElements = new  ArrayList<Node>();
+
+        bottomCommandPanel = new HBox();
+        bottomElements = new  ArrayList<Node>();
+
+        leftCommandPanel = new VBox();
+        leftElements = new  ArrayList<Node>();
+
+        rightCommandPanel = new VBox();
+        rightElements = new  ArrayList<Node>();
 
         mainLayout = new BorderPane();
     }
@@ -61,12 +73,16 @@ public class Window {
 
     public void display() {
         centerLayout.getChildren().addAll(centralElements);
+        topCommandPanel.getChildren().addAll(topElements);
+        bottomCommandPanel.getChildren().addAll(bottomElements);
+        leftCommandPanel.getChildren().addAll(leftElements);
+        rightCommandPanel.getChildren().addAll(rightElements);
 
         mainLayout.setCenter(centerLayout);
-        mainLayout.setBottom(bottomCommandPannel);
+        mainLayout.setBottom(bottomCommandPanel);
         mainLayout.setTop(topCommandPanel);
         mainLayout.setLeft(leftCommandPanel);
-        mainLayout.setRight(rightCommandPannel);
+        mainLayout.setRight(rightCommandPanel);
 
         Scene scene = new Scene(mainLayout, windowWidth, windowHeight);
         window.setScene(scene);

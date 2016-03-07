@@ -8,33 +8,34 @@ import javafx.scene.control.TextField;
 public class ReagentCatalogElementForm extends Window {
 
     public ReagentCatalogElementForm() {
-        super("Lab accaunting", 400, 200);
+        super("Lab accaunting", 450, 250);
         fillCentral();
     }
 
     private void fillCentral() {
         Label idLabel = new Label("ID:");
         idLabel.setMinWidth(80);
-        addCenterElement(idLabel, 0, 2);
+        addCenterElement(idLabel, 0, 0);
 
         Label nameLabel = new Label("Name:");
-        addCenterElement(nameLabel, 0, 4);
+        addCenterElement(nameLabel, 0, 2);
 
         Label descriptionLabel = new Label("Description:");
-        addCenterElement(descriptionLabel, 0, 6);
+        addCenterElement(descriptionLabel, 0, 4);
 
         TextField idTxtFld = new TextField();
         idTxtFld.setPromptText("ID");
+        idTxtFld.setMaxWidth(130);
         idTxtFld.setEditable(false);
-        addCenterElement(idTxtFld, 1, 2);
+        addCenterElement(idTxtFld, 1, 0);
 
         TextField nameTxtFld = new TextField();
         nameTxtFld.setPromptText("Name");
-        addCenterElement(nameTxtFld, 1, 4);
+        addCenterElement(nameTxtFld, 1, 2);
 
         TextArea deScTxtFld = new TextArea();
         deScTxtFld.setPromptText("Description");
-        deScTxtFld.setMinWidth(50);
-        addCenterElement(deScTxtFld, 1, 6);
+        deScTxtFld.setMinSize(50, 50);
+        addCenterElement(deScTxtFld, 1, 4);
     }
 }

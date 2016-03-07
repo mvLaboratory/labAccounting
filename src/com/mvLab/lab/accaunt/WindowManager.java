@@ -1,5 +1,7 @@
 package com.mvLab.lab.accaunt;
 
+import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalogElementForm;
+
 import java.util.ArrayList;
 
 public class WindowManager {
@@ -22,5 +24,10 @@ public class WindowManager {
 
     public static void openWindow() {
 
+    }
+
+    public static void openReagentCatalogElementForm() {
+        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
+        listForm.display();
     }
 }
