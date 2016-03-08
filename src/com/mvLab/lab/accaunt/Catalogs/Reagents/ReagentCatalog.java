@@ -1,9 +1,14 @@
 package com.mvLab.lab.accaunt.Catalogs.Reagents;
 
-public class ReagentCatalog {
+import com.mvLab.lab.accaunt.Catalogs.Catalog;
+
+public class ReagentCatalog extends Catalog {
     private int id;
     private String name;
     private String description;
+
+    public ReagentCatalog() {
+    }
 
     public ReagentCatalog(int id, String name, String description) {
         this.id = id;
@@ -19,9 +24,9 @@ public class ReagentCatalog {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;

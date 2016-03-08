@@ -4,13 +4,15 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Window {
     private Stage window;
@@ -109,5 +111,48 @@ public class Window {
         Scene scene = new Scene(mainLayout, windowWidth, windowHeight);
         window.setScene(scene);
         window.show();
+    }
+
+    public void close() {
+        window.close();
+    }
+
+    public HashMap<String, String> getInputValues() {
+        HashMap<String, String> inputs = new HashMap<String, String>();
+        for (Node formElement : centralElements) {
+            if (formElement instanceof TextArea)
+                inputs.put(formElement.getId(), ((TextArea) formElement).getText());
+            else if (formElement instanceof TextField)
+                inputs.put(formElement.getId(), ((TextField) formElement).getText());
+        }
+
+        for (Node formElement : topElements) {
+            if (formElement instanceof TextArea)
+                inputs.put(formElement.getId(), ((TextArea) formElement).getText());
+            else if (formElement instanceof TextField)
+                inputs.put(formElement.getId(), ((TextField) formElement).getText());
+        }
+
+        for (Node formElement : leftElements) {
+            if (formElement instanceof TextArea)
+                inputs.put(formElement.getId(), ((TextArea) formElement).getText());
+            else if (formElement instanceof TextField)
+                inputs.put(formElement.getId(), ((TextField) formElement).getText());
+        }
+
+        for (Node formElement : leftElements) {
+            if (formElement instanceof TextArea)
+                inputs.put(formElement.getId(), ((TextArea) formElement).getText());
+            else if (formElement instanceof TextField)
+                inputs.put(formElement.getId(), ((TextField) formElement).getText());
+        }
+
+        for (Node formElement : rightElements) {
+            if (formElement instanceof TextArea)
+                inputs.put(formElement.getId(), ((TextArea) formElement).getText());
+            else if (formElement instanceof TextField)
+                inputs.put(formElement.getId(), ((TextField) formElement).getText());
+        }
+        return inputs;
     }
 }
