@@ -63,10 +63,11 @@ public class CatalogForm extends Window  implements EventHandler<ActionEvent> {
                 setter.invoke(catalogClass.cast(catalogElement), formInput.getValue());
             }
             catch (Exception e) {
+
                 //TODO handle exception
             }
         }
-
+        catalogElement.save();
     }
 
     @Override
@@ -82,7 +83,7 @@ public class CatalogForm extends Window  implements EventHandler<ActionEvent> {
                 close();
             }
             else if (buttonID == "save") {
-
+                fillCatalogElement();
             }
         }
     }

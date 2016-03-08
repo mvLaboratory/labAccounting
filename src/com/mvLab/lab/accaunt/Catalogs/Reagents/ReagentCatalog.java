@@ -20,8 +20,11 @@ public class ReagentCatalog extends Catalog {
         return this;
     }
 
-    public int getId() {
-        return id;
+    public Integer getId() {
+        if (id == 0)
+            return null;
+        else
+            return id;
     }
 
 //    public void setId(int id) {

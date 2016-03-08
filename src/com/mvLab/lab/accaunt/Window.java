@@ -1,5 +1,6 @@
 package com.mvLab.lab.accaunt;
 
+import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalogListForm;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -115,6 +116,7 @@ public class Window {
 
     public void close() {
         window.close();
+        ReagentCatalogListForm.update();
     }
 
     public HashMap<String, String> getInputValues() {

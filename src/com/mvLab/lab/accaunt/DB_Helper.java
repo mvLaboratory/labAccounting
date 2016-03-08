@@ -96,6 +96,13 @@ public class DB_Helper {
             firstField = false;
         }
         queryString += ") Values (" + fieldString + ")";
+
+        try {
+            statmt.execute(queryString);
+        }
+        catch (Exception e) {
+            //TODO Handle exception
+        }
     }
 
     public static DB_Helper getInstace() {
