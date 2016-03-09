@@ -1,11 +1,22 @@
 package com.mvLab.lab.accaunt.Catalogs;
 
-import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalog;
 import com.mvLab.lab.accaunt.DB_Helper;
 
+import java.util.UUID;
+
 public class Catalog {
+    private UUID uuid;
+
+    public Catalog() {
+        this.uuid = UUID.randomUUID();
+    }
 
     public void save() {
-        DB_Helper.addReagentCatalogElement((ReagentCatalog) this);
+        //this.getClass().cast(this);
+        DB_Helper.addReagentCatalogElement(this);
+    }
+
+    public void readElement(Catalog element) {
+
     }
 }

@@ -1,11 +1,11 @@
 package com.mvLab.lab.accaunt.Catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.Catalogs.CatalogForm;
+import com.mvLab.lab.accaunt.Catalogs.CatalogElementForm;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class ReagentCatalogElementForm extends CatalogForm {
+public class ReagentCatalogElementForm extends CatalogElementForm {
 
     public ReagentCatalogElementForm() {
         super(ReagentCatalog.class, "Reagent", 450, 250);
