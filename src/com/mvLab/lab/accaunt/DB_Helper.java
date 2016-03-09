@@ -47,11 +47,13 @@ public class DB_Helper {
                 int id = resSet.getInt("id");
                 String  name = resSet.getString("name");
                 String  description = resSet.getString("description");
+                String  uuid = resSet.getString("uuid");
 
                 HashMap<String, Object> catElement = new HashMap<String, Object>();
                 catElement.put("id", id);
                 catElement.put("name", name);
                 catElement.put("description", description);
+                catElement.put("uuid", uuid);
 
                 catalog.add(catElement);
             }
@@ -67,31 +69,35 @@ public class DB_Helper {
         String queryString = "Insert into Reagents (";
         String fieldString = "";
         boolean firstField = true;
+        ArrayList<Class> classes = new ArrayList<Class>();
+        classes.add(element.getClass());
+        classes.add(element.getClass().getSuperclass());
 
-        for (Field catFld : element.getClass().getDeclaredFields()) {
-            if  (! firstField) {
-                queryString += ", ";
-                fieldString += ", ";
-            }
-            boolean isStringType = catFld.getType().getName().equals("java.lang.String");
-            String strSymbol = isStringType ? "'" : "";
+        for (Class catClass : classes) {
+            for (Field catFld : catClass.getDeclaredFields()) {
+                if (!firstField) {
+                    queryString += ", ";
+                    fieldString += ", ";
+                }
+                boolean isStringType = catFld.getType().getName().equals("java.lang.String");
+                if (! isStringType)
+                    isStringType = catFld.getType().getName().equals("java.util.UUID");
+                String strSymbol = isStringType ? "'" : "";
 
-            String fldName = catFld.getName();
-            queryString += fldName;
-            fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
-            try {
-                fieldString += strSymbol + element.getClass().getMethod("get" + fldName).invoke(element) + strSymbol;
+                String fldName = catFld.getName();
+                queryString += fldName;
+                fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
+                try {
+                    fieldString += strSymbol + element.getClass().getMethod("get" + fldName).invoke(element) + strSymbol;
+                } catch (NoSuchMethodException e) {
+                    //TODO Handle exception
+                } catch (IllegalAccessException e) {
+                    //TODO Handle exception
+                } catch (InvocationTargetException e) {
+                    //TODO Handle exception
+                }
+                firstField = false;
             }
-            catch (NoSuchMethodException e) {
-              //TODO Handle exception
-            }
-            catch (IllegalAccessException e) {
-                //TODO Handle exception
-            }
-            catch (InvocationTargetException e) {
-                //TODO Handle exception
-            }
-            firstField = false;
         }
         queryString += ") Values (" + fieldString + ")";
 

@@ -62,9 +62,14 @@ public class ReagentCatalogListForm {
         descColumn.setMinWidth(400);
         descColumn.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, String>("description"));
 
+        TableColumn<ReagentCatalog, String> uuidColumn = new TableColumn<ReagentCatalog, String>("Description");
+        uuidColumn.setVisible(false);
+        uuidColumn.setMinWidth(200);
+        uuidColumn.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, String>("uuid"));
+
         reagentTable = new TableView<ReagentCatalog>();
         reagentTable.setItems(getCatalogData());
-        reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn);
+        reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn, uuidColumn);
         //Table---
 
         window.setTitle("Lab accaunting");
@@ -88,7 +93,7 @@ public class ReagentCatalogListForm {
         ObservableList<ReagentCatalog> catalogData = FXCollections.observableArrayList();
         ArrayList<HashMap<String, Object>> catalogElements = labDB.ReadReagentCatalog();
         for (HashMap<String, Object> element : catalogElements) {
-            catalogData.add(new ReagentCatalog((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description")));
+            catalogData.add(new ReagentCatalog((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
         }
         return catalogData;
     }
