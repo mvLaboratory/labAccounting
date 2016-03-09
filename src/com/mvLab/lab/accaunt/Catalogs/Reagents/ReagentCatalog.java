@@ -16,6 +16,13 @@ public class ReagentCatalog extends Catalog {
         this.description = description;
     }
 
+    public ReagentCatalog(int id, String name, String description, String uuid) {
+        super(uuid);
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     public ReagentCatalog getElement() {
         return this;
     }
