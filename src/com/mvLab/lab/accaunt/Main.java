@@ -14,6 +14,7 @@ public class Main extends Application {
         MainWindow mainWindow = new MainWindow(primaryStage, labDB);
 
         mainWindow.Display();
+        //testing git
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 //        primaryStage.setTitle("Hello World");
 //        primaryStage.setScene(new Scene(root, 800, 500));
