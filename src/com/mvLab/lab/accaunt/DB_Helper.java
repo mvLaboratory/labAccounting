@@ -1,7 +1,6 @@
 package com.mvLab.lab.accaunt;
 
-import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalog;
-
+import com.mvLab.lab.accaunt.Catalogs.Catalog;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DB_Helper {
-    public static DB_Helper instace;
+    public static DB_Helper instance;
 
     private static Connection conn;
     private static Statement statmt;
@@ -31,8 +30,7 @@ public class DB_Helper {
         //System.out.println("База Подключена!");
     }
 
-    public static ArrayList<HashMap<String, Object>> ReadReagentCatalog()
-    {
+    public static ArrayList<HashMap<String, Object>> ReadReagentCatalog() {
         try {
             statmt = conn.createStatement();
             resSet = statmt.executeQuery("SELECT * FROM Reagents");
@@ -64,7 +62,7 @@ public class DB_Helper {
         return catalog;
     }
 
-    public static void addReagentCatalogElement(ReagentCatalog element) {
+    public static void addReagentCatalogElement(Catalog element) {
       //  insert into Reagents (ID, Name, Description) Values (Null, 'Super react', '')
         String queryString = "Insert into Reagents (";
         String fieldString = "";
@@ -105,9 +103,9 @@ public class DB_Helper {
         }
     }
 
-    public static DB_Helper getInstace() {
-        if (instace == null)
-            instace = new DB_Helper();
-        return instace;
+    public static DB_Helper getInstance() {
+        if (instance == null)
+            instance = new DB_Helper();
+        return instance;
     }
 }

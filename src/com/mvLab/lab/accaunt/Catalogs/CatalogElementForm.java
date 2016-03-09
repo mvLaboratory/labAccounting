@@ -1,6 +1,5 @@
 package com.mvLab.lab.accaunt.Catalogs;
 
-import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalog;
 import com.mvLab.lab.accaunt.Window;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,11 +10,11 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CatalogForm extends Window  implements EventHandler<ActionEvent> {
+public class CatalogElementForm extends Window  implements EventHandler<ActionEvent> {
     private Catalog catalogElement;
     private Class<? extends Catalog> catalogClass;
 
-    public CatalogForm(Class<? extends Catalog> catalogClass, String title, int windowWidth, int windowHeight) {
+    public CatalogElementForm(Class<? extends Catalog> catalogClass, String title, int windowWidth, int windowHeight) {
         super(title, windowWidth, windowHeight);
         this.catalogClass = catalogClass;
         this.catalogElement = null;
@@ -45,7 +44,7 @@ public class CatalogForm extends Window  implements EventHandler<ActionEvent> {
         addBottomElement(btnClose);
     }
 
-    private void fillCatalogElement() {
+    private void saveCatalogElement() {
         if (catalogElement == null) {
             try {
                 catalogElement = catalogClass.newInstance();
@@ -75,15 +74,15 @@ public class CatalogForm extends Window  implements EventHandler<ActionEvent> {
         if (event.getSource() instanceof Button) {
             Button source = (Button) event.getSource();
             String buttonID = source.idProperty().getValue();
-            if (buttonID == "close") {
+            if (buttonID.equals("close")) {
                 close();
             }
-            else if (buttonID == "ok") {
-                fillCatalogElement();
+            else if (buttonID.equals("ok")) {
+                saveCatalogElement();
                 close();
             }
-            else if (buttonID == "save") {
-                fillCatalogElement();
+            else if (buttonID.equals("save")) {
+                saveCatalogElement();
             }
         }
     }

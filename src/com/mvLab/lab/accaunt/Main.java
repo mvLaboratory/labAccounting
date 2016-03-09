@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        DB_Helper labDB = DB_Helper.getInstace();
+        DB_Helper labDB = DB_Helper.getInstance();
         MainWindow mainWindow = new MainWindow(primaryStage, labDB);
 
         mainWindow.Display();
