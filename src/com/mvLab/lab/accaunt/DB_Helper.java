@@ -80,6 +80,7 @@ public class DB_Helper {
                         fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
                         String fldValue = resSet.getString(fldName);
                         Method setter = element.getClass().getMethod("set" + fldName, catFld.getType());
+                        //todo cast db field and set the value
                         setter.invoke(element, catFld.getType().cast(fldValue));
                     }
                 }

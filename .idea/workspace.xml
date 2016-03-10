@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base/labBase.s3db" afterPath="$PROJECT_DIR$/base/labBase.s3db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Catalog.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Catalog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalogListForm.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalogListForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/DB_Helper.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/DB_Helper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Main.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Catalog.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Catalog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Helper.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Helper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Window.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Window.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,8 +79,8 @@
       <file leaf-file-name="DB_Helper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Helper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2890625">
-              <caret line="80" column="65" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.6432292">
+              <caret line="82" column="62" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#DB_Helper#0;class#DB_Helper#0" expanded="false" />
@@ -717,14 +705,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Helper.java</url>
-          <line>82</line>
-          <properties />
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1209,8 +1189,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Helper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2890625">
-          <caret line="80" column="65" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.6432292">
+          <caret line="82" column="62" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DB_Helper#0;class#DB_Helper#0" expanded="false" />
