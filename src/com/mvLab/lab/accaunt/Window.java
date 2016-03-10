@@ -157,4 +157,8 @@ public class Window {
         }
         return inputs;
     }
+
+    public void fillElements(HashMap<String, Object> inputs) {
+        //TODO fill all form inputs
+    }
 }

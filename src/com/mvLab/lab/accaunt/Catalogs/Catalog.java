@@ -2,6 +2,7 @@ package com.mvLab.lab.accaunt.Catalogs;
 
 import com.mvLab.lab.accaunt.DB_Helper;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class Catalog {
@@ -31,7 +32,15 @@ public class Catalog {
         DB_Helper.addReagentCatalogElement(this);
     }
 
-    public void readElement(Catalog element) {
+    public void readElement() {
+        DB_Helper.readCatalogElement(this);
+    }
 
+    public HashMap<String, Object> getElemntFields() {
+        HashMap<String, Object> fields = new HashMap<String, Object>();
+
+        //TODO fill the fields
+
+        return fields;
     }
 }

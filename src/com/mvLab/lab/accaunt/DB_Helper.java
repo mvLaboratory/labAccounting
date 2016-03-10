@@ -3,6 +3,7 @@ package com.mvLab.lab.accaunt;
 import com.mvLab.lab.accaunt.Catalogs.Catalog;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,10 +14,10 @@ import java.util.HashMap;
 
 public class DB_Helper {
     public static DB_Helper instance;
-
     private static Connection conn;
     private static Statement statmt;
     private static ResultSet resSet;
+    private static String errLog;
 
     private DB_Helper() {
         conn = null;
@@ -62,6 +63,32 @@ public class DB_Helper {
             System.out.println(e.getErrorCode());
         }
         return catalog;
+    }
+
+    public static void readCatalogElement(Catalog element) {
+        try {
+            statmt = conn.createStatement();
+            resSet = statmt.executeQuery("SELECT * FROM Reagents where uuid = '" + element.getUuid() + "'");
+            if (resSet.next()) {
+                ArrayList<Class> classes = new ArrayList<Class>();
+                classes.add(element.getClass());
+                classes.add(element.getClass().getSuperclass());
+
+                for (Class catClass : classes) {
+                    for (Field catFld : catClass.getDeclaredFields()) {
+                        String fldName = catFld.getName().toLowerCase();
+                        fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
+                        String fldValue = resSet.getString(fldName);
+                        Method setter = element.getClass().getMethod("set" + fldName, catFld.getType());
+                        setter.invoke(element, catFld.getType().cast(fldValue));
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            errLog += e.getMessage();
+            //TODO handle exception
+        }
     }
 
     public static void addReagentCatalogElement(Catalog element) {

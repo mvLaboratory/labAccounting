@@ -45,6 +45,7 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
     }
 
     private void saveCatalogElement() {
+        //TODO validate input
         if (catalogElement == null) {
             try {
                 catalogElement = catalogClass.newInstance();
@@ -83,6 +84,8 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
             }
             else if (buttonID.equals("save")) {
                 saveCatalogElement();
+                catalogElement.readElement();
+                fillElements(catalogElement.getElemntFields());
             }
         }
     }
