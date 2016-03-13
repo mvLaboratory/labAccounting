@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Window {
     private Stage window;
@@ -189,6 +190,20 @@ public class Window {
     }
 
     public void fillElements(HashMap<String, Object> inputs) {
-        //TODO fill all form inputs
+        for (Node element : centralElements) {
+            String elementID = element.getId();
+            if (elementID != null) {
+                for (Map.Entry<String, Object> fields : inputs.entrySet()) {
+                    if (elementID.equalsIgnoreCase(fields.getKey())) {
+                        if (element instanceof TextArea) {
+                            ((TextArea) element).setText(fields.getValue().toString());
+                        }
+                        else if (element instanceof TextField) {
+                            ((TextField) element).setText(fields.getValue().toString());
+                        }
+                    }
+                }
+            }
+        }
     }
 }

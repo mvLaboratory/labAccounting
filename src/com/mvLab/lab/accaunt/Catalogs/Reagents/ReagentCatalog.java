@@ -1,49 +1,30 @@
-package com.mvLab.lab.accaunt.Catalogs.Reagents;
+package com.mvLab.lab.accaunt.catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.Catalogs.Catalog;
+import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.windows.WindowManager;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ReagentCatalog extends Catalog {
-    private int id;
-    private String name;
+
     private String description;
 
     public ReagentCatalog() {
     }
 
-    public ReagentCatalog(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
+    public ReagentCatalog(Integer id, String name, String description) {
+        super(id, name);
         this.description = description;
     }
 
-    public ReagentCatalog(int id, String name, String description, String uuid) {
-        super(uuid);
-        this.id = id;
-        this.name = name;
+    public ReagentCatalog(Integer id, String name, String description, String uuid) {
+        super(id, name, uuid);
         this.description = description;
     }
 
     public ReagentCatalog getElement() {
         return this;
-    }
-
-    public Integer getId() {
-        if (id == 0)
-            return null;
-        else
-            return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -52,5 +33,29 @@ public class ReagentCatalog extends Catalog {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public HashMap<String, Object> getElementFields() {
+        HashMap<String, Object> fields = new HashMap<String, Object>();
+
+        ArrayList<Class> classes = new ArrayList<Class>();
+        classes.add(this.getClass());
+        classes.add(this.getClass().getSuperclass());
+
+        for (Class catClass : classes) {
+            for (Field catFld : catClass.getDeclaredFields()) {
+                String fldName = catFld.getName();
+                fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
+                try {
+                    fields.put(fldName, this.getClass().getMethod("get" + fldName).invoke(this));
+                } catch (Exception e) {
+                    //TODO Handle exception
+                    WindowManager.openErrorWindow(e.toString());
+                }
+            }
+        }
+
+        return fields;
     }
 }

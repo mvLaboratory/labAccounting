@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,15 +57,21 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
             }
         }
         HashMap<String, String> formInputs = getInputValues();
-        for (Map.Entry<String, String> formInput : formInputs.entrySet()) {
-            try {
-                Field setterFld = catalogClass.getDeclaredField(formInput.getKey().toLowerCase());
-                Method setter = catalogClass.getMethod("set" + formInput.getKey(), setterFld.getType());
-                setter.invoke(catalogClass.cast(catalogElement), formInput.getValue());
-            }
-            catch (Exception e) {
 
-                //TODO handle exception
+        ArrayList<Class> classes = new ArrayList<Class>();
+        classes.add(catalogClass);
+        classes.add(catalogClass.getSuperclass());
+
+        for (Class catClass : classes) {
+            for (Map.Entry<String, String> formInput : formInputs.entrySet()) {
+                try {
+                    Field setterFld = catClass.getDeclaredField(formInput.getKey().toLowerCase());
+                    Method setter = catClass.getMethod("set" + formInput.getKey(), setterFld.getType());
+                    setter.invoke(catClass.cast(catalogElement), formInput.getValue());
+                } catch (Exception e) {
+
+                    //TODO handle exception
+                }
             }
         }
         catalogElement.save();
