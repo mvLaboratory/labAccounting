@@ -195,11 +195,14 @@ public class Window {
             if (elementID != null) {
                 for (Map.Entry<String, Object> fields : inputs.entrySet()) {
                     if (elementID.equalsIgnoreCase(fields.getKey())) {
+                        Object fldValue = fields.getValue();
+                        if (fldValue == null)
+                            continue;
                         if (element instanceof TextArea) {
-                            ((TextArea) element).setText(fields.getValue().toString());
+                            ((TextArea) element).setText(fldValue.toString());
                         }
                         else if (element instanceof TextField) {
-                            ((TextField) element).setText(fields.getValue().toString());
+                            ((TextField) element).setText(fldValue.toString());
                         }
                     }
                 }

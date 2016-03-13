@@ -78,6 +78,8 @@ public class DB_Manager {
 
                 for (Class catClass : classes) {
                     for (Field catFld : catClass.getDeclaredFields()) {
+                        if (element.isServiceField(catFld.getName()))
+                            continue;
                         String fldName = catFld.getName().toLowerCase();
                         fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
                         String fldValue = resSet.getString(fldName);
@@ -106,6 +108,58 @@ public class DB_Manager {
 
         for (Class catClass : classes) {
             for (Field catFld : catClass.getDeclaredFields()) {
+                if (element.isServiceField(catFld.getName()))
+                    continue;
+                if (!firstField) {
+                    queryString += ", ";
+                    fieldString += ", ";
+                }
+                boolean isStringType = catFld.getType().getName().equals("java.lang.String");
+                if (! isStringType)
+                    isStringType = catFld.getType().getName().equals("java.util.UUID");
+                String strSymbol = isStringType ? "'" : "";
+
+                String fldName = catFld.getName();
+                queryString += fldName;
+                fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
+                try {
+                    fieldString += strSymbol + element.getClass().getMethod("get" + fldName).invoke(element) + strSymbol;
+                } catch (NoSuchMethodException e) {
+                    //TODO Handle exception
+                    WindowManager.openErrorWindow(e.getMessage());
+                } catch (IllegalAccessException e) {
+                    //TODO Handle exception
+                    WindowManager.openErrorWindow(e.getMessage());
+                } catch (InvocationTargetException e) {
+                    //TODO Handle exception
+                    WindowManager.openErrorWindow(e.toString() + "; \n" + e.getTargetException().toString());
+                }
+                firstField = false;
+            }
+        }
+        queryString += ") Values (" + fieldString + ")";
+
+        try {
+            statmt.execute(queryString);
+        }
+        catch (Exception e) {
+            //TODO Handle exception
+        }
+    }
+
+    public static void ubdateCatalogElement(Catalog element) {
+        //Update Reagents Set Name = 'test update', Description = 'e1e1e1e' where uuid = ''
+        String queryString = "Insert into Reagents (";
+        String fieldString = "";
+        boolean firstField = true;
+        ArrayList<Class> classes = new ArrayList<Class>();
+        classes.add(element.getClass());
+        classes.add(element.getClass().getSuperclass());
+
+        for (Class catClass : classes) {
+            for (Field catFld : catClass.getDeclaredFields()) {
+                if (element.isServiceField(catFld.getName()))
+                    continue;
                 if (!firstField) {
                     queryString += ", ";
                     fieldString += ", ";
