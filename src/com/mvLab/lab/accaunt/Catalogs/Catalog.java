@@ -12,11 +12,16 @@ public class Catalog {
     private Integer id;
     private String name;
     private UUID uuid;
+    private String tableName;
+    private ArrayList<String> serviceFields = new ArrayList<String>() {{
+        add("tableName");
+        add("serviceFields");
+    }};
 
     public Catalog(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.uuid = UUID.randomUUID();
+        //this.uuid = UUID.randomUUID();
     }
 
     public Catalog(Integer id, String name, String uuid) {
@@ -30,7 +35,7 @@ public class Catalog {
     }
 
     public Catalog() {
-        this.uuid = UUID.randomUUID();
+        //this.uuid = UUID.randomUUID();
     }
 
     public Integer getId() {
@@ -54,6 +59,14 @@ public class Catalog {
         this.name = name;
     }
 
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
     public UUID getUuid() {
         return uuid;
     }
@@ -62,10 +75,26 @@ public class Catalog {
         this.uuid = uuid;
     }
 
+    public Boolean isServiceField(String field) {
+        return serviceFields.contains(field);
+    }
+
+    public void setNewUUID() {
+        this.uuid = UUID.randomUUID();
+    }
+
+    public Boolean isNew() {
+        return uuid == null || uuid.toString().isEmpty();
+    }
+
     public void save() {
-        //this.getClass().cast(this);
-        DB_Manager.addReagentCatalogElement(this);
-        //TODO rewrite existing element
+        if (!isNew())
+            DB_Manager.addReagentCatalogElement(this);
+        else {
+            setNewUUID();
+            DB_Manager.addReagentCatalogElement(this);
+            //TODO rewrite existing element
+        }
     }
 
     public void readElement() {
@@ -82,6 +111,8 @@ public class Catalog {
         for (Class catClass : classes) {
             for (Field catFld : catClass.getDeclaredFields()) {
                 String fldName = catFld.getName();
+                if (isServiceField(fldName))
+                    continue;
                 fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
                 try {
                     fields.put(fldName, this.getClass().getMethod("get" + fldName).invoke(this));

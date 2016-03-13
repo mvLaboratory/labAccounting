@@ -66,6 +66,8 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
             for (Map.Entry<String, String> formInput : formInputs.entrySet()) {
                 try {
                     Field setterFld = catClass.getDeclaredField(formInput.getKey().toLowerCase());
+                    if (catalogElement.isServiceField(setterFld.getName()))
+                        continue;
                     Method setter = catClass.getMethod("set" + formInput.getKey(), setterFld.getType());
                     setter.invoke(catClass.cast(catalogElement), formInput.getValue());
                 } catch (Exception e) {

@@ -46,6 +46,8 @@ public class ReagentCatalog extends Catalog {
         for (Class catClass : classes) {
             for (Field catFld : catClass.getDeclaredFields()) {
                 String fldName = catFld.getName();
+                if (isServiceField(fldName))
+                    continue;
                 fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
                 try {
                     fields.put(fldName, this.getClass().getMethod("get" + fldName).invoke(this));
