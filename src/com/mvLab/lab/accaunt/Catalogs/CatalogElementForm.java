@@ -1,6 +1,6 @@
-package com.mvLab.lab.accaunt.Catalogs;
+package com.mvLab.lab.accaunt.catalogs;
 
-import com.mvLab.lab.accaunt.Window;
+import com.mvLab.lab.accaunt.windows.Window;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -85,7 +85,7 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
             else if (buttonID.equals("save")) {
                 saveCatalogElement();
                 catalogElement.readElement();
-                fillElements(catalogElement.getElemntFields());
+                fillElements(catalogElement.getElementFields());
             }
         }
     }

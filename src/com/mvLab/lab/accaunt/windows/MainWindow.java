@@ -1,6 +1,7 @@
-package com.mvLab.lab.accaunt;
+package com.mvLab.lab.accaunt.windows;
 
-import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalogListForm;
+import com.mvLab.lab.accaunt.DB_Manager;
+import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -13,9 +14,9 @@ import javafx.stage.Stage;
 
 public class MainWindow implements EventHandler<ActionEvent> {
     private Stage window;
-    private DB_Helper labDB;
+    private DB_Manager labDB;
 
-    public MainWindow(Stage window, DB_Helper labDB) {
+    public MainWindow(Stage window, DB_Manager labDB) {
         this.window = window;
         this.labDB = labDB;
     }

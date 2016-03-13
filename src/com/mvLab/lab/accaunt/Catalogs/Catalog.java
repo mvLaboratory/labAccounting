@@ -1,6 +1,6 @@
-package com.mvLab.lab.accaunt.Catalogs;
+package com.mvLab.lab.accaunt.catalogs;
 
-import com.mvLab.lab.accaunt.DB_Helper;
+import com.mvLab.lab.accaunt.DB_Manager;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -29,14 +29,14 @@ public class Catalog {
 
     public void save() {
         //this.getClass().cast(this);
-        DB_Helper.addReagentCatalogElement(this);
+        DB_Manager.addReagentCatalogElement(this);
     }
 
     public void readElement() {
-        DB_Helper.readCatalogElement(this);
+        DB_Manager.readCatalogElement(this);
     }
 
-    public HashMap<String, Object> getElemntFields() {
+    public HashMap<String, Object> getElementFields() {
         HashMap<String, Object> fields = new HashMap<String, Object>();
 
         //TODO fill the fields

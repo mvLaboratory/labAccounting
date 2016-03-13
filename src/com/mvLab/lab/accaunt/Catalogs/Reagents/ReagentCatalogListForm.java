@@ -1,6 +1,6 @@
-package com.mvLab.lab.accaunt.Catalogs.Reagents;
+package com.mvLab.lab.accaunt.catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.DB_Helper;
+import com.mvLab.lab.accaunt.DB_Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ReagentCatalogListForm {
-    private static DB_Helper labDB;
+    private static DB_Manager labDB;
     private static TableView<ReagentCatalog> reagentTable;
     private static Stage window = new Stage();
 
-    public ReagentCatalogListForm(DB_Helper labDB) {
+    public ReagentCatalogListForm(DB_Manager labDB) {
         this.labDB = labDB;
     }
 
@@ -98,7 +98,7 @@ public class ReagentCatalogListForm {
         return catalogData;
     }
 
-    public static DB_Helper getLabDB() {
+    public static DB_Manager getLabDB() {
         return labDB;
     }
 }

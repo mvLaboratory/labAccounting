@@ -1,6 +1,6 @@
-package com.mvLab.lab.accaunt.Catalogs.Reagents;
+package com.mvLab.lab.accaunt.catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.Catalogs.CatalogElementForm;
+import com.mvLab.lab.accaunt.catalogs.CatalogElementForm;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;

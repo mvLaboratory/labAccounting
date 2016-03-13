@@ -1,5 +1,6 @@
 package com.mvLab.lab.accaunt;
 
+import com.mvLab.lab.accaunt.windows.MainWindow;
 import javafx.application.Application;
 //import javafx.fxml.FXMLLoader;
 //import javafx.scene.Parent;
@@ -10,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        DB_Helper labDB = DB_Helper.getInstance();
+        DB_Manager labDB = DB_Manager.getInstance();
         MainWindow mainWindow = new MainWindow(primaryStage, labDB);
 
         mainWindow.Display();
@@ -20,7 +21,7 @@ public class Main extends Application {
 //        primaryStage.setScene(new Scene(root, 800, 500));
 //        primaryStage.show();
 //
-//        DB_Helper labDB = new DB_Helper();
+//        DB_Manager labDB = new DB_Manager();
 //        labDB.ReadDB();
     }
 

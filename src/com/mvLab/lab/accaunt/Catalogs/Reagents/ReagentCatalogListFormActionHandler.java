@@ -1,6 +1,6 @@
-package com.mvLab.lab.accaunt.Catalogs.Reagents;
+package com.mvLab.lab.accaunt.catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.WindowManager;
+import com.mvLab.lab.accaunt.windows.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

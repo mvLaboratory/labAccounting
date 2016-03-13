@@ -1,6 +1,8 @@
 package com.mvLab.lab.accaunt;
 
-import com.mvLab.lab.accaunt.Catalogs.Catalog;
+import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.windows.WindowManager;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,14 +14,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class DB_Helper {
-    public static DB_Helper instance;
+public class DB_Manager {
+    public static DB_Manager instance;
     private static Connection conn;
     private static Statement statmt;
     private static ResultSet resSet;
     private static String errLog;
 
-    private DB_Helper() {
+    private DB_Manager() {
         conn = null;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -80,8 +82,8 @@ public class DB_Helper {
                         fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
                         String fldValue = resSet.getString(fldName);
                         Method setter = element.getClass().getMethod("set" + fldName, catFld.getType());
-                        //todo cast db field and set the value
-                        setter.invoke(element, catFld.getType().cast(fldValue));
+                        Object castedValue = Lab_Helper.castValue(fldValue, catFld.getType());
+                        setter.invoke(element, castedValue);
                     }
                 }
             }
@@ -89,6 +91,7 @@ public class DB_Helper {
         catch (Exception e) {
             errLog += e.getMessage();
             //TODO handle exception
+            WindowManager.openErrorWindow(e.toString());
         }
     }
 
@@ -119,10 +122,13 @@ public class DB_Helper {
                     fieldString += strSymbol + element.getClass().getMethod("get" + fldName).invoke(element) + strSymbol;
                 } catch (NoSuchMethodException e) {
                     //TODO Handle exception
+                    WindowManager.openErrorWindow(e.getMessage());
                 } catch (IllegalAccessException e) {
                     //TODO Handle exception
+                    WindowManager.openErrorWindow(e.getMessage());
                 } catch (InvocationTargetException e) {
                     //TODO Handle exception
+                    WindowManager.openErrorWindow(e.toString() + "; \n" + e.getTargetException().toString());
                 }
                 firstField = false;
             }
@@ -137,9 +143,9 @@ public class DB_Helper {
         }
     }
 
-    public static DB_Helper getInstance() {
+    public static DB_Manager getInstance() {
         if (instance == null)
-            instance = new DB_Helper();
+            instance = new DB_Manager();
         return instance;
     }
 }

@@ -1,6 +1,6 @@
-package com.mvLab.lab.accaunt;
+package com.mvLab.lab.accaunt.windows;
 
-import com.mvLab.lab.accaunt.Catalogs.Reagents.ReagentCatalogListForm;
+import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,6 +32,20 @@ public class Window {
         this.windowMinWidth = 300;
         this.windowWidth = windowWidth;
         this.windowHeight = windowHeight;
+
+        prepare();
+    }
+
+    public Window(String title, int windowWidth, int windowHeight, Boolean modal) {
+        this.window = new Stage();
+        this.title = title;
+        this.windowMinWidth = 300;
+        this.windowWidth = windowWidth;
+        this.windowHeight = windowHeight;
+
+        if (modal) {
+            this.window.initModality(Modality.APPLICATION_MODAL);
+        }
 
         prepare();
     }
@@ -94,6 +109,21 @@ public class Window {
 
     public void addRightElement(Node element) {
         rightElements.add(element);
+    }
+
+    /**
+     * Sets alignment by integer value
+     * @param alignment 1 - Left; 2 - Center; 3 - Right.
+     */
+    public void setBottomCommandPanelAligment(Integer alignment) {
+        switch (alignment) {
+            case 1:  bottomCommandPanel.setAlignment(Pos.BOTTOM_LEFT);
+                break;
+            case 2:  bottomCommandPanel.setAlignment(Pos.BOTTOM_CENTER);
+                break;
+            case 3:  bottomCommandPanel.setAlignment(Pos.BOTTOM_RIGHT);
+                break;
+        }
     }
 
     public void display() {
