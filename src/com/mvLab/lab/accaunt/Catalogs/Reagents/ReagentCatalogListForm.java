@@ -1,17 +1,24 @@
 package com.mvLab.lab.accaunt.catalogs.Reagents;
 
 import com.mvLab.lab.accaunt.DB_Manager;
+import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.windows.WindowManager;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -70,6 +77,10 @@ public class ReagentCatalogListForm {
         reagentTable = new TableView<ReagentCatalog>();
         reagentTable.setItems(getCatalogData());
         reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn, uuidColumn);
+
+        //reagentTable.setRowFactory(new ReagentCatalogListFormActionHandler());
+
+        reagentTable.getSelectionModel().selectedItemProperty().addListener(new ReagentCatalogListFormActionHandler());
         //Table---
 
         window.setTitle("Lab accaunting");
@@ -101,4 +112,5 @@ public class ReagentCatalogListForm {
     public static DB_Manager getLabDB() {
         return labDB;
     }
+
 }

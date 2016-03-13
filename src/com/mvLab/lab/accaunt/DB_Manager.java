@@ -147,10 +147,10 @@ public class DB_Manager {
         }
     }
 
-    public static void ubdateCatalogElement(Catalog element) {
+    public static void updateCatalogElement(Catalog element) {
         //Update Reagents Set Name = 'test update', Description = 'e1e1e1e' where uuid = ''
-        String queryString = "Insert into Reagents (";
-        String fieldString = "";
+        String queryString = "Update " + element.getTableName() + " Set ";
+
         boolean firstField = true;
         ArrayList<Class> classes = new ArrayList<Class>();
         classes.add(element.getClass());
@@ -162,7 +162,6 @@ public class DB_Manager {
                     continue;
                 if (!firstField) {
                     queryString += ", ";
-                    fieldString += ", ";
                 }
                 boolean isStringType = catFld.getType().getName().equals("java.lang.String");
                 if (! isStringType)
@@ -170,10 +169,9 @@ public class DB_Manager {
                 String strSymbol = isStringType ? "'" : "";
 
                 String fldName = catFld.getName();
-                queryString += fldName;
                 fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
                 try {
-                    fieldString += strSymbol + element.getClass().getMethod("get" + fldName).invoke(element) + strSymbol;
+                    queryString += fldName + " = " + strSymbol + element.getClass().getMethod("get" + fldName).invoke(element) + strSymbol;
                 } catch (NoSuchMethodException e) {
                     //TODO Handle exception
                     WindowManager.openErrorWindow(e.getMessage());
@@ -187,7 +185,7 @@ public class DB_Manager {
                 firstField = false;
             }
         }
-        queryString += ") Values (" + fieldString + ")";
+        queryString += " where uuid = '" + element.getUuid() + "'";
 
         try {
             statmt.execute(queryString);

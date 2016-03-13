@@ -10,6 +10,10 @@ public class ReagentCatalog extends Catalog {
 
     private String description;
 
+    {
+        this.tableName = "Reagents";
+    }
+
     public ReagentCatalog() {
     }
 

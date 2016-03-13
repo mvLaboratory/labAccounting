@@ -1,6 +1,7 @@
 package com.mvLab.lab.accaunt.catalogs;
 
 import com.mvLab.lab.accaunt.windows.Window;
+import com.mvLab.lab.accaunt.windows.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -53,7 +54,7 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
 
             }
             catch (Exception e) {
-                //TODO exception handle
+                WindowManager.openErrorWindow("Unable to create new catalog element! \n" + e.toString());
             }
         }
         HashMap<String, String> formInputs = getInputValues();

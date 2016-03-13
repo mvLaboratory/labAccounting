@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Catalog {
-    private Integer id;
-    private String name;
-    private UUID uuid;
-    private String tableName;
-    private ArrayList<String> serviceFields = new ArrayList<String>() {{
+    protected Integer id;
+    protected String name;
+    protected UUID uuid;
+    protected String tableName;
+    protected ArrayList<String> serviceFields = new ArrayList<String>() {{
         add("tableName");
         add("serviceFields");
     }};
@@ -89,7 +89,7 @@ public class Catalog {
 
     public void save() {
         if (!isNew())
-            DB_Manager.addReagentCatalogElement(this);
+            DB_Manager.updateCatalogElement(this);
         else {
             setNewUUID();
             DB_Manager.addReagentCatalogElement(this);
