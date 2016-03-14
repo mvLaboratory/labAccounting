@@ -78,9 +78,8 @@ public class ReagentCatalogListForm {
         reagentTable.setItems(getCatalogData());
         reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn, uuidColumn);
 
-        //reagentTable.setRowFactory(new ReagentCatalogListFormActionHandler());
-
-        reagentTable.getSelectionModel().selectedItemProperty().addListener(new ReagentCatalogListFormActionHandler());
+        reagentTable.setRowFactory(new ReagentCatalogDblClickListener());
+        //reagentTable.getSelectionModel().selectedItemProperty().addListener(new ReagentCatalogListFormActionHandler());
         //Table---
 
         window.setTitle("Lab accaunting");

@@ -24,6 +24,14 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
         addBottomCommandPanel();
     }
 
+    public Catalog getCatalogElement() {
+        return catalogElement;
+    }
+
+    public void setCatalogElement(Catalog catalogElement) {
+        this.catalogElement = catalogElement;
+    }
+
     public void addBottomCommandPanel() {
         Button btnOK = new Button("OK");
         btnOK.setId("ok");
@@ -78,6 +86,11 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
             }
         }
         catalogElement.save();
+    }
+
+    public void elementToForm() {
+        catalogElement.readElement();
+        fillElements(catalogElement.getElementFields());
     }
 
     @Override
