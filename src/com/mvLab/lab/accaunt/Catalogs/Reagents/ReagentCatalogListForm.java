@@ -2,6 +2,7 @@ package com.mvLab.lab.accaunt.catalogs.Reagents;
 
 import com.mvLab.lab.accaunt.DB_Manager;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.catalogs.CatalogListForm;
 import com.mvLab.lab.accaunt.windows.WindowManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,16 +23,61 @@ import javafx.util.Callback;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ReagentCatalogListForm {
+public class ReagentCatalogListForm extends CatalogListForm {
     private static DB_Manager labDB;
     private static TableView<ReagentCatalog> reagentTable;
     private static Stage window = new Stage();
 
-    public ReagentCatalogListForm(DB_Manager labDB) {
-        this.labDB = labDB;
+    public ReagentCatalogListForm(String title, int windowWidth, int windowHeight) {
+        super(title, windowWidth, windowHeight);
+        fillElements();
     }
 
-    public static void display() {
+    private void fillElements() {
+        Button ButtonAdd = new Button("Add");
+        ButtonAdd.setMinWidth(60);
+        ButtonAdd.setId("AddReagent");
+        addTopElement(ButtonAdd);
+        ButtonAdd.setOnAction(new ReagentCatalogListFormActionHandler());
+
+        Button ButtonEdit = new Button("Edit");
+        ButtonEdit.setMinWidth(60);
+        ButtonEdit.setId("EditReagent");
+        addTopElement(ButtonEdit);
+        ButtonEdit.setOnAction(new ReagentCatalogListFormActionHandler());
+
+        TableColumn<ReagentCatalog, Integer> idColumn = new TableColumn<ReagentCatalog, Integer>("ID");
+        idColumn.setMinWidth(50);
+        idColumn.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, Integer>("id"));
+
+        TableColumn<ReagentCatalog, String> nameColumn = new TableColumn<ReagentCatalog, String>("Name");
+        nameColumn.setMinWidth(200);
+        nameColumn.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, String>("name"));
+
+        TableColumn<ReagentCatalog, String> descColumn = new TableColumn<ReagentCatalog, String>("Description");
+        descColumn.setMinWidth(400);
+        descColumn.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, String>("description"));
+
+        TableColumn<ReagentCatalog, String> uuidColumn = new TableColumn<ReagentCatalog, String>("Description");
+        uuidColumn.setVisible(false);
+        uuidColumn.setMinWidth(200);
+        uuidColumn.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, String>("uuid"));
+
+        reagentTable = new TableView<ReagentCatalog>();
+        reagentTable.setItems(getCatalogData());
+        reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn, uuidColumn);
+
+        reagentTable.setRowFactory(new ReagentCatalogDblClickListener());
+        reagentTable.autosize();
+
+        addCenterElement(reagentTable, 0, 0);
+    }
+
+//    public ReagentCatalogListForm(DB_Manager labDB) {
+//        this.labDB = labDB;
+//    }
+
+    public static void display_() {
         BorderPane mainLayout = new BorderPane();
 
         //Command panel+++

@@ -22,6 +22,7 @@ public class CatalogElementForm extends Window  implements EventHandler<ActionEv
         this.catalogElement = null;
 
         addBottomCommandPanel();
+        setCommandPanelsUsege(false, false, false, true);
     }
 
     public Catalog getCatalogElement() {

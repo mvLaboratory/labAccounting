@@ -58,6 +58,7 @@ public class MainWindow implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        new ReagentCatalogListForm(labDB).display();
+        //new ReagentCatalogListForm(labDB).display_();
+        WindowManager.openReagentCatalogListForm();
     }
 }

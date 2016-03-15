@@ -1,16 +1,14 @@
 package com.mvLab.lab.accaunt.windows;
 
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.util.ArrayList;
@@ -26,6 +24,7 @@ public class Window {
     private VBox leftCommandPanel,rightCommandPanel;
     private BorderPane mainLayout;
     private ArrayList<Node> centralElements, leftElements, rightElements, topElements, bottomElements;
+    private Boolean leftCommandsUsage = true, rightCommandUsage = true, topCommandUsage = true, bottomCommandUsage = true;
 
     public Window(Stage window, String title, int windowWidth, int windowHeight) {
         this.window = window;
@@ -66,26 +65,30 @@ public class Window {
         window.setMinWidth(windowMinWidth);
 
         centerLayout = new GridPane();
-        centerLayout.setPadding(new Insets(20, 20, 20, 20));
-        centerLayout.setVgap(8);
-        centerLayout.setHgap(8);
+        centerLayout.setPadding(new Insets(5, 5, 5, 5));
+        centerLayout.setVgap(5);
+        centerLayout.setHgap(5);
         centralElements = new  ArrayList<Node>();
 
         topCommandPanel = new HBox();
         topCommandPanel.setSpacing(8);
+        topCommandPanel.setPadding(new Insets(10, 10, 10, 10));
         topElements = new  ArrayList<Node>();
 
         bottomCommandPanel = new HBox();
         bottomCommandPanel.setSpacing(8);
         bottomCommandPanel.setAlignment(Pos.BOTTOM_RIGHT);
+        bottomCommandPanel.setPadding(new Insets(10, 10, 10, 10));
         bottomElements = new  ArrayList<Node>();
 
         leftCommandPanel = new VBox();
         leftCommandPanel.setSpacing(8);
+        leftCommandPanel.setPadding(new Insets(10, 10, 10, 10));
         leftElements = new  ArrayList<Node>();
 
         rightCommandPanel = new VBox();
         rightCommandPanel.setSpacing(8);
+        rightCommandPanel.setPadding(new Insets(10, 10, 10, 10));
         rightElements = new  ArrayList<Node>();
 
         mainLayout = new BorderPane();
@@ -93,6 +96,8 @@ public class Window {
 
     public void addCenterElement(Node element, int col, int row) {
         GridPane.setConstraints(element, col, row);
+        GridPane.setVgrow(element, Priority.ALWAYS);
+        GridPane.setHgrow(element, Priority.ALWAYS);
         centralElements.add(element);
     }
 
@@ -127,6 +132,13 @@ public class Window {
         }
     }
 
+    public void setCommandPanelsUsege(Boolean leftCommandsUsage, Boolean rightCommandUsage, Boolean topCommandUsage, Boolean bottomCommandUsage) {
+        this.leftCommandsUsage = leftCommandsUsage;
+        this.rightCommandUsage = rightCommandUsage;
+        this.topCommandUsage = topCommandUsage;
+        this.bottomCommandUsage = bottomCommandUsage;
+    }
+
     public void display() {
         centerLayout.getChildren().addAll(centralElements);
         topCommandPanel.getChildren().addAll(topElements);
@@ -135,10 +147,14 @@ public class Window {
         rightCommandPanel.getChildren().addAll(rightElements);
 
         mainLayout.setCenter(centerLayout);
-        mainLayout.setBottom(bottomCommandPanel);
-        mainLayout.setTop(topCommandPanel);
-        mainLayout.setLeft(leftCommandPanel);
-        mainLayout.setRight(rightCommandPanel);
+        if (bottomCommandUsage)
+            mainLayout.setBottom(bottomCommandPanel);
+        if (topCommandUsage)
+            mainLayout.setTop(topCommandPanel);
+        if (leftCommandsUsage)
+            mainLayout.setLeft(leftCommandPanel);
+        if (rightCommandUsage)
+            mainLayout.setRight(rightCommandPanel);
 
         Scene scene = new Scene(mainLayout, windowWidth, windowHeight);
         window.setScene(scene);

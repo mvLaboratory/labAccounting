@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogListForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Catalog.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Catalog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalogListForm.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalogListForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalogListFormActionHandler.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalogListFormActionHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/DB_Manager.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/DB_Manager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/windows/WindowManager.class" afterPath="$PROJECT_DIR$/out/production/labAccunting/com/mvLab/lab/accaunt/windows/WindowManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Catalog.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Catalog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/MainWindow.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/Window.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/Window.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/WindowManager.java" afterPath="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/WindowManager.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,88 +74,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CatalogElementForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogElementForm.java">
+      <file leaf-file-name="CatalogListForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogListForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#CatalogElementForm#0;class#CatalogElementForm#0" expanded="false" />
-                <element signature="e#1866#1873#0" expanded="true" />
-              </folding>
+              <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Catalog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Catalog.java">
+      <file leaf-file-name="ReagentCatalogListForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogListForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Catalog#0;class#Catalog#0" expanded="false" />
-                <element signature="method#Catalog#1;class#Catalog#0" expanded="false" />
-                <element signature="method#Catalog#2;class#Catalog#0" expanded="false" />
-                <element signature="method#getId#0;class#Catalog#0" expanded="false" />
-                <element signature="e#1677#1678#0" expanded="true" />
-                <element signature="e#1729#1730#0" expanded="true" />
-                <element signature="e#2192#2193#0" expanded="true" />
-                <element signature="e#2354#2370#0" expanded="true" />
-                <element signature="e#2423#2430#0" expanded="true" />
+                <element signature="e#5748#5749#0" expanded="true" />
+                <element signature="e#5803#5804#0" expanded="true" />
+                <element signature="method#getCatalogData#0;class#ReagentCatalogListForm#0" expanded="false" />
+                <element signature="e#6377#6378#0" expanded="true" />
+                <element signature="e#6405#6406#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReagentCatalog.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalog.java">
+      <file leaf-file-name="ReagentCatalogElementForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50830567">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#ReagentCatalog#0;class#ReagentCatalog#0" expanded="false" />
-                <element signature="e#1025#1041#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.17551963">
+              <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
               <folding>
                 <element signature="method#Window#0;class#Window#0" expanded="false" />
                 <element signature="method#Window#1;class#Window#0" expanded="false" />
                 <element signature="method#Window#2;class#Window#0" expanded="false" />
                 <element signature="method#prepare#0;class#Window#0" expanded="false" />
-                <element signature="method#addCenterElement#0;class#Window#0" expanded="false" />
                 <element signature="docComment;method#setBottomCommandPanelAligment#0;class#Window#0" expanded="false" />
                 <element signature="method#setBottomCommandPanelAligment#0;class#Window#0" expanded="false" />
-                <element signature="method#display#0;class#Window#0" expanded="false" />
                 <element signature="method#close#0;class#Window#0" expanded="false" />
                 <element signature="method#getInputValues#0;class#Window#0" expanded="false" />
+                <element signature="method#fillElements#0;class#Window#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DB_Manager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Manager.java">
+      <file leaf-file-name="CatalogElementForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogElementForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="111" selection-end-column="29" />
-              <folding>
-                <element signature="method#DB_Manager#0;class#DB_Manager#0" expanded="false" />
-                <element signature="method#ReadReagentCatalog#0;class#DB_Manager#0" expanded="false" />
-                <element signature="e#2474#2481#0" expanded="true" />
-                <element signature="e#3896#3903#0" expanded="true" />
-                <element signature="method#ubdateCatalogElement#0;class#DB_Manager#0" expanded="false" />
-              </folding>
+              <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -198,25 +186,29 @@
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Window.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/CatalogElementForm.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Catalog.java" />
-        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Helper.java" />
-        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/WindowManager.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/ErrorWindow.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Lab_Helper.java" />
-        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/Window.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Manager.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Catalog.java" />
-        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogElementForm.java" />
         <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalog.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Catalogs/Reagents/ReagentCatalog.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/WindowManager.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogListForm.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogElementForm.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogListForm.java" />
+        <option value="$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/Window.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1688" />
-    <option name="height" value="1024" />
+    <option name="x" value="54" />
+    <option name="y" value="-8" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -248,6 +240,93 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.mvLab.lab.accaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.mvLab.lab.accaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="windows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.mvLab.lab.accaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="catalogs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAccunting" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.mvLab.lab.accaunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="catalogs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Reagents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -356,93 +435,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccounting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccunting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccounting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccunting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.mvLab.lab.accaunt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccounting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccunting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.mvLab.lab.accaunt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="windows" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccounting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccunting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.mvLab.lab.accaunt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="catalogs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccounting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labAccunting" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.mvLab.lab.accaunt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="catalogs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Reagents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -485,6 +477,65 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -751,7 +802,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1688" height="1024" extended-state="6" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -761,16 +812,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31813246" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31703705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28988096" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2898773" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943678" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38762215" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38666666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -782,6 +832,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -820,7 +871,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="143" />
+      <option name="time" value="148" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -833,18 +884,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#ReagentCatalog#0;class#ReagentCatalog#0" expanded="false" />
-            <element signature="e#1025#1041#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -862,9 +901,6 @@
           <folding>
             <element signature="method#DB_Manager#0;class#DB_Manager#0" expanded="false" />
             <element signature="method#ReadReagentCatalog#0;class#DB_Manager#0" expanded="false" />
-            <element signature="e#2474#2481#0" expanded="true" />
-            <element signature="e#3896#3903#0" expanded="true" />
-            <element signature="method#ubdateCatalogElement#0;class#DB_Manager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,9 +927,6 @@
           <folding>
             <element signature="method#DB_Manager#0;class#DB_Manager#0" expanded="false" />
             <element signature="method#ReadReagentCatalog#0;class#DB_Manager#0" expanded="false" />
-            <element signature="e#2474#2481#0" expanded="true" />
-            <element signature="e#3896#3903#0" expanded="true" />
-            <element signature="method#ubdateCatalogElement#0;class#DB_Manager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1013,26 +1046,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10510046">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogListForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15919629">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/util/UUID.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,7 +1057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,9 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58882684">
           <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,7 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="526" column="8" selection-start-line="526" selection-start-column="8" selection-end-line="526" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,14 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28911564">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogListFormActionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22972973">
@@ -1195,96 +1199,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/WindowManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6126126">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21058558">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding>
-            <element signature="method#fillCentral#0;class#ReagentCatalogElementForm#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogElementForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CatalogElementForm#0;class#CatalogElementForm#0" expanded="false" />
-            <element signature="e#1866#1873#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Catalog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Catalog#0;class#Catalog#0" expanded="false" />
-            <element signature="method#Catalog#1;class#Catalog#0" expanded="false" />
-            <element signature="method#Catalog#2;class#Catalog#0" expanded="false" />
-            <element signature="method#getId#0;class#Catalog#0" expanded="false" />
-            <element signature="e#1677#1678#0" expanded="true" />
-            <element signature="e#1729#1730#0" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2354#2370#0" expanded="true" />
-            <element signature="e#2423#2430#0" expanded="true" />
+            <marker date="1458066560529" expanded="true" signature="3167:3196" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/DB_Manager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.03926097">
           <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="111" selection-end-column="29" />
           <folding>
             <element signature="method#DB_Manager#0;class#DB_Manager#0" expanded="false" />
             <element signature="method#ReadReagentCatalog#0;class#DB_Manager#0" expanded="false" />
-            <element signature="e#2474#2481#0" expanded="true" />
-            <element signature="e#3896#3903#0" expanded="true" />
-            <element signature="method#ubdateCatalogElement#0;class#DB_Manager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29099306">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/WindowManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23787528">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19630484">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6073903">
+          <caret line="60" column="52" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogListForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/CatalogElementForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogElementForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalogListForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
+          <folding>
+            <element signature="e#5748#5749#0" expanded="true" />
+            <element signature="e#5803#5804#0" expanded="true" />
+            <element signature="method#getCatalogData#0;class#ReagentCatalogListForm#0" expanded="false" />
+            <element signature="e#6377#6378#0" expanded="true" />
+            <element signature="e#6405#6406#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/windows/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.17551963">
+          <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
           <folding>
             <element signature="method#Window#0;class#Window#0" expanded="false" />
             <element signature="method#Window#1;class#Window#0" expanded="false" />
             <element signature="method#Window#2;class#Window#0" expanded="false" />
             <element signature="method#prepare#0;class#Window#0" expanded="false" />
-            <element signature="method#addCenterElement#0;class#Window#0" expanded="false" />
             <element signature="docComment;method#setBottomCommandPanelAligment#0;class#Window#0" expanded="false" />
             <element signature="method#setBottomCommandPanelAligment#0;class#Window#0" expanded="false" />
-            <element signature="method#display#0;class#Window#0" expanded="false" />
             <element signature="method#close#0;class#Window#0" expanded="false" />
             <element signature="method#getInputValues#0;class#Window#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mvLab/lab/accaunt/catalogs/Reagents/ReagentCatalog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50830567">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#ReagentCatalog#0;class#ReagentCatalog#0" expanded="false" />
-            <element signature="e#1025#1041#0" expanded="true" />
+            <element signature="method#fillElements#0;class#Window#0" expanded="false" />
           </folding>
         </state>
       </provider>
