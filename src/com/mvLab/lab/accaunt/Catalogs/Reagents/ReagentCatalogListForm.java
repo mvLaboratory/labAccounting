@@ -27,6 +27,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
     private static DB_Manager labDB;
     private static TableView<ReagentCatalog> reagentTable;
     private static Stage window = new Stage();
+    private static Catalog presentRowData;
 
     public ReagentCatalogListForm(String title, int windowWidth, int windowHeight) {
         super(title, windowWidth, windowHeight);
@@ -152,6 +153,11 @@ public class ReagentCatalogListForm extends CatalogListForm {
             catalogData.add(new ReagentCatalog((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
         }
         return catalogData;
+    }
+
+    public static Catalog getPresentRowData() {
+        presentRowData = reagentTable.getSelectionModel().getSelectedItem();
+        return presentRowData;
     }
 
     public static DB_Manager getLabDB() {

@@ -18,6 +18,9 @@ public class ReagentCatalogListFormActionHandler<Catalog> implements EventHandle
                 WindowManager.openReagentCatalogElementForm();
                 ReagentCatalogListForm.update();
             }
+            else if (buttonID == "EditReagent") {
+                WindowManager.openReagentCatalogElementForm(ReagentCatalogListForm.getPresentRowData());
+            }
         }
     }
 
