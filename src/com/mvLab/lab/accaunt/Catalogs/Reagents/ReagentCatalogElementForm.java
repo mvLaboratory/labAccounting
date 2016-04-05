@@ -12,7 +12,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
         fillCentral();
     }
 
-    private void fillCentral() {
+    private final void fillCentral() {
         Label idLabel = new Label("ID:");
         idLabel.setMinWidth(80);
         addCenterElement(idLabel, 0, 0);

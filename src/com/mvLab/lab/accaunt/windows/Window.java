@@ -60,7 +60,7 @@ public class Window {
         prepare();
     }
 
-    private void prepare() {
+    private final void prepare() {
         window.setTitle(title);
         window.setMinWidth(windowMinWidth);
 
@@ -128,6 +128,21 @@ public class Window {
             case 2:  bottomCommandPanel.setAlignment(Pos.BOTTOM_CENTER);
                 break;
             case 3:  bottomCommandPanel.setAlignment(Pos.BOTTOM_RIGHT);
+                break;
+        }
+    }
+
+    /**
+     * Sets alignment by integer value
+     * @param alignment 1 - Left; 2 - Center; 3 - Right.
+     */
+    public void setTopCommandPanelAligment(Integer alignment) {
+        switch (alignment) {
+            case 1:  topCommandPanel.setAlignment(Pos.TOP_LEFT);
+                break;
+            case 2:  topCommandPanel.setAlignment(Pos.TOP_CENTER);
+                break;
+            case 3:  topCommandPanel.setAlignment(Pos.TOP_RIGHT);
                 break;
         }
     }

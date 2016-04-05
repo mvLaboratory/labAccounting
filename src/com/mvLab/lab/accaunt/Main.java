@@ -1,6 +1,7 @@
 package com.mvLab.lab.accaunt;
 
 import com.mvLab.lab.accaunt.windows.MainWindow;
+import com.mvLab.lab.accaunt.windows.WindowManager;
 import javafx.application.Application;
 //import javafx.fxml.FXMLLoader;
 //import javafx.scene.Parent;
@@ -11,10 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        DB_Manager labDB = DB_Manager.getInstance();
-        MainWindow mainWindow = new MainWindow(primaryStage, labDB);
-
-        mainWindow.Display();
+        WindowManager.setPrimaryStage(primaryStage);
+        WindowManager.openMainWindow();
+//        MainWindow mainWindow = new MainWindow(primaryStage);
+//
+//        mainWindow.Display();
         //testing git
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 //        primaryStage.setTitle("Hello World");

@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ReagentCatalogListForm extends CatalogListForm {
-    private static DB_Manager labDB;
     private static TableView<ReagentCatalog> reagentTable;
     private static Stage window = new Stage();
     private static Catalog presentRowData;
@@ -148,7 +147,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
 
     private static ObservableList<ReagentCatalog> getCatalogData() {
         ObservableList<ReagentCatalog> catalogData = FXCollections.observableArrayList();
-        ArrayList<HashMap<String, Object>> catalogElements = labDB.ReadReagentCatalog();
+        ArrayList<HashMap<String, Object>> catalogElements = DB_Manager.ReadReagentCatalog();
         for (HashMap<String, Object> element : catalogElements) {
             catalogData.add(new ReagentCatalog((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
         }
@@ -159,9 +158,4 @@ public class ReagentCatalogListForm extends CatalogListForm {
         presentRowData = reagentTable.getSelectionModel().getSelectedItem();
         return presentRowData;
     }
-
-    public static DB_Manager getLabDB() {
-        return labDB;
-    }
-
 }
