@@ -21,7 +21,7 @@ public class DB_Manager {
     private static ResultSet resSet;
     private static String errLog;
 
-    private DB_Manager() {
+    static {
         conn = null;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -29,9 +29,19 @@ public class DB_Manager {
         }
         catch (SQLException e) {}
         catch (ClassNotFoundException e) {}
-
-        //System.out.println("База Подключена!");
     }
+
+//    private DB_Manager() {
+//        conn = null;
+//        try {
+//            Class.forName("org.sqlite.JDBC");
+//            conn = DriverManager.getConnection("jdbc:sqlite:base/labBase.s3db");
+//        }
+//        catch (SQLException e) {}
+//        catch (ClassNotFoundException e) {}
+//
+//        //System.out.println("База Подключена!");
+//    }
 
     public static ArrayList<HashMap<String, Object>> ReadReagentCatalog() {
         try {
