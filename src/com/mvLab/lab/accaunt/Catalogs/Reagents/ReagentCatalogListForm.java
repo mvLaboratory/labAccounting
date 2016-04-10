@@ -33,7 +33,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
         fillElements();
     }
 
-    private void fillElements() {
+    private final void fillElements() {
         Button ButtonAdd = new Button("Add");
         ButtonAdd.setMinWidth(60);
         ButtonAdd.setId("AddReagent");
@@ -128,7 +128,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
         //reagentTable.getSelectionModel().selectedItemProperty().addListener(new ReagentCatalogListFormActionHandler());
         //Table---
 
-        window.setTitle("Lab accaunting");
+        window.setTitle("Lab accounting");
         window.setMinWidth(300);
 
         VBox layout = new VBox();

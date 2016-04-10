@@ -3,6 +3,9 @@ package com.mvLab.lab.accaunt.windows;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
+import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalDocumentForm;
+import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalListForm;
+import com.mvLab.lab.accaunt.documents.reagentConsumption.ReagentConsumptionListForm;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -39,6 +42,16 @@ public class WindowManager {
     public static void openReagentCatalogElementForm() {
         ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
         listForm.display();
+    }
+
+    public static void openReagentArrivalListForm() {
+        ReagentArrivalListForm docForm = new ReagentArrivalListForm("Reagent arrival", 800, 400);
+        docForm.display();
+    }
+
+    public static void openReagentConsumptionListForm() {
+        ReagentConsumptionListForm docForm = new ReagentConsumptionListForm("Reagent consumption", 800, 400);
+        docForm.display();
     }
 
     public static void openReagentCatalogElementForm(Catalog element) {

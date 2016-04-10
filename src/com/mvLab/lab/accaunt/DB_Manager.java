@@ -1,6 +1,7 @@
 package com.mvLab.lab.accaunt;
 
 import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.documents.Document;
 import com.mvLab.lab.accaunt.windows.WindowManager;
 
 import java.lang.reflect.Field;
@@ -30,18 +31,6 @@ public class DB_Manager {
         catch (SQLException e) {}
         catch (ClassNotFoundException e) {}
     }
-
-//    private DB_Manager() {
-//        conn = null;
-//        try {
-//            Class.forName("org.sqlite.JDBC");
-//            conn = DriverManager.getConnection("jdbc:sqlite:base/labBase.s3db");
-//        }
-//        catch (SQLException e) {}
-//        catch (ClassNotFoundException e) {}
-//
-//        //System.out.println("База Подключена!");
-//    }
 
     public static ArrayList<HashMap<String, Object>> ReadReagentCatalog() {
         try {
@@ -75,6 +64,45 @@ public class DB_Manager {
             System.out.println(e.getErrorCode());
         }
         return catalog;
+    }
+
+    public static ArrayList<HashMap<String, Object>> readDocuments(Class<? extends Document> documentClass) {
+        try {
+            statmt = conn.createStatement();
+            resSet = statmt.executeQuery("SELECT * FROM reagentArrivalDocument");
+        }
+        catch (SQLException e) {
+            System.out.println(e.getErrorCode());
+        }
+
+        ArrayList<HashMap<String, Object>> documents = new ArrayList<HashMap<String, Object>>();
+
+        try {
+            while(resSet.next()) {
+                ArrayList<Class> classes = new ArrayList<Class>();
+                classes.add(documentClass);
+                classes.add(documentClass.getSuperclass());
+
+                for (Class catClass : classes) {
+                    for (Field catFld : catClass.getDeclaredFields()) {
+//                        if (element.isServiceField(catFld.getName()))
+//                            continue;
+//                        String fldName = catFld.getName().toLowerCase();
+//                        fldName = fldName.substring(0, 1).toUpperCase() + fldName.substring(1);
+//                        String fldValue = resSet.getString(fldName);
+//                        Method setter = element.getClass().getMethod("set" + fldName, catFld.getType());
+//                        Object castedValue = Lab_Helper.castValue(fldValue, catFld.getType());
+//                        setter.invoke(element, castedValue);
+                    }
+                }
+            }
+        }
+        catch (SQLException e) {
+            //TODO handle exception
+            WindowManager.openErrorWindow(e.toString());
+        }
+
+        return documents;
     }
 
     public static void readCatalogElement(Catalog element) {

@@ -23,9 +23,22 @@ public class MainWindow extends Window implements EventHandler<ActionEvent> {
         addTopElement(titleLabel);
 
         Button btnReact = new Button("Reagents");
-        btnReact.setMinWidth(60);
+        btnReact.setMinWidth(80);
+        btnReact.setId("openReagentCatalogListForm");
         btnReact.setOnAction(this);
         addLeftElement(btnReact);
+
+        Button btnReagentArrival = new Button("Arrival");
+        btnReagentArrival.setMinWidth(80);
+        btnReagentArrival.setId("openReagentArrivalListForm");
+        btnReagentArrival.setOnAction(this);
+        addLeftElement(btnReagentArrival);
+
+        Button btnReagentConsumption = new Button("Consumption");
+        btnReagentConsumption.setMinWidth(80);
+        btnReagentConsumption.setId("openReagentConsumptionListForm");
+        btnReagentConsumption.setOnAction(this);
+        addLeftElement(btnReagentConsumption);
     }
 
 //    public void Display() {
@@ -65,7 +78,19 @@ public class MainWindow extends Window implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        //new ReagentCatalogListForm(labDB).display_();
-        WindowManager.openReagentCatalogListForm();
+        if (event.getSource() instanceof Button) {
+            Button source = (Button) event.getSource();
+            String buttonID = source.idProperty().getValue();
+
+            if (buttonID.equals("openReagentCatalogListForm")) {
+                WindowManager.openReagentCatalogListForm();
+            }
+            else if (buttonID.equals("openReagentArrivalListForm")) {
+                WindowManager.openReagentArrivalListForm();
+            }
+            else if (buttonID.equals("openReagentConsumptionListForm")) {
+                WindowManager.openReagentConsumptionListForm();
+            }
+        }
     }
 }
