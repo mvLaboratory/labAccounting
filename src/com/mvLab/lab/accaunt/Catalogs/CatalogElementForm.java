@@ -1,6 +1,6 @@
 package com.mvLab.lab.accaunt.catalogs;
 
-import com.mvLab.lab.accaunt.windows.Window;
+import com.mvLab.lab.accaunt.windows.MV_Window;
 import com.mvLab.lab.accaunt.windows.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CatalogElementForm extends Window  implements EventHandler<ActionEvent> {
+public class CatalogElementForm extends MV_Window implements EventHandler<ActionEvent> {
     private Catalog catalogElement;
     private Class<? extends Catalog> catalogClass;
 

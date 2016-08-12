@@ -1,12 +1,10 @@
 package com.mvLab.lab.accaunt.documents;
 
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog;
-import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogDblClickListener;
-import com.mvLab.lab.accaunt.windows.Window;
+import com.mvLab.lab.accaunt.windows.MV_Window;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
 
-public class DocumentListForm extends Window {
+public class DocumentListForm extends MV_Window {
     public DocumentListForm(String title, int windowWidth, int windowHeight) {
         super(title, windowWidth, windowHeight);
         fillElements();

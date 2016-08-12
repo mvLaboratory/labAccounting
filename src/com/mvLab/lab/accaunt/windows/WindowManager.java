@@ -3,7 +3,6 @@ package com.mvLab.lab.accaunt.windows;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
-import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalDocumentForm;
 import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalListForm;
 import com.mvLab.lab.accaunt.documents.reagentConsumption.ReagentConsumptionListForm;
 import javafx.stage.Stage;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 public class WindowManager {
     public static WindowManager instance;
     private static Stage primaryStage;
-    private static ArrayList<Window> windowsList = new ArrayList<Window>();
+    private static ArrayList<MV_Window> windowsList = new ArrayList<MV_Window>();
 
     public static WindowManager getInstance() {
         if (instance == null)
@@ -62,7 +61,7 @@ public class WindowManager {
     }
 
     public static void openErrorWindow(String text) {
-        Window errWin = new ErrorWindow("Error!", text, 100, 200);
+        MV_Window errWin = new ErrorWindow("Error!", text, 100, 200);
         errWin.display();
     }
 }

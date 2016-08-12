@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Window {
+public class MV_Window {
     private Stage window;
     private String title;
     private int windowMinWidth, windowWidth, windowHeight;
@@ -26,7 +26,7 @@ public class Window {
     private ArrayList<Node> centralElements, leftElements, rightElements, topElements, bottomElements;
     private Boolean leftCommandsUsage = true, rightCommandUsage = true, topCommandUsage = true, bottomCommandUsage = true;
 
-    public Window(Stage window, String title, int windowWidth, int windowHeight) {
+    public MV_Window(Stage window, String title, int windowWidth, int windowHeight) {
         this.window = window;
         this.title = title;
         this.windowMinWidth = 300;
@@ -36,7 +36,7 @@ public class Window {
         prepare();
     }
 
-    public Window(String title, int windowWidth, int windowHeight, Boolean modal) {
+    public MV_Window(String title, int windowWidth, int windowHeight, Boolean modal) {
         this.window = new Stage();
         this.title = title;
         this.windowMinWidth = 300;
@@ -50,7 +50,7 @@ public class Window {
         prepare();
     }
 
-    public Window(String title, int windowWidth, int windowHeight) {
+    public MV_Window(String title, int windowWidth, int windowHeight) {
         this.window = new Stage();
         this.title = title;
         this.windowMinWidth = 300;

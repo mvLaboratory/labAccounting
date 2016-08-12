@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class ErrorWindow extends Window implements EventHandler<ActionEvent> {
+public class ErrorWindow extends MV_Window implements EventHandler<ActionEvent> {
     private String text;
 
     public ErrorWindow(String title, String text, int windowWidth, int windowHeight) {

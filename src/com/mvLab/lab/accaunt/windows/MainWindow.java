@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class MainWindow extends Window implements EventHandler<ActionEvent> {
+public class MainWindow extends MV_Window implements EventHandler<ActionEvent> {
     private Stage window;
 
     public MainWindow(Stage window, String title, int windowWidth, int windowHeight) {
