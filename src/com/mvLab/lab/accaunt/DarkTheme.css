@@ -4,13 +4,18 @@
 
 #paneHeader {
      -fx-border-color: white;
-     -fx-background-color: black;
+     -fx-background-color: #ffffff;
 }
 
 .pane {
-     -fx-border-color: white;
-     -fx-background-color: transparent, derive(#1d1d1d,20%);
+      -fx-border-color: white;
+      -fx-background-color: transparent, derive(#1d1d1d,20%);
 }
+
+.tab_pane {
+       -fx-border-color: white;
+       -fx-background-color: transparent, derive(#1d1d1d,20%);
+ }
 
 .grid {
      -fx-border-color: white;

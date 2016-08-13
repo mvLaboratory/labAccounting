@@ -12,71 +12,50 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane alignment="CENTER" hgap="10.0" prefHeight="572.0000999999975" prefWidth="907.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mvLab.lab.accaunt.Controller">
-  <children>
-    <BorderPane prefHeight="507.0" prefWidth="643.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-      <center>
-        <TabPane prefHeight="411.0" prefWidth="546.0" tabClosingPolicy="UNAVAILABLE">
-          <tabs>
-            <Tab text="Main">
-              <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="pane" />
-              </content>
-            </Tab>
-          </tabs>
-        </TabPane>
-      </center>
-      <left>
-        <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false">
-          <effect>
-            <Bloom threshold="1.0" />
-          </effect>
-          <items>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-          </items>
-        </ToolBar>
-      </left>
-      <top>
-        <VBox prefHeight="83.0" prefWidth="643.0">
-          <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="header">
-              <children>
-                <ImageView id="image1" blendMode="BLUE" disable="false" fitHeight="53.0" fitWidth="53.0" focusTraversable="true" image="$null" pickOnBounds="true" preserveRatio="true" smooth="true" styleClass="image" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="581.0" AnchorPane.topAnchor="10.0" />
-                <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="50.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="384.0" styleClass="label-header" text="Laboratory accountant" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" wrapText="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="8.0" />
-              </children>
-            </AnchorPane>
-          </children>
-        </VBox>
-      </top>
-    </BorderPane>
-  </children>
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+<BorderPane prefHeight="572.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mvLab.lab.accaunt.Controller">
+  <left>
+    <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false">
+      <effect>
+        <Bloom threshold="1.0" />
+      </effect>
+      <items>
+        <Button mnemonicParsing="false" text="Button" />
+        <Button mnemonicParsing="false" text="Button" />
+      </items>
+    </ToolBar>
+  </left>
   <stylesheets>
     <URL value="@DarkTheme.css" />
   </stylesheets>
-</GridPane>
+  <top>
+    <VBox prefHeight="83.0" prefWidth="643.0">
+      <children>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="header">
+          <children>
+            <ImageView id="image1" blendMode="BLUE" disable="false" fitHeight="53.0" fitWidth="53.0" focusTraversable="true" image="$null" pickOnBounds="true" preserveRatio="true" smooth="true" styleClass="image" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="581.0" AnchorPane.topAnchor="10.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="50.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="384.0" styleClass="label-header" text="Laboratory accountant" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" wrapText="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="8.0" />
+          </children>
+        </AnchorPane>
+      </children>
+    </VBox>
+  </top>
+</BorderPane>
