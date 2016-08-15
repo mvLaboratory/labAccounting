@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class MainWindow extends MV_Window implements EventHandler<ActionEvent> {
     private Stage window;
 
@@ -83,7 +85,12 @@ public class MainWindow extends MV_Window implements EventHandler<ActionEvent> {
             String buttonID = source.idProperty().getValue();
 
             if (buttonID.equals("openReagentCatalogListForm")) {
-                WindowManager.openReagentCatalogListForm();
+                try {
+                    WindowManager.openReagentCatalogListForm();
+                }
+                catch (IOException e) {
+                    //TODO handle exception
+                }
             }
             else if (buttonID.equals("openReagentArrivalListForm")) {
                 WindowManager.openReagentArrivalListForm();

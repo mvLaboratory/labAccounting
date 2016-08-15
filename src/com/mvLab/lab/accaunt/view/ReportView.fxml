@@ -33,7 +33,7 @@
             <NumberAxis animated="true" autoRanging="true" side="LEFT" tickLabelFill="#006299" />
           </yAxis>
         </LineChart>
-        <Label id="Report-header" alignment="CENTER" focusTraversable="false" layoutY="-1.0" minHeight="-Infinity" pickOnBounds="false" prefHeight="48.0" prefWidth="390.0" text="Reagent usage:" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Label id="Report-header" alignment="CENTER" focusTraversable="false" layoutY="-8.0" minHeight="-Infinity" pickOnBounds="false" prefHeight="39.999900817871094" prefWidth="390.0" text="Reagent usage:" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
           <stylesheets>
             <URL value="@DarkTheme.css" />
           </stylesheets>

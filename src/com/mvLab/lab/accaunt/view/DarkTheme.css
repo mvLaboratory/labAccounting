@@ -64,11 +64,12 @@
 }
 
 #Report-header {
-    -fx-font-size: 28pt;
-    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 22pt;
+    -fx-font-family: "Segoe UI Bold";
     -fx-text-fill: black;
     -fx-opacity: 1;
     -fx-alignment: top_center;
+    -fx-background-color: derive(#1d1d1d,90%);
 }
 
 .table-view {
@@ -138,6 +139,10 @@
 
 .chart-plot-background {
     -fx-background-color: derive(#1d1d1d,20%);
+}
+
+.chart {
+    -fx-background-color: derive(#1d1d1d,90%);
 }
 
 .split-pane:horizontal > .split-pane-divider {
