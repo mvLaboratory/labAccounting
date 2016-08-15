@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<SplitPane dividerPositions="0.5403508771929825" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <items>
+    <AnchorPane minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
+      <children>
+        <TableView cache="false" editable="true" prefHeight="-1.0" prefWidth="-1.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+          </columnResizePolicy>
+          <columns>
+            <TableColumn minWidth="250.0" prefWidth="900.0" text="Reagent" />
+            <TableColumn text="Balance" />
+          </columns>
+        </TableView>
+      </children>
+    </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="215.0">
+      <children>
+        <LineChart id="LineChart" minWidth="191.0" prefHeight="602.0" prefWidth="390.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+          <xAxis>
+            <CategoryAxis side="BOTTOM" visible="true" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis animated="true" autoRanging="true" side="LEFT" tickLabelFill="#006299" />
+          </yAxis>
+        </LineChart>
+        <Label id="Report-header" alignment="CENTER" focusTraversable="false" layoutY="-1.0" minHeight="-Infinity" pickOnBounds="false" prefHeight="48.0" prefWidth="390.0" text="Reagent usage:" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+          <stylesheets>
+            <URL value="@DarkTheme.css" />
+          </stylesheets>
+        </Label>
+      </children>
+      <stylesheets>
+        <URL value="@DarkTheme.css" />
+      </stylesheets>
+    </AnchorPane>
+  </items>
+</SplitPane>

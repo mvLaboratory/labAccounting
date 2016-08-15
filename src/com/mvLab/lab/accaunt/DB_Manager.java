@@ -28,8 +28,12 @@ public class DB_Manager {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:base/labBase.s3db");
         }
-        catch (SQLException e) {}
-        catch (ClassNotFoundException e) {}
+        catch (SQLException e) {
+            WindowManager.openErrorWindow("SQL error");
+        }
+        catch (ClassNotFoundException e) {
+            WindowManager.openErrorWindow("ClassNotFoundException");
+        }
     }
 
     public static ArrayList<HashMap<String, Object>> ReadReagentCatalog() {

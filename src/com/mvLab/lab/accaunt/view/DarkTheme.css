@@ -17,6 +17,7 @@
        -fx-background-color: transparent, derive(#1d1d1d,20%);
  }
 
+
 .grid {
      -fx-border-color: white;
      -fx-background-color: transparent, derive(#1d1d1d,20%);
@@ -33,7 +34,7 @@
 }
 
 #image1 {
-    -fx-image: url("res/ico2.png");
+    -fx-image: url("../res/ico2.png");
     -fx-border-color: #1d1d1d;
     -fx-border-width: 2, 2;
 }
@@ -60,6 +61,14 @@
     -fx-text-fill: white;
     -fx-opacity: 1;
     -fx-alignment: center;
+}
+
+#Report-header {
+    -fx-font-size: 28pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+    -fx-alignment: top_center;
 }
 
 .table-view {
@@ -95,8 +104,40 @@
     -fx-opacity: 1;
 }
 
+.table-view .column-background {
+     -fx-background-color: white;
+     -fx-border-color:
+             white
+             white
+             white
+             white;
+ }
+
+ .table-column {
+     -fx-background-color: white;
+     -fx-border-color:
+             white
+             white
+             white
+             white;
+ }
+
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: -fx-focus-color;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.chart-plot-background {
+    -fx-background-color: derive(#1d1d1d,20%);
 }
 
 .split-pane:horizontal > .split-pane-divider {
@@ -155,13 +196,13 @@
  * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
  */
 .button {
-    -fx-padding: 5 22 5 22;
+    -fx-padding: 5 15 5 15;
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
     -fx-background-color: #1d1d1d;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-    -fx-font-size: 11pt;
+    -fx-font-size: 10pt;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }

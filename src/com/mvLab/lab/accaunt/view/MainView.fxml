@@ -14,13 +14,13 @@
 
 <BorderPane prefHeight="572.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mvLab.lab.accaunt.Controller">
   <left>
-    <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false">
+    <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false" prefHeight="489.0" prefWidth="123.0">
       <effect>
         <Bloom threshold="1.0" />
       </effect>
       <items>
-        <Button mnemonicParsing="false" text="Button" />
-        <Button mnemonicParsing="false" text="Button" />
+        <Button fx:id="reagentButton" mnemonicParsing="false" onAction="#reagentButtonOnClick" prefWidth="101.0" text="Reagents" />
+        <Button mnemonicParsing="false" prefWidth="101.0" text="Admission" />
       </items>
     </ToolBar>
   </left>
