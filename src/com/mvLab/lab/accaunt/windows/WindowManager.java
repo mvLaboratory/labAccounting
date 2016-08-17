@@ -2,15 +2,18 @@ package com.mvLab.lab.accaunt.windows;
 
 import com.mvLab.lab.accaunt.Main;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
 import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalListForm;
 import com.mvLab.lab.accaunt.documents.reagentConsumption.ReagentConsumptionListForm;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -57,15 +60,28 @@ public class WindowManager {
 
     public static void openReagentCatalogListForm() throws IOException {
         Tab nTab = new Tab("Reagents");
-        nTab.setContent(FXMLLoader.load(Main.class.getResource("view/TableView.fxml")));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("view/TableView.fxml"));
+
+        ObservableList<ReagentCatalog> reagentCatalogData = ReagentCatalogListForm.getCatalogData();
+
+        TableView<ReagentCatalog> reagentTableView = (TableView) tabView.getCenter();
+        reagentTableView.setItems(reagentCatalogData);
+
+        nTab.setContent(tabView);
         TabPane centralPane = (TabPane) rootLayout.getCenter();
         centralPane.getTabs().add(nTab);
         SingleSelectionModel<Tab> selectionModel = centralPane.getSelectionModel();
         selectionModel.select(nTab);
 
 
-        ReagentCatalogListForm listForm = new ReagentCatalogListForm("Reagents", 800, 400);
-        listForm.display();
+
+//        reagentTable = new TableView<ReagentCatalog>();
+//        reagentTable.setItems(getCatalogData());
+//        centralPane.setItems(getCatalogData());
+
+
+//        ReagentCatalogListForm listForm = new ReagentCatalogListForm("Title", 500, 800);
+//        listForm.display();
     }
 
     public static void openReagentCatalogElementForm() {

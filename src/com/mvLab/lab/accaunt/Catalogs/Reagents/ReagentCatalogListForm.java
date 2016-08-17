@@ -28,6 +28,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
     private static Stage window = new Stage();
     private static Catalog presentRowData;
 
+
     public ReagentCatalogListForm(String title, int windowWidth, int windowHeight) {
         super(title, windowWidth, windowHeight);
         fillElements();
@@ -145,7 +146,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
         reagentTable.setItems(getCatalogData());
     }
 
-    private static ObservableList<ReagentCatalog> getCatalogData() {
+    public static ObservableList<ReagentCatalog> getCatalogData() {
         ObservableList<ReagentCatalog> catalogData = FXCollections.observableArrayList();
         ArrayList<HashMap<String, Object>> catalogElements = DB_Manager.ReadReagentCatalog();
         for (HashMap<String, Object> element : catalogElements) {
