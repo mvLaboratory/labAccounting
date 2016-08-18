@@ -15,4 +15,8 @@ public class Controller {
 
        // WindowManager.openErrorWindow("222");
     }
+
+    public void menuOnExitClick() {
+        System.exit(0);
+    }
 }

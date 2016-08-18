@@ -242,4 +242,13 @@ public class DB_Manager {
             instance = new DB_Manager();
         return instance;
     }
+
+    public static void close() {
+        try {
+            conn.close();
+        }
+        catch (SQLException e) {
+//            TODO handle exception
+        }
+    }
 }

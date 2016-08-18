@@ -90,11 +90,11 @@
     -fx-border-width: 0 0 1 0;
     -fx-background-color: #1d1d1d;
     -fx-border-color:
-        transparent
-        transparent
         derive(-fx-base, 80%)
-        transparent;
-    -fx-border-insets: 0 10 1 0;
+        derive(-fx-base, 80%)
+        derive(-fx-base, 80%)
+        derive(-fx-base, 80%);
+    -fx-border-insets: 0 2 1 0;
 }
 
 .table-view .column-header .label {
@@ -107,48 +107,35 @@
 
 .table-view .column-background {
      -fx-background-color: #1d1d1d;
-     -fx-border-color:
-             white
-             white
-             white
-             white;
  }
-
-
-.table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
-}
 
 .table-view .table-cell{
     -fx-text-fill: white;
 }
 
 .table-row-cell{
-    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-font-size: 12pt;
+    -fx-background-color: #1d1d1d;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
-.table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
-}
-
 .table-column {
-     -fx-background-color: #1d1d1d;
-     -fx-font-size: 14pt;
-     -fx-font-family: "Segoe UI Light";
-     -fx-text-fill: white;
-     -fx-alignment: center-left;
-     -fx-opacity: 1;
-
-     -fx-border-width: 0 0 0 0;
      -fx-border-color:
-         white
-         white
-         white
-         white;
+                  #1d1d1d
+                  derive(-fx-base, 95%)
+                  derive(-fx-base, 95%)
+                  #1d1d1d;
      -fx-border-insets: 0 0 0 0;
 }
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+     -fx-background-color: -fx-focus-color;
+ }
+
+.table-row-cell:filled:focused:selected {
+     -fx-background-color: -fx-focus-color;
+ }
 
 .chart-plot-background {
     -fx-background-color: derive(#1d1d1d,20%);

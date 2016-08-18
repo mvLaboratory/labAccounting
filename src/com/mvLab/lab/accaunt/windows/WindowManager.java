@@ -64,7 +64,11 @@ public class WindowManager {
         reagentTableView.setItems(ReagentCatalogListForm.getCatalogData());
 
         for (TableColumn coll :reagentTableView.getColumns()) {
-            coll.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, Integer>("id"));
+            String collName = coll.getText();
+//            if (collName.equalsIgnoreCase("name") || collName.equalsIgnoreCase("description"))
+                coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
+//            else
+//                coll.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, Integer>(collName.toLowerCase()));
         }
 
         nTab.setContent(tabView);
