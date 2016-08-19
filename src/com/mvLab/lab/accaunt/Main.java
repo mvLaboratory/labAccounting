@@ -8,8 +8,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        WindowManager.initialize(primaryStage);
-        WindowManager.openMainWindow();
+        WindowManager windowManager = WindowManager.initialize(primaryStage);
+        windowManager.openMainWindow();
+
+        
     }
 
     public static void main(String[] args) {

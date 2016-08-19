@@ -26,6 +26,10 @@ public class MV_Window {
     private ArrayList<Node> centralElements, leftElements, rightElements, topElements, bottomElements;
     private Boolean leftCommandsUsage = true, rightCommandUsage = true, topCommandUsage = true, bottomCommandUsage = true;
 
+    public MV_Window() {
+
+    }
+
     public MV_Window(Stage window, String title, int windowWidth, int windowHeight) {
         this.window = window;
         this.title = title;

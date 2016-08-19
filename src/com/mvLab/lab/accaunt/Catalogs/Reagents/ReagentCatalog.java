@@ -1,7 +1,11 @@
 package com.mvLab.lab.accaunt.catalogs.Reagents;
 
+import com.mvLab.lab.accaunt.DB_Manager;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.windows.WindowManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +41,15 @@ public class ReagentCatalog extends Catalog {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public static ObservableList<ReagentCatalog> getCatalogData() {
+        ObservableList<ReagentCatalog> catalogData = FXCollections.observableArrayList();
+        ArrayList<HashMap<String, Object>> catalogElements = DB_Manager.ReadReagentCatalog();
+        for (HashMap<String, Object> element : catalogElements) {
+            catalogData.add(new ReagentCatalog((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
+        }
+        return catalogData;
     }
 
     @Override

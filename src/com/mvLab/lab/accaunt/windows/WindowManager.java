@@ -3,6 +3,7 @@ package com.mvLab.lab.accaunt.windows;
 import com.mvLab.lab.accaunt.Main;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog;
+import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogDblClickListener;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
 import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalListForm;
@@ -20,9 +21,14 @@ import java.util.ArrayList;
 
 public class WindowManager {
     public static WindowManager instance;
+
     private static Stage primaryStage;
     private static BorderPane rootLayout;
     private static ArrayList<MV_Window> windowsList = new ArrayList<MV_Window>();
+
+    private WindowManager() {
+
+    }
 
     public static WindowManager getInstance() {
         if (instance == null)
@@ -31,18 +37,22 @@ public class WindowManager {
         return instance;
     }
 
-    public static void initialize(Stage primaryStage) {
+    public static WindowManager initialize(Stage primaryStage) {
         WindowManager.primaryStage = primaryStage;
+
+        if (instance == null)
+            instance = new WindowManager();
+
+        return instance;
     }
 
-    private WindowManager() {
-    }
+
 
     public static void setPrimaryStage(Stage primaryStage) {
         WindowManager.primaryStage = primaryStage;
     }
 
-    public static void openMainWindow() throws IOException {
+    public void openMainWindow() throws IOException {
         rootLayout = FXMLLoader.load(Main.class.getResource("view/MainView.fxml"));
         primaryStage.setTitle("Laboratory accountant");
         primaryStage.setScene(new Scene(rootLayout));
@@ -54,6 +64,7 @@ public class WindowManager {
         TabPane centralPane = new TabPane();
         centralPane.getTabs().add(nTab);
         rootLayout.setCenter(centralPane);
+        nTab.setClosable(false);
     }
 
     public static void openReagentCatalogListForm() throws IOException {
@@ -61,31 +72,19 @@ public class WindowManager {
         BorderPane tabView = FXMLLoader.load(Main.class.getResource("view/TableView.fxml"));
 
         TableView<ReagentCatalog> reagentTableView = (TableView) tabView.getCenter();
-        reagentTableView.setItems(ReagentCatalogListForm.getCatalogData());
+        reagentTableView.setRowFactory(new ReagentCatalogDblClickListener());
+        reagentTableView.setItems(ReagentCatalog.getCatalogData());
 
-        for (TableColumn coll :reagentTableView.getColumns()) {
+        for (TableColumn coll : reagentTableView.getColumns()) {
             String collName = coll.getText();
-//            if (collName.equalsIgnoreCase("name") || collName.equalsIgnoreCase("description"))
-                coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
-//            else
-//                coll.setCellValueFactory(new PropertyValueFactory<ReagentCatalog, Integer>(collName.toLowerCase()));
+            coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
         }
-
         nTab.setContent(tabView);
+
         TabPane centralPane = (TabPane) rootLayout.getCenter();
         centralPane.getTabs().add(nTab);
         SingleSelectionModel<Tab> selectionModel = centralPane.getSelectionModel();
         selectionModel.select(nTab);
-
-
-
-//        reagentTable = new TableView<ReagentCatalog>();
-//        reagentTable.setItems(getCatalogData());
-//        centralPane.setItems(getCatalogData());
-
-
-//        ReagentCatalogListForm listForm = new ReagentCatalogListForm("Title", 500, 800);
-//        listForm.display();
     }
 
     public static void openReagentCatalogElementForm() {

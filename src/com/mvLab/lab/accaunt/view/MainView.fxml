@@ -13,6 +13,9 @@
 <?import javafx.scene.layout.GridPane?>
 
 <BorderPane prefHeight="572.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mvLab.lab.accaunt.Controller">
+  <center>
+    <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="background" tabClosingPolicy="UNAVAILABLE" />
+  </center>
   <left>
     <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false" prefHeight="489.0" prefWidth="123.0">
       <effect>

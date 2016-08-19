@@ -11,17 +11,17 @@ public class ReagentCatalogListFormActionHandler<Catalog> implements EventHandle
 
     @Override
     public void handle(ActionEvent event) {
-        if (event.getSource() instanceof Button) {
-            Button source = (Button) event.getSource();
-            String buttonID = source.idProperty().getValue();
-            if (buttonID == "AddReagent") {
-                WindowManager.openReagentCatalogElementForm();
-                ReagentCatalogListForm.update();
-            }
-            else if (buttonID == "EditReagent") {
-                WindowManager.openReagentCatalogElementForm(ReagentCatalogListForm.getPresentRowData());
-            }
-        }
+//        if (event.getSource() instanceof Button) {
+//            Button source = (Button) event.getSource();
+//            String buttonID = source.idProperty().getValue();
+//            if (buttonID == "AddReagent") {
+//                WindowManager.openReagentCatalogElementForm();
+//                ReagentCatalogListForm.update();
+//            }
+//            else if (buttonID == "EditReagent") {
+//                WindowManager.openReagentCatalogElementForm(ReagentCatalogListForm.getPresentRowData());
+//            }
+//        }
     }
 
     @Override
