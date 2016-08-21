@@ -1,7 +1,7 @@
 package com.mvLab.lab.accaunt.catalogs;
 
 import com.mvLab.lab.accaunt.windows.MV_Window;
-import com.mvLab.lab.accaunt.windows.WindowManager;
+import com.mvLab.lab.accaunt.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

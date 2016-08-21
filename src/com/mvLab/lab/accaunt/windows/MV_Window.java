@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -158,7 +160,7 @@ public class MV_Window {
         this.bottomCommandUsage = bottomCommandUsage;
     }
 
-    public void display() {
+    public void display() throws IOException {
         centerLayout.getChildren().addAll(centralElements);
         topCommandPanel.getChildren().addAll(topElements);
         bottomCommandPanel.getChildren().addAll(bottomElements);
@@ -182,7 +184,7 @@ public class MV_Window {
 
     public void close() {
         window.close();
-        ReagentCatalogListForm.update();
+        //ReagentCatalogListForm.update();
     }
 
     public HashMap<String, String> getInputValues() {

@@ -1,14 +1,14 @@
-package com.mvLab.lab.accaunt.catalogs.Reagents;
+package com.mvLab.lab.accaunt.controllers;
 
 import com.mvLab.lab.accaunt.catalogs.Catalog;
-import com.mvLab.lab.accaunt.windows.WindowManager;
+import com.mvLab.lab.accaunt.WindowManager;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
-public class ReagentCatalogDblClickListener<Type> implements EventHandler<MouseEvent>, Callback<TableView<Type>, TableRow<Type>> {
+public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>, Callback<TableView<Type>, TableRow<Type>> {
     private TableRow<Type> row;
 
     @Override

@@ -1,7 +1,7 @@
 package com.mvLab.lab.accaunt.catalogs;
 
 import com.mvLab.lab.accaunt.DB_Manager;
-import com.mvLab.lab.accaunt.windows.WindowManager;
+import com.mvLab.lab.accaunt.WindowManager;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package com.mvLab.lab.accaunt.catalogs.Reagents;
 
 import com.mvLab.lab.accaunt.DB_Manager;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
-import com.mvLab.lab.accaunt.windows.WindowManager;
+import com.mvLab.lab.accaunt.WindowManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

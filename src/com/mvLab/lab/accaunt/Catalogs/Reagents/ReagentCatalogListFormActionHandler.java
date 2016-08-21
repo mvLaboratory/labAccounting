@@ -1,11 +1,10 @@
 package com.mvLab.lab.accaunt.catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.windows.WindowManager;
+import com.mvLab.lab.accaunt.WindowManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 
 public class ReagentCatalogListFormActionHandler<Catalog> implements EventHandler<ActionEvent>, ChangeListener<Catalog> {
 

@@ -15,7 +15,7 @@ public class DocumentListForm extends MV_Window {
 //        reagentTable.setItems(getCatalogData());
 //        reagentTable.getColumns().addAll(idColumn, nameColumn, descColumn, uuidColumn);
 
-//        reagentTable.setRowFactory(new ReagentCatalogDblClickListener());
+//        reagentTable.setRowFactory(new ReagentCatalogController());
 //        reagentTable.autosize();
 //
 //        addCenterElement(reagentTable, 0, 0);

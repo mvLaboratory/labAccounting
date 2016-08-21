@@ -1,48 +1,85 @@
 package com.mvLab.lab.accaunt.windows;
 
+import com.mvLab.lab.accaunt.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainWindow extends MV_Window implements EventHandler<ActionEvent> {
-    private Stage window;
+public class MainWindow {
+    private BorderPane rootLayout;
+    private Stage primaryStage;
 
-    public MainWindow(Stage window, String title, int windowWidth, int windowHeight) {
-        super(window, title, windowWidth, windowHeight);
-        this.window = window;
-
-        addElements();
+    public MainWindow(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 
-    public final void addElements() {
-        Label titleLabel = new Label();
-        titleLabel.setText("Lab accounting");
-        setTopCommandPanelAligment(2);
-        addTopElement(titleLabel);
+    public void display() throws IOException {
+        rootLayout = FXMLLoader.load(Main.class.getResource("view/MainView.fxml"));
+        primaryStage.setTitle("Laboratory accountant");
+        primaryStage.setScene(new Scene(rootLayout));
+        primaryStage.setMaximized(true);
+        primaryStage.show();
 
-        Button btnReact = new Button("Reagents");
-        btnReact.setMinWidth(80);
-        btnReact.setId("openReagentCatalogListForm");
-        btnReact.setOnAction(this);
-        addLeftElement(btnReact);
-
-        Button btnReagentArrival = new Button("Arrival");
-        btnReagentArrival.setMinWidth(80);
-        btnReagentArrival.setId("openReagentArrivalListForm");
-        btnReagentArrival.setOnAction(this);
-        addLeftElement(btnReagentArrival);
-
-        Button btnReagentConsumption = new Button("Consumption");
-        btnReagentConsumption.setMinWidth(80);
-        btnReagentConsumption.setId("openReagentConsumptionListForm");
-        btnReagentConsumption.setOnAction(this);
-        addLeftElement(btnReagentConsumption);
+        Tab nTab = new Tab("Main");
+        nTab.setContent(FXMLLoader.load(Main.class.getResource("view/ReportView.fxml")));
+        TabPane centralPane = new TabPane();
+        centralPane.getTabs().add(nTab);
+        rootLayout.setCenter(centralPane);
+        nTab.setClosable(false);
     }
 
+    public BorderPane getRootLayout() {
+        return rootLayout;
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+        //extends MV_Window implements EventHandler<ActionEvent> {
+//    private Stage window;
+
+//    public MainWindow(Stage window, String title, int windowWidth, int windowHeight) {
+//        super(window, title, windowWidth, windowHeight);
+//        this.window = window;
+//
+//        addElements();
+//    }
+
+//    public final void addElements() {
+//        Label titleLabel = new Label();
+//        titleLabel.setText("Lab accounting");
+//        setTopCommandPanelAligment(2);
+//        addTopElement(titleLabel);
+//
+//        Button btnReact = new Button("Reagents");
+//        btnReact.setMinWidth(80);
+//        btnReact.setId("openReagentCatalogListForm");
+//        btnReact.setOnAction(this);
+//        addLeftElement(btnReact);
+//
+//        Button btnReagentArrival = new Button("Arrival");
+//        btnReagentArrival.setMinWidth(80);
+//        btnReagentArrival.setId("openReagentArrivalListForm");
+//        btnReagentArrival.setOnAction(this);
+//        addLeftElement(btnReagentArrival);
+//
+//        Button btnReagentConsumption = new Button("Consumption");
+//        btnReagentConsumption.setMinWidth(80);
+//        btnReagentConsumption.setId("openReagentConsumptionListForm");
+//        btnReagentConsumption.setOnAction(this);
+//        addLeftElement(btnReagentConsumption);
+//    }
+//
 //    public void Display() {
 //        window.setTitle("Lab accounting");
 //        window.setMinWidth(300);
@@ -78,26 +115,26 @@ public class MainWindow extends MV_Window implements EventHandler<ActionEvent> {
 //        window.show();
 //    }
 
-    @Override
-    public void handle(ActionEvent event) {
-        if (event.getSource() instanceof Button) {
-            Button source = (Button) event.getSource();
-            String buttonID = source.idProperty().getValue();
-
-            if (buttonID.equals("openReagentCatalogListForm")) {
-                try {
-                    WindowManager.openReagentCatalogListForm();
-                }
-                catch (IOException e) {
-                    //TODO handle exception
-                }
-            }
-            else if (buttonID.equals("openReagentArrivalListForm")) {
-                WindowManager.openReagentArrivalListForm();
-            }
-            else if (buttonID.equals("openReagentConsumptionListForm")) {
-                WindowManager.openReagentConsumptionListForm();
-            }
-        }
-    }
+//    @Override
+//    public void handle(ActionEvent event) {
+//        if (event.getSource() instanceof Button) {
+//            Button source = (Button) event.getSource();
+//            String buttonID = source.idProperty().getValue();
+//
+//            if (buttonID.equals("openReagentCatalogListForm")) {
+//                try {
+//                    WindowManager.openReagentCatalogListForm();
+//                }
+//                catch (IOException e) {
+//                    //TODO handle exception
+//                }
+//            }
+//            else if (buttonID.equals("openReagentArrivalListForm")) {
+//                WindowManager.openReagentArrivalListForm();
+//            }
+//            else if (buttonID.equals("openReagentConsumptionListForm")) {
+//                WindowManager.openReagentConsumptionListForm();
+//            }
+//        }
+//    }
 }

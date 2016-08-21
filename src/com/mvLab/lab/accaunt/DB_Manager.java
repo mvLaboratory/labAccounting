@@ -2,7 +2,6 @@ package com.mvLab.lab.accaunt;
 
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.documents.Document;
-import com.mvLab.lab.accaunt.windows.WindowManager;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -22,7 +21,7 @@ public class DB_Manager {
     private static ResultSet resSet;
     private static String errLog;
 
-    static {
+    private DB_Manager() {
         conn = null;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -34,6 +33,18 @@ public class DB_Manager {
         catch (ClassNotFoundException e) {
             WindowManager.openErrorWindow("ClassNotFoundException");
         }
+    }
+
+
+    public static void initialize() {
+        if (instance == null)
+            instance = new DB_Manager();
+    }
+
+    public static DB_Manager getInstance() {
+        if (instance == null)
+            instance = new DB_Manager();
+        return instance;
     }
 
     public static ArrayList<HashMap<String, Object>> ReadReagentCatalog() {
@@ -235,12 +246,6 @@ public class DB_Manager {
         catch (Exception e) {
             //TODO Handle exception
         }
-    }
-
-    public static DB_Manager getInstance() {
-        if (instance == null)
-            instance = new DB_Manager();
-        return instance;
     }
 
     public static void close() {
