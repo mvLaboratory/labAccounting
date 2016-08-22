@@ -144,4 +144,8 @@ public class WindowManager {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
+    public MainWindow getMainWindow() {
+        return mainWindow;
+    }
 }
