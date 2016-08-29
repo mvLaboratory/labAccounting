@@ -124,4 +124,7 @@ public class Catalog {
         }
         return fields;
     }
+    public String getHeader() {
+        return getId() + ": " + getName();
+    }
 }

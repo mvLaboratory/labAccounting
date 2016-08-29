@@ -1,20 +1,23 @@
 package com.mvLab.lab.accaunt.controllers;
 
-import br.com.supremeforever.suprememdiwindow.MDICanvas;
-import br.com.supremeforever.suprememdiwindow.MDIWindow;
-import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.Main;
 import com.mvLab.lab.accaunt.WindowManager;
+import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.windows.InternalWindow;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
+import java.io.IOException;
+import java.util.Iterator;
 
 
 public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>, Callback<TableView<Type>, TableRow<Type>> {
@@ -30,27 +33,34 @@ public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>,
     @Override
     public void handle(MouseEvent event) {
         if (event.getClickCount() == 2) {
-            //Type rowData = ((TableRow<Type>) event.getSource()).getItem();
+            Type rowData = ((TableRow<Type>) event.getSource()).getItem();
             //WindowManager.openReagentCatalogElementForm((Catalog) rowData);
-            MDICanvas canvas = new MDICanvas();
+
+            double mouseX = event.getSceneX();
+            double mouseY = event.getSceneY();
+            BorderPane windowPane;
             try {
-                int i = 0;
-
-                //canvas.setPrefSize(500, 500);
-                canvas.setAlignment(Pos.BASELINE_LEFT);
-
-                AnchorPane root = new AnchorPane();
-                Label label = new Label("sdsdsds");
-                root.getChildren().add(label);
-                MDIWindow mDIWindow = new MDIWindow("myUnicId" + i, new ImageView("http://icongal.com/gallery/icon/44614/32/signal_cell_sound_mobile_call_ringtone_phone"), "My Window Title " + i, root);
-                canvas.addMDIWindow(mDIWindow);
-                i++;
-            }
-            catch (Exception e) {
-                e.printStackTrace();
+                windowPane = FXMLLoader.load(Main.class.getResource("view/CatalogElementWindowView.fxml"));
+            }catch (IOException e) {
+                WindowManager.openErrorWindow("Sorry! Can't open catalog element!");
+                return;
             }
 
-            WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().add(canvas);
+//            ((GridPane)windowPane.getChildren().get(0)).getChildren().
+
+            Iterator<Node> nodeIter = ((GridPane)windowPane.getChildren().get(0)).getChildren().iterator();
+            while (nodeIter.hasNext()) {
+                Node ell = nodeIter.next();
+                String ellID = ell.getId();
+                switch(ellID) {
+//                    case "ID" : ell.setTex
+                }
+//                if (!ellID.contains("Lable")) {
+//
+//                }
+            }
+
+            WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().add(InternalWindow.constructWindow(mouseX, mouseY, ((Catalog)rowData).getHeader(), windowPane));
         }
     }
 }

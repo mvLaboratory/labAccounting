@@ -185,6 +185,40 @@
     -fx-border-insets: 1 1 1 1, 0;
 }
 
+#windowHeader {
+    -fx-background-color: derive(#1d1d1d,20%);
+
+    -fx-border-color: white, white;
+    -fx-border-width: 0, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+#windowHeaderLbl {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Segoe UI Bold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+    -fx-alignment: center;
+}
+
+#windowCloseButton {
+    -fx-text-fill: red;
+    -fx-border-color: derive(#1d1d1d,20%);
+    -fx-border-width: 4;
+    -fx-background-insets: 0 0 0 0, 0, 0, 0;
+}
+
+#catalog-toll-bar {
+    -fx-background-color: derive(#1d1d1d,20%);
+    -fx-border-color: white, white;
+    -fx-border-width: 0, 0;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 0, 0;
+}
+
 .tool-bar {
     -fx-background-color: #1d1d1d;
     -fx-border-color: white, white;
