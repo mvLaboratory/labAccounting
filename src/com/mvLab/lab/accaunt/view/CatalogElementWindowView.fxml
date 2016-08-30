@@ -4,7 +4,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <GridPane BorderPane.alignment="CENTER">
@@ -22,7 +21,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="IDLable" prefHeight="21.0" prefWidth="170.0" styleClass="label-bright" stylesheets="@DarkTheme.css" text="ID:" GridPane.columnIndex="1" />
+            <Label fx:id="IDLable" prefHeight="21.0" prefWidth="170.0" styleClass="label-bright" text="ID:" GridPane.columnIndex="1" />
             <TextField fx:id="ID" editable="false" prefHeight="37.0" prefWidth="486.0" GridPane.columnIndex="2" />
             <Label fx:id="nameLable" prefHeight="21.0" prefWidth="149.0" styleClass="label-bright" text="Name:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="Name" prefHeight="37.0" prefWidth="452.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />

@@ -1,6 +1,7 @@
 package com.mvLab.lab.accaunt;
 
 import com.mvLab.lab.accaunt.catalogs.Catalog;
+import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
 import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalListForm;
@@ -89,9 +90,11 @@ public class WindowManager {
     }
 
     public static void openReagentCatalogElementForm() {
-        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
+//        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
+        ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(null, 0, 0);
         try {
-            listForm.display();
+            ellForm.display();
+//            listForm.display();
         }
         catch (IOException e) {
             openErrorWindow("Sorry! Can't open catalog element form.");
@@ -99,7 +102,20 @@ public class WindowManager {
 
     }
 
-    public static void openReagentArrivalListForm() {
+    public void openReagentCatalogElementForm(ReagentCatalog reagentElement, double posX, double posY) {
+//        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
+//        listForm.setCatalogElement(element);
+//        listForm.elementToForm();
+        ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(reagentElement, posX, posY);
+        try {
+            ellForm.display();
+        }
+        catch (IOException e) {
+            openErrorWindow("Sorry! Can't open catalog element form.");
+        }
+   }
+
+    public void openReagentArrivalListForm() {
         ReagentArrivalListForm docForm = new ReagentArrivalListForm("Reagent arrival", 800, 400);
         try {
             docForm.display();
@@ -119,17 +135,7 @@ public class WindowManager {
         }
     }
 
-    public static void openReagentCatalogElementForm(Catalog element) {
-        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
-        listForm.setCatalogElement(element);
-        listForm.elementToForm();
-        try {
-            listForm.display();
-        }
-        catch (IOException e) {
-            openErrorWindow("Sorry! Can't open catalog element form.");
-        }
-    }
+
 
     public static void openErrorWindow(String text) {
         MV_Window errWin = new ErrorWindow("Error!", text, 100, 200);

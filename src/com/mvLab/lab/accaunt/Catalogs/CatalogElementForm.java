@@ -16,6 +16,10 @@ public class CatalogElementForm extends MV_Window implements EventHandler<Action
     private Catalog catalogElement;
     private Class<? extends Catalog> catalogClass;
 
+    public CatalogElementForm() {
+
+    }
+
     public CatalogElementForm(Class<? extends Catalog> catalogClass, String title, int windowWidth, int windowHeight) {
         super(title, windowWidth, windowHeight);
         this.catalogClass = catalogClass;
