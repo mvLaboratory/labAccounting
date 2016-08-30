@@ -33,7 +33,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     public void display() throws IOException {
         BorderPane windowPane;
         try {
-            windowPane = FXMLLoader.load(Main.class.getResource("view/CatalogElementWindowView.fxml"));
+            windowPane = FXMLLoader.load(Main.class.getResource("view/ReagentCatalogElementForm.fxml"));
         }catch (IOException e) {
             WindowManager.openErrorWindow("Sorry! Can't open catalog element!");
             return;
