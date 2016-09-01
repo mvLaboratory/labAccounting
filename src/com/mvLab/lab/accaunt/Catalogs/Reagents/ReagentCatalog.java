@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class ReagentCatalog extends Catalog {
 
-    private String description;
+    private String description = "";
 
     {
         this.tableName = "Reagents";

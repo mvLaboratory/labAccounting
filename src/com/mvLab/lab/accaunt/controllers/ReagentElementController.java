@@ -1,20 +1,60 @@
 package com.mvLab.lab.accaunt.controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
+import com.mvLab.lab.accaunt.WindowManager;
+import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
+import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
-public class ReagentElementController  {
+import javax.print.attribute.standard.MediaSize;
+
+public class ReagentElementController {
+    @FXML TextField ID;
+    @FXML TextField Name;
+    @FXML TextArea Description;
+
+    private ReagentCatalogElementForm form;
         //implements EventHandler<ActionEvent> {
 
-    public void onCloseButtonClicked() {
-        System.out.println("ww");
+    @FXML
+    private void initialize() {
+
     }
 
+    public void setFields() {
+        Integer ellID = form.getCatalogElement().getId();
+        ID.setText("" + (ellID == null || ellID == 0 ? "" : ellID));
+        Name.setText("" + form.getCatalogElement().getName());
+        Description.setText("" + form.getCatalogElement().getDescription());
+    }
 
-//    @Override
-//    public void handle(ActionEvent event) {
+    public void save() {
+        form.getCatalogElement().setName(Name.getText());
+        form.getCatalogElement().setDescription(Description.getText());
+        form.save();
+    }
+
+    @FXML
+    public void closeButtonOnClicked (Event event) {
+       form.closeWindow();
+    }
+
+    @FXML
+    public void saveButtonOnClicked (Event event) {
+        save();
+    }
+
+    @FXML
+    public void okButtonOnClick (Event event) {
+        save();
+        form.closeWindow();
+    }
+
+    public void setForm(ReagentCatalogElementForm form) {
+        this.form = form;
+    }
+
 //        if (event.getSource() instanceof Button) {
 //            Button source = (Button) event.getSource();
 //            String buttonID = source.idProperty().getValue();
@@ -32,6 +72,6 @@ public class ReagentElementController  {
 ////                fillElements(catalogElement.getElementFields());
 //            }
 //        }
-//    }
+ //   }
 
 }

@@ -35,9 +35,9 @@
    <bottom>
       <ToolBar id="catalog-toll-bar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="catalog-toll-bar" BorderPane.alignment="BOTTOM_RIGHT">
         <items>
-          <Button fx:id="close" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onCloseButtonClicked" onMouseClicked="#onCloseButtonClicked" text="Close" />
             <Button fx:id="save" mnemonicParsing="false" text="Save" />
             <Button fx:id="ok" mnemonicParsing="false" text="OK" />
+            <Button mnemonicParsing="false" onAction="onAction" text="Button" />
         </items>
       </ToolBar>
    </bottom>

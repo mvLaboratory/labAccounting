@@ -7,6 +7,7 @@ import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
 import com.mvLab.lab.accaunt.documents.reagentArrival.ReagentArrivalListForm;
 import com.mvLab.lab.accaunt.documents.reagentConsumption.ReagentConsumptionListForm;
 import com.mvLab.lab.accaunt.windows.ErrorWindow;
+import com.mvLab.lab.accaunt.windows.InternalWindow;
 import com.mvLab.lab.accaunt.windows.MV_Window;
 import com.mvLab.lab.accaunt.windows.MainWindow;
 import javafx.stage.Stage;
@@ -73,7 +74,7 @@ public class WindowManager {
         }
 
         ReagentCatalogListForm reagentCatalogListForm = (ReagentCatalogListForm) windowsmap.get("reagentCatalogList");
-        if (windowsmap.get("reagentCatalogList") == null) {
+        if (reagentCatalogListForm == null) {
             reagentCatalogListForm = new ReagentCatalogListForm(mainWindow.getRootLayout());
 
             try {
@@ -89,9 +90,47 @@ public class WindowManager {
         }
     }
 
-    public static void openReagentCatalogElementForm() {
+    public void closeReagentCatalogListForm() {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        if (! (windowsmap.get("reagentCatalogList") == null)) {
+            windowsmap.remove("reagentCatalogList");
+        }
+    }
+
+    public void updateReagentCatalogListForm() {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        ReagentCatalogListForm reagentCatalogListForm = (ReagentCatalogListForm) windowsmap.get("reagentCatalogList");
+        if (! (reagentCatalogListForm == null)) {
+            reagentCatalogListForm.update();
+            reagentCatalogListForm.activate();
+        }
+    }
+
+    public void updateReagentCatalogListForm(ReagentCatalog element) {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        ReagentCatalogListForm reagentCatalogListForm = (ReagentCatalogListForm) windowsmap.get("reagentCatalogList");
+        if (! (reagentCatalogListForm == null)) {
+            reagentCatalogListForm.update();
+            reagentCatalogListForm.activate();
+            reagentCatalogListForm.selectRow(element);
+        }
+    }
+
+    public void openReagentCatalogElementForm() {
 //        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
-        ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(null, 0, 0);
+        ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm();
         try {
             ellForm.display();
 //            listForm.display();
@@ -135,7 +174,24 @@ public class WindowManager {
         }
     }
 
+    public void closeCatalogWindow(InternalWindow window) {
+        getMainWindow().getRootLayout().getChildren().remove(window);
+    }
 
+    public void closeCatalogWindow(InternalWindow window, String formName) {
+        getMainWindow().getRootLayout().getChildren().remove(window);
+        if  (formName.equals("ReagentList")) {
+            updateReagentCatalogListForm();
+        }
+    }
+
+
+    public void closeCatalogWindow(InternalWindow window, Catalog element, String formName) {
+        getMainWindow().getRootLayout().getChildren().remove(window);
+        if  (formName.equals("ReagentList")) {
+            updateReagentCatalogListForm((ReagentCatalog) element);
+        }
+    }
 
     public static void openErrorWindow(String text) {
         MV_Window errWin = new ErrorWindow("Error!", text, 100, 200);
@@ -149,6 +205,14 @@ public class WindowManager {
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    public double getStageWidth() {
+        return primaryStage.getWidth();
+    }
+
+    public double getStageHeight() {
+        return primaryStage.getHeight();
     }
 
     public MainWindow getMainWindow() {

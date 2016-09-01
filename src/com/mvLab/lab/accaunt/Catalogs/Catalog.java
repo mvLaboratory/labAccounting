@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class Catalog {
     protected Integer id;
-    protected String name;
+    protected String name = "";
     protected UUID uuid;
     protected String tableName;
     protected ArrayList<String> serviceFields = new ArrayList<String>() {{
@@ -39,9 +39,7 @@ public class Catalog {
     }
 
     public Integer getId() {
-        if (id == null)
-            return id;
-        if (id == 0)
+        if (id != null && id == 0)
             return null;
         else
             return id;

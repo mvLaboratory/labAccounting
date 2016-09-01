@@ -2,14 +2,32 @@ package com.mvLab.lab.accaunt.controllers;
 
 import com.mvLab.lab.accaunt.WindowManager;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog;
+import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>, Callback<TableView<Type>, TableRow<Type>> {
+    private TableView table;
+
     private TableRow<Type> row;
+
+    @FXML
+    public void addButtonClick() {
+        WindowManager.getInstance().openReagentCatalogElementForm();
+//        ReagentCatalog element =
+//                table.getSelectionModel().select(element);
+    }
+
+    public void selectRow(ReagentCatalog element) {
+        table.getSelectionModel().select(element);
+        table.getSelectionModel().getSelectedIndex();
+        table.getFocusModel().focus(table.getSelectionModel().getFocusedIndex());
+    }
 
     @Override
     public TableRow<Type> call(TableView<Type> param) {
@@ -28,6 +46,10 @@ public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>,
             double mouseY = event.getSceneY();
             WindowManager.getInstance().openReagentCatalogElementForm(rowData, mouseX, mouseY);
         }
+    }
+
+    public void setTable(TableView table) {
+        this.table = table;
     }
 }
 

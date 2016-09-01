@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<BorderPane prefHeight="508.0" prefWidth="679.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<BorderPane prefHeight="508.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.accaunt.controllers.ReagentCatalogController">
   <center>
     <TableView prefHeight="369.0" prefWidth="600.0" tableMenuButtonVisible="true">
       <columnResizePolicy>
@@ -27,8 +27,8 @@
   <top>
     <ToolBar>
       <items>
-        <Button mnemonicParsing="false" text="+" />
-        <Button mnemonicParsing="false" text="-" />
+        <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#addButtonClick" text="+" />
+        <Button mnemonicParsing="false" text="-" visible="false" />
       </items>
     </ToolBar>
   </top>

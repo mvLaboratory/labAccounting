@@ -1,17 +1,18 @@
 package com.mvLab.lab.accaunt.catalogs.Reagents;
 
-import com.mvLab.lab.accaunt.controllers.MainController;
 import com.mvLab.lab.accaunt.Main;
+import com.mvLab.lab.accaunt.WindowManager;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.catalogs.CatalogListForm;
 import com.mvLab.lab.accaunt.controllers.ReagentCatalogController;
-import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.io.ObjectInput;
 
 public class ReagentCatalogListForm extends CatalogListForm {
     private TableView<ReagentCatalog> reagentTable;
@@ -20,6 +21,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
     private Tab formTab;
     private SingleSelectionModel tabSelectionModel;
     private TableView<ReagentCatalog> reagentTableView;
+    private ReagentCatalogController catalogController;
 
     public ReagentCatalogListForm(BorderPane rootLayout) {
         this.rootLayout = rootLayout;
@@ -27,10 +29,15 @@ public class ReagentCatalogListForm extends CatalogListForm {
 
     public void display() throws IOException {
         formTab = new Tab("Reagents");
+        formTab.setOnClosed(event -> {
+            WindowManager.getInstance().closeReagentCatalogListForm();
+        });
         BorderPane tabView = FXMLLoader.load(Main.class.getResource("view/TableView.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
-        reagentTableView.setRowFactory(new ReagentCatalogController<>());
+        catalogController = new ReagentCatalogController<>();
+        catalogController.setTable(reagentTableView);
+        reagentTableView.setRowFactory(catalogController);
         reagentTableView.setItems(ReagentCatalog.getCatalogData());
 
         for (TableColumn coll : reagentTableView.getColumns()) {
@@ -51,6 +58,14 @@ public class ReagentCatalogListForm extends CatalogListForm {
 
     public void update() {
         reagentTableView.setItems(ReagentCatalog.getCatalogData());
+    }
+
+    public void selectRow(ReagentCatalog element) {
+        if  (catalogController == null) {
+            WindowManager.openErrorWindow("Catalog for is not initialized!");
+            return;
+        }
+        catalogController.selectRow(element);
     }
 
     //    public ReagentCatalogListForm(String title, int windowWidth, int windowHeight) {

@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.accaunt.controllers.ReagentElementController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -35,9 +35,9 @@
    <bottom>
       <ToolBar id="catalog-toll-bar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="catalog-toll-bar" BorderPane.alignment="BOTTOM_RIGHT">
         <items>
-          <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Close" />
-            <Button mnemonicParsing="false" text="Save" />
-            <Button mnemonicParsing="false" text="OK" />
+          <Button fx:id="closeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#closeButtonOnClicked" text="Close" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onMouseClicked="#saveButtonOnClicked" text="Save" />
+            <Button fx:id="okButton" mnemonicParsing="false" onMouseClicked="#okButtonOnClick" text="OK" />
         </items>
       </ToolBar>
    </bottom>

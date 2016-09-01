@@ -7,12 +7,14 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToolBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class InternalWindow extends Region {
 
@@ -99,7 +101,7 @@ public class InternalWindow extends Region {
         Button closeButton = new Button("x");
         closeButton.setId("windowCloseButton");
         closeButton.setOnAction(event -> {
-            WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().remove(internalWindow);
+            WindowManager.getInstance().closeCatalogWindow(internalWindow, "ReagentList");
         });
 
         titleBar.setRight(closeButton);
