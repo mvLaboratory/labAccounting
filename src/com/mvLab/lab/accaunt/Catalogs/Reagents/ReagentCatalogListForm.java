@@ -60,12 +60,12 @@ public class ReagentCatalogListForm extends CatalogListForm {
         reagentTableView.setItems(ReagentCatalog.getCatalogData());
     }
 
-    public void selectRow(ReagentCatalog element) {
+    public void selectRow(ReagentCatalog element, boolean scrollToRow) {
         if  (catalogController == null) {
             WindowManager.openErrorWindow("Catalog for is not initialized!");
             return;
         }
-        catalogController.selectRow(element);
+        catalogController.selectRow(element, scrollToRow);
     }
 
     //    public ReagentCatalogListForm(String title, int windowWidth, int windowHeight) {

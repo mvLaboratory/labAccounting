@@ -12,20 +12,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<BorderPane prefHeight="572.0" prefWidth="907.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.mvLab.lab.accaunt.controllers.MainController">
+<BorderPane prefHeight="572.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.accaunt.controllers.MainController">
   <center>
     <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="background" tabClosingPolicy="UNAVAILABLE" />
   </center>
   <left>
-    <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false" prefHeight="489.0" prefWidth="123.0">
-      <effect>
-        <Bloom threshold="1.0" />
-      </effect>
-      <items>
-        <Button fx:id="reagentButton" mnemonicParsing="false" onAction="#reagentButtonOnClick" prefWidth="101.0" text="Reagents" />
-        <Button mnemonicParsing="false" prefWidth="101.0" text="Admission" />
-      </items>
-    </ToolBar>
+      <VBox>
+         <children>
+          <ToolBar id="leftComands" disable="false" focusTraversable="false" mouseTransparent="false" orientation="VERTICAL" pickOnBounds="false" prefHeight="363.0" prefWidth="123.0">
+            <effect>
+              <Bloom threshold="1.0" />
+            </effect>
+            <items>
+              <Button fx:id="reagentButton" mnemonicParsing="false" onAction="#reagentButtonOnClick" prefWidth="101.0" text="Reagents" />
+              <Button mnemonicParsing="false" prefWidth="101.0" text="Admission" />
+            </items>
+          </ToolBar>
+            <ToolBar fx:id="innerWindowTB" orientation="VERTICAL" prefHeight="84.0" prefWidth="122.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
   </left>
   <stylesheets>
     <URL value="@DarkTheme.css" />

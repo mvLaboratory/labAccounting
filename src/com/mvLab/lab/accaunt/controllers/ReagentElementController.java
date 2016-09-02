@@ -2,10 +2,14 @@ package com.mvLab.lab.accaunt.controllers;
 
 import com.mvLab.lab.accaunt.WindowManager;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
+import com.mvLab.lab.accaunt.windows.InternalWindow;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 
 import javax.print.attribute.standard.MediaSize;
 
@@ -13,6 +17,9 @@ public class ReagentElementController {
     @FXML TextField ID;
     @FXML TextField Name;
     @FXML TextArea Description;
+    @FXML Label windowHeaderLbl;
+    @FXML Button windowCloseButton;
+    @FXML BorderPane windowHeader;
 
     private ReagentCatalogElementForm form;
         //implements EventHandler<ActionEvent> {
@@ -29,6 +36,14 @@ public class ReagentElementController {
         Description.setText("" + form.getCatalogElement().getDescription());
     }
 
+    public void customizeWindow(InternalWindow internalWindow) {
+        windowCloseButton.setText("X");
+        windowHeaderLbl.setText("Reagent #" + form.getCatalogElement().getHeader());
+
+        internalWindow.makeDragable(windowHeader);
+        internalWindow.makeDragable(windowHeaderLbl);
+    }
+
     public void save() {
         form.getCatalogElement().setName(Name.getText());
         form.getCatalogElement().setDescription(Description.getText());
@@ -38,6 +53,11 @@ public class ReagentElementController {
     @FXML
     public void closeButtonOnClicked (Event event) {
        form.closeWindow();
+    }
+
+    @FXML
+    public void windowCloseButtonOnClicked (Event event) {
+        form.closeWindow();
     }
 
     @FXML

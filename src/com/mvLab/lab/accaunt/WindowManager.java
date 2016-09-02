@@ -10,6 +10,7 @@ import com.mvLab.lab.accaunt.windows.ErrorWindow;
 import com.mvLab.lab.accaunt.windows.InternalWindow;
 import com.mvLab.lab.accaunt.windows.MV_Window;
 import com.mvLab.lab.accaunt.windows.MainWindow;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class WindowManager {
     private Stage primaryStage;
     private MainWindow mainWindow;
     private HashMap<String, MV_Window> windowsmap = new HashMap<>();
+    private HashMap<String, MV_Window> innerWindowsmap = new HashMap<>();
 
     private WindowManager() {
 
@@ -114,6 +116,20 @@ public class WindowManager {
         }
     }
 
+    public void updateReagentCatalogListForm(ReagentCatalog element, boolean scrollToRow) {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        ReagentCatalogListForm reagentCatalogListForm = (ReagentCatalogListForm) windowsmap.get("reagentCatalogList");
+        if (! (reagentCatalogListForm == null)) {
+            reagentCatalogListForm.update();
+            reagentCatalogListForm.activate();
+            reagentCatalogListForm.selectRow(element, scrollToRow);
+        }
+    }
+
     public void updateReagentCatalogListForm(ReagentCatalog element) {
         if (!isInitialized()) {
             openErrorWindow("Main window is not initialized yet.");
@@ -124,7 +140,7 @@ public class WindowManager {
         if (! (reagentCatalogListForm == null)) {
             reagentCatalogListForm.update();
             reagentCatalogListForm.activate();
-            reagentCatalogListForm.selectRow(element);
+            reagentCatalogListForm.selectRow(element, false);
         }
     }
 
@@ -148,6 +164,11 @@ public class WindowManager {
         ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(reagentElement, posX, posY);
         try {
             ellForm.display();
+            mainWindow.getController().addWindowLink();
+
+//            innerWindowsmap.put("1", ellForm);
+//            BorderPane borderPane = getMainWindow().getRootLayout();
+//            borderPane.
         }
         catch (IOException e) {
             openErrorWindow("Sorry! Can't open catalog element form.");
@@ -185,11 +206,17 @@ public class WindowManager {
         }
     }
 
-
     public void closeCatalogWindow(InternalWindow window, Catalog element, String formName) {
         getMainWindow().getRootLayout().getChildren().remove(window);
         if  (formName.equals("ReagentList")) {
             updateReagentCatalogListForm((ReagentCatalog) element);
+        }
+    }
+
+    public void closeNewCatalogWindow(InternalWindow window, Catalog element, String formName) {
+        getMainWindow().getRootLayout().getChildren().remove(window);
+        if  (formName.equals("ReagentList")) {
+            updateReagentCatalogListForm((ReagentCatalog) element, true);
         }
     }
 

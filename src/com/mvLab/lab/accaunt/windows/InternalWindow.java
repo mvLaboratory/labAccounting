@@ -91,27 +91,27 @@ public class InternalWindow extends Region {
         // content
         InternalWindow internalWindow = new InternalWindow();
 
-        BorderPane titleBar = new BorderPane();
-        titleBar.setId("windowHeader");
-
-        Label headerLbl = new Label(header);
-        headerLbl.setId("windowHeaderLbl");
-        titleBar.setLeft(headerLbl);
-
-        Button closeButton = new Button("x");
-        closeButton.setId("windowCloseButton");
-        closeButton.setOnAction(event -> {
-            WindowManager.getInstance().closeCatalogWindow(internalWindow, "ReagentList");
-        });
-
-        titleBar.setRight(closeButton);
-
-        windowLayout.setTop(titleBar);
+//        BorderPane titleBar = new BorderPane();
+//        titleBar.setId("windowHeader");
+//
+//        Label headerLbl = new Label(header);
+//        headerLbl.setId("windowHeaderLbl");
+//        titleBar.setLeft(headerLbl);
+//
+//        Button closeButton = new Button("x");
+//        closeButton.setId("windowCloseButton");
+//        closeButton.setOnAction(event -> {
+//            WindowManager.getInstance().closeCatalogWindow(internalWindow, "ReagentList");
+//        });
+//
+//        titleBar.setRight(closeButton);
+//
+//        windowLayout.setTop(titleBar);
         internalWindow.setRoot(windowLayout);
 
         //drag only by title
-        internalWindow.makeDragable(titleBar);
-        internalWindow.makeDragable(headerLbl);
+//        internalWindow.makeDragable(titleBar);
+//        internalWindow.makeDragable(headerLbl);
         internalWindow.makeResizable(20);
         internalWindow.makeFocusable();
 

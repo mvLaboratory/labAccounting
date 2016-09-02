@@ -1,6 +1,7 @@
 package com.mvLab.lab.accaunt.windows;
 
 import com.mvLab.lab.accaunt.Main;
+import com.mvLab.lab.accaunt.controllers.MainController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -17,13 +18,17 @@ import java.io.IOException;
 public class MainWindow {
     private BorderPane rootLayout;
     private Stage primaryStage;
+    private FXMLLoader loader;
 
     public MainWindow(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void display() throws IOException {
-        rootLayout = FXMLLoader.load(Main.class.getResource("view/MainView.fxml"));
+        //rootLayout = FXMLLoader.load(Main.class.getResource("view/MainView.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("view/MainView.fxml"));
+        rootLayout = loader.load();
+
         primaryStage.setTitle("Laboratory accountant");
         primaryStage.setScene(new Scene(rootLayout));
         primaryStage.setMaximized(true);
@@ -43,6 +48,10 @@ public class MainWindow {
 
     public Stage getPrimaryStage() {
         return primaryStage;
+    }
+
+    public MainController getController() {
+        return loader.getController();
     }
 
         //extends MV_Window implements EventHandler<ActionEvent> {

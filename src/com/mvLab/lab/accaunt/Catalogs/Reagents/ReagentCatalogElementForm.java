@@ -5,6 +5,7 @@ import com.mvLab.lab.accaunt.WindowManager;
 import com.mvLab.lab.accaunt.catalogs.CatalogElementForm;
 import com.mvLab.lab.accaunt.controllers.ReagentElementController;
 import com.mvLab.lab.accaunt.windows.InternalWindow;
+import com.sun.javafx.image.BytePixelSetter;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 
@@ -17,6 +18,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     private InternalWindow formWindow;
     private BorderPane windowPane;
     private FXMLLoader loader;
+    private boolean newElement = false;
 
     {
         loader = new FXMLLoader(Main.class.getResource("view/ReagentCatalogElementForm.fxml"));
@@ -33,6 +35,8 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
         this.reagentElement = new ReagentCatalog();
         this.posX = (WindowManager.getInstance().getStageWidth() / 2) - (windowPane.getPrefWidth() / 2) + 50;
         this.posY = WindowManager.getInstance().getStageHeight() / 4;
+
+        newElement = true;
     }
 
     public ReagentCatalogElementForm(ReagentCatalog reagentElement, double posX, double posY) {
@@ -65,12 +69,16 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
 //            }
 //        }
 
+        formWindow = InternalWindow.constructWindow(posX, posY, "Reagent #" + reagentElement.getHeader(), windowPane);
+
         ReagentElementController controller = loader.getController();
         controller.setForm(this);
         controller.setFields();
+        controller.customizeWindow(formWindow);
 
-        formWindow = InternalWindow.constructWindow(posX, posY, "Reagent #" + reagentElement.getHeader(), windowPane);
         WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().add(formWindow);
+
+
     }
 
     public void save() {
@@ -78,7 +86,13 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     }
 
     public void closeWindow() {
-        WindowManager.getInstance().closeCatalogWindow(formWindow, reagentElement, "ReagentList");
+        if (newElement) {
+            WindowManager.getInstance().closeNewCatalogWindow(formWindow, reagentElement, "ReagentList");
+        }
+        else
+        {
+            WindowManager.getInstance().closeCatalogWindow(formWindow, reagentElement, "ReagentList");
+        }
         //WindowManager.getInstance().updateReagentCatalogListForm();
     }
 

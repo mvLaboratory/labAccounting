@@ -126,4 +126,24 @@ public class Catalog {
         return getId() + ": " + getName();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Catalog)) return false;
+
+        Catalog catalog = (Catalog) o;
+
+        if (getName() != null ? !getName().equals(catalog.getName()) : catalog.getName() != null) return false;
+        if (getUuid() != null ? !getUuid().equals(catalog.getUuid()) : catalog.getUuid() != null) return false;
+        return getTableName() != null ? getTableName().equals(catalog.getTableName()) : catalog.getTableName() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getName() != null ? getName().hashCode() : 0;
+        result = 31 * result + (getUuid() != null ? getUuid().hashCode() : 0);
+        result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
+        return result;
+    }
 }

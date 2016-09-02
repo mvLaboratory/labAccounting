@@ -59,10 +59,10 @@ public class ReagentCatalog extends Catalog {
 
         ReagentCatalog that = (ReagentCatalog) o;
 
-        if (getId() != null ? !getId().equals(getId()) : getId() != null) return false;
-        if (getName() != null ? !getName().equals(getName()) : getName() != null) return false;
-        if (!getUuid().equals(getUuid())) return false;
-        if (getTableName() != null ? !getTableName().equals(getTableName()) : getTableName() != null)
+        //if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        if (!getUuid().equals(that.getUuid())) return false;
+        if (getTableName() != null ? !getTableName().equals(that.getTableName()) : that.getTableName() != null)
             return false;
 
         return getDescription() != null ? getDescription().equals(that.getDescription()) : that.getDescription() == null;
@@ -70,8 +70,7 @@ public class ReagentCatalog extends Catalog {
 
     @Override
     public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        int result = getName() != null ? getName().hashCode() : 0;
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
         result = 31 * result + getUuid().hashCode();
         result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);

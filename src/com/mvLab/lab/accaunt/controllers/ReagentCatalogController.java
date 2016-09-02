@@ -23,12 +23,13 @@ public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>,
 //                table.getSelectionModel().select(element);
     }
 
-    public void selectRow(ReagentCatalog element) {
+    public void selectRow(ReagentCatalog element, boolean scrollToRow) {
         table.getSelectionModel().select(element);
         int rowIndex = table.getSelectionModel().getSelectedIndex();
         //table.getSelectionModel().getSelectedIndex();
         table.getFocusModel().focus(rowIndex);
-        table.scrollTo(rowIndex);
+        if (scrollToRow)
+            table.scrollTo(rowIndex);
     }
 
     @Override
