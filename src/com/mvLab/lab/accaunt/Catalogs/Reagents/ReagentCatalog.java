@@ -53,6 +53,33 @@ public class ReagentCatalog extends Catalog {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ReagentCatalog)) return false;
+
+        ReagentCatalog that = (ReagentCatalog) o;
+
+        if (getId() != null ? !getId().equals(getId()) : getId() != null) return false;
+        if (getName() != null ? !getName().equals(getName()) : getName() != null) return false;
+        if (!getUuid().equals(getUuid())) return false;
+        if (getTableName() != null ? !getTableName().equals(getTableName()) : getTableName() != null)
+            return false;
+
+        return getDescription() != null ? getDescription().equals(that.getDescription()) : that.getDescription() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + getUuid().hashCode();
+        result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
+
+        return result;
+    }
+
+    @Override
     public HashMap<String, Object> getElementFields() {
         HashMap<String, Object> fields = new HashMap<String, Object>();
 
