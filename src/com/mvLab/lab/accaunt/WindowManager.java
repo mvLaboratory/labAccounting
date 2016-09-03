@@ -146,13 +146,17 @@ public class WindowManager {
     }
 
     public void openReagentCatalogElementForm() {
-//        ReagentCatalogElementForm listForm = new ReagentCatalogElementForm();
-        ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm();
+
         try {
-            ellForm.display();
-            innerWindowsMap.put(ReagentCatalog.class, ellForm);
-            mainWindow.getController().addCatalogWindowLink(ReagentCatalog.class, "new Reagent");
-//            listForm.display();
+            if (innerWindowsMap.containsKey(ReagentCatalog.class)) {
+                ((ReagentCatalogElementForm) innerWindowsMap.get(ReagentCatalog.class)).show();
+            }
+            else {
+                ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm();
+                ellForm.display();
+                innerWindowsMap.put(ReagentCatalog.class, ellForm);
+                mainWindow.getController().addCatalogWindowLink(ReagentCatalog.class, "new Reagent");
+            }
         }
         catch (IOException e) {
             openErrorWindow("Sorry! Can't open catalog element form.");
