@@ -38,7 +38,7 @@ public class ReagentElementController {
 
     public void customizeWindow(InternalWindow internalWindow) {
         windowCloseButton.setText("X");
-        windowHeaderLbl.setText("Reagent #" + form.getCatalogElement().getHeader());
+        windowHeaderLbl.setText(form.getCatalogElement().getHeader());
 
         internalWindow.makeDragable(windowHeader);
         internalWindow.makeDragable(windowHeaderLbl);
@@ -58,6 +58,11 @@ public class ReagentElementController {
     @FXML
     public void windowCloseButtonOnClicked (Event event) {
         form.closeWindow();
+    }
+
+    @FXML
+    public void windowHideButtonOnClicked  (Event event) {
+        form.hide();
     }
 
     @FXML

@@ -69,7 +69,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
 //            }
 //        }
 
-        formWindow = InternalWindow.constructWindow(posX, posY, "Reagent #" + reagentElement.getHeader(), windowPane);
+        formWindow = InternalWindow.constructWindow(posX, posY, windowPane);
 
         ReagentElementController controller = loader.getController();
         controller.setForm(this);
@@ -78,6 +78,26 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
 
         WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().add(formWindow);
 
+
+    }
+
+    public void hide() {
+        if (windowPane == null) {
+            WindowManager.openErrorWindow("Sorry! Can't open catalog element!");
+            return;
+        }
+
+        windowPane.setVisible(false);
+    }
+
+    public void show() {
+        if (windowPane == null) {
+            WindowManager.openErrorWindow("Sorry! Can't open catalog element!");
+            return;
+        }
+
+        windowPane.setVisible(true);
+        formWindow.focus();
 
     }
 

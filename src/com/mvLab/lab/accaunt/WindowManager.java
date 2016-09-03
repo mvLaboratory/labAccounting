@@ -23,7 +23,8 @@ public class WindowManager {
     private Stage primaryStage;
     private MainWindow mainWindow;
     private HashMap<String, MV_Window> windowsmap = new HashMap<>();
-    private HashMap<String, MV_Window> innerWindowsmap = new HashMap<>();
+    private ArrayList<MV_Window> innerWindowsList = new ArrayList<>();// TODO: 02.09.2016 delete
+    private HashMap<Object, MV_Window> innerWindowsMap = new HashMap<>();
 
     private WindowManager() {
 
@@ -149,6 +150,8 @@ public class WindowManager {
         ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm();
         try {
             ellForm.display();
+            innerWindowsMap.put(ReagentCatalog.class, ellForm);
+            mainWindow.getController().addCatalogWindowLink(ReagentCatalog.class, "new Reagent");
 //            listForm.display();
         }
         catch (IOException e) {
@@ -164,7 +167,9 @@ public class WindowManager {
         ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(reagentElement, posX, posY);
         try {
             ellForm.display();
-            mainWindow.getController().addWindowLink();
+            //innerWindowsList.add(ellForm);// TODO: 02.09.2016  delete
+            innerWindowsMap.put(reagentElement, ellForm);
+            mainWindow.getController().addCatalogWindowLink(reagentElement);
 
 //            innerWindowsmap.put("1", ellForm);
 //            BorderPane borderPane = getMainWindow().getRootLayout();
@@ -206,8 +211,15 @@ public class WindowManager {
         }
     }
 
+    public void showInnerWindow(Object data) {
+        MV_Window innerWindow = innerWindowsMap.get(data);
+        ((ReagentCatalogElementForm)innerWindow).show();
+    }
+
     public void closeCatalogWindow(InternalWindow window, Catalog element, String formName) {
         getMainWindow().getRootLayout().getChildren().remove(window);
+        innerWindowsMap.remove(element);
+        getMainWindow().getController().removeCatalogWindowLink(element);
         if  (formName.equals("ReagentList")) {
             updateReagentCatalogListForm((ReagentCatalog) element);
         }
@@ -215,6 +227,8 @@ public class WindowManager {
 
     public void closeNewCatalogWindow(InternalWindow window, Catalog element, String formName) {
         getMainWindow().getRootLayout().getChildren().remove(window);
+        innerWindowsMap.remove(element.getClass());
+        getMainWindow().getController().removeCatalogWindowLink(element.getClass());
         if  (formName.equals("ReagentList")) {
             updateReagentCatalogListForm((ReagentCatalog) element, true);
         }
@@ -244,5 +258,13 @@ public class WindowManager {
 
     public MainWindow getMainWindow() {
         return mainWindow;
+    }
+
+    public int getInnerWindowsCount() {
+        return innerWindowsMap.size();
+    }
+
+    public MV_Window getInnerWindowsFromTB(Object data) {// TODO: 02.09.2016 delete
+        return innerWindowsMap.get(data);
     }
 }

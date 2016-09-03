@@ -42,12 +42,17 @@
       </ToolBar>
    </bottom>
    <top>
-      <BorderPane fx:id="windowHeader" prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="windowHeader" prefHeight="43.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <left>
             <Label fx:id="windowHeaderLbl" text="Label" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <Button fx:id="windowCloseButton" mnemonicParsing="false" onMouseClicked="#windowCloseButtonOnClicked" prefHeight="36.0" prefWidth="7.0" text="X" BorderPane.alignment="CENTER" />
+            <HBox>
+               <children>
+                  <Button fx:id="windowHideButton" mnemonicParsing="false" onMouseClicked="#windowHideButtonOnClicked" text="_" />
+                  <Button fx:id="windowCloseButton" mnemonicParsing="false" onMouseClicked="#windowCloseButtonOnClicked" prefHeight="36.0" prefWidth="7.0" text="X" BorderPane.alignment="CENTER" />
+               </children>
+            </HBox>
          </right>
       </BorderPane>
    </top>

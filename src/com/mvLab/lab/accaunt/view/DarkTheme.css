@@ -203,7 +203,7 @@
     -fx-alignment: center;
 }
 
-#windowCloseButton {
+#windowCloseButton, #windowHideButton {
     -fx-text-fill: red;
     -fx-border-color: derive(#1d1d1d,20%);
     -fx-border-width: 4;

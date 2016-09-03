@@ -28,7 +28,7 @@
               <Button mnemonicParsing="false" prefWidth="101.0" text="Admission" />
             </items>
           </ToolBar>
-            <ToolBar fx:id="innerWindowTB" orientation="VERTICAL" prefHeight="84.0" prefWidth="122.0" VBox.vgrow="ALWAYS" />
+            <ToolBar fx:id="innerWindowTB" orientation="VERTICAL" prefHeight="171.0" prefWidth="122.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
   </left>

@@ -53,6 +53,11 @@ public class ReagentCatalog extends Catalog {
     }
 
     @Override
+    public String getHeader() {
+        return "Reagent #" + super.getHeader();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ReagentCatalog)) return false;

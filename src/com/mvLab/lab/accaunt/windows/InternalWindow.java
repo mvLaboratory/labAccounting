@@ -28,6 +28,10 @@ public class InternalWindow extends Region {
         });
     }
 
+    public void focus() {
+        toFront();
+    }
+
     //just for encapsulation
     private static class Delta {
         double x, y;
@@ -87,7 +91,7 @@ public class InternalWindow extends Region {
         });
     }
 
-    public static InternalWindow constructWindow(double posX, double posY, String header, BorderPane windowLayout) {
+    public static InternalWindow constructWindow(double posX, double posY, BorderPane windowLayout) {
         // content
         InternalWindow internalWindow = new InternalWindow();
 

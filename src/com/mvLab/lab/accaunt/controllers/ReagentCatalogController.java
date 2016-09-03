@@ -49,6 +49,10 @@ public class ReagentCatalogController<Type> implements EventHandler<MouseEvent>,
             double mouseY = event.getSceneY();
             WindowManager.getInstance().openReagentCatalogElementForm(rowData, mouseX, mouseY);
         }
+        else if (event.getClickCount() == 1) {
+            // TODO: 02.09.2016 to front main wndow
+//            WindowManager.getInstance().getMainWindow().getRootLayout().toFront();
+        }
     }
 
     public void setTable(TableView table) {
