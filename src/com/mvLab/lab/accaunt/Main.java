@@ -12,6 +12,9 @@ public class Main extends Application {
         WindowManager.initialize(primaryStage);
         WindowManager windowManager = WindowManager.getInstance();
         windowManager.openMainWindow();
+
+        //git marge test
+        //git marge test develop - work
     }
 
     public static void main(String[] args) {
