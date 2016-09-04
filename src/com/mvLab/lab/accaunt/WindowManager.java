@@ -223,12 +223,12 @@ public class WindowManager {
     public void closeCatalogWindow(InternalWindow window, Catalog element, String formName) {
         getMainWindow().getRootLayout().getChildren().remove(window);
         innerWindowsMap.remove(element);
-        getMainWindow().getController().removeCatalogWindowLink(element);
-        if  (formName.equals("ReagentList")) {
-            updateReagentCatalogListForm((ReagentCatalog) element);
-        }
+        //getMainWindow().getController().removeCatalogWindowLink(element);
+//        if  (formName.equals("ReagentList")) {
+//            updateReagentCatalogListForm((ReagentCatalog) element);
+//        }
 
-        //getMainWindow().getController().updateCatalogWindowLinks();
+        getMainWindow().getController().updateCatalogWindowLinks();
     }
 
     public void closeNewCatalogWindow(InternalWindow window, Catalog element, String formName) {
