@@ -38,10 +38,15 @@ public class ReagentElementController {
 
     public void customizeWindow(InternalWindow internalWindow) {
         windowCloseButton.setText("X");
-        windowHeaderLbl.setText(form.getCatalogElement().getHeader());
+        //windowHeaderLbl.setText(form.getCatalogElement().getHeader());
+        setHeader();
 
         internalWindow.makeDragable(windowHeader);
         internalWindow.makeDragable(windowHeaderLbl);
+    }
+
+    public void setHeader() {
+        windowHeaderLbl.setText(form.getCatalogElement().getHeader());
     }
 
     public void save() {

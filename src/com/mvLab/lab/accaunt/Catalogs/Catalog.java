@@ -124,7 +124,12 @@ public class Catalog {
     }
 
     public String getHeader() {
-        return getId() + ": " + getName();
+        if (isNew()) {
+            return "*new ";
+        }
+        else {
+            return getId() == null ? "*" : getId() + ": " + getName().toLowerCase();
+        }
     }
 
 }

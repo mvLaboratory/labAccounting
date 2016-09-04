@@ -14,13 +14,14 @@ import javafx.scene.control.ToolBar;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainController implements EventHandler {
     @FXML ToolBar innerWindowTB;
     @FXML Button reagentButton;
+    private final int LINK_TEXT_LENGTH = 15;
 
     public void addCatalogWindowLink(Catalog catalogElement) {
-        final int LINK_TEXT_LENGTH = 17;
         String linkText = catalogElement.getHeader();
         Hyperlink windowLink = new Hyperlink(linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText);
         windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
@@ -50,24 +51,47 @@ public class MainController implements EventHandler {
             innerWindowTB.getItems().remove(delNode);
     }
 
-    public void updateCatalogWindowLinks() {
-        final int LINK_TEXT_LENGTH = 17;
-        innerWindowTB.getItems().remove(0, innerWindowTB.getItems().size());
+    public void updateCatalogWindowLink(Catalog element) {
+        Node editNode = null;
+        for (Node link : innerWindowTB.getItems()) {
+            if (link.getUserData().equals(element.getClass()))
+                editNode = link;
+        }
 
-        HashMap<Object, MV_Window> innerWindowsMap = WindowManager.getInstance().getInnerWindowsMap();
-        for (Map.Entry<Object, MV_Window> elements : innerWindowsMap.entrySet()) {
-            Catalog element = (Catalog) elements.getKey();
-//            if (element instanceof Class)
+        if (editNode != null) {
             String linkText = element.getHeader();
             linkText = linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText;
+            ((Hyperlink)editNode).setText(linkText);
+            editNode.setUserData(element);
 
-            Hyperlink windowLink = new Hyperlink(linkText);
-            windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
-            windowLink.setUserData(element);
-            windowLink.setOnMouseClicked(this);
+            HashMap<Object, MV_Window> innerWindowsMap = WindowManager.getInstance().getInnerWindowsMap();
+            MV_Window elementWindow = innerWindowsMap.get(element.getClass());
+            if (elementWindow == null) {
+                WindowManager.openErrorWindow("Error with link data!");
+                return;
+            }
+            innerWindowsMap.remove(element.getClass());
+            innerWindowsMap.put(element, elementWindow);
+            elementWindow.setNewElement(false);
 
-            innerWindowTB.getItems().add(windowLink);
         }
+//
+//        innerWindowTB.getItems().remove(0, innerWindowTB.getItems().size());
+//
+//        HashMap<Object, MV_Window> innerWindowsMap = WindowManager.getInstance().getInnerWindowsMap();
+//        for (Map.Entry<Object, MV_Window> elements : innerWindowsMap.entrySet()) {
+//            Catalog element = (Catalog) elements.getKey();
+////            if (element instanceof Class)
+//            String linkText = element.getHeader();
+//            linkText = linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText;
+//
+//            Hyperlink windowLink = new Hyperlink(linkText);
+//            windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
+//            windowLink.setUserData(element);
+//            windowLink.setOnMouseClicked(this);
+//
+//            innerWindowTB.getItems().add(windowLink);
+//        }
     }
 
     public void reagentButtonOnClick()  {

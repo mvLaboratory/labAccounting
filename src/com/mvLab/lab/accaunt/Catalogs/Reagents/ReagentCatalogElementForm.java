@@ -18,7 +18,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     private InternalWindow formWindow;
     private BorderPane windowPane;
     private FXMLLoader loader;
-    private boolean newElement = false;
+    private ReagentElementController elementController;
 
     {
         loader = new FXMLLoader(Main.class.getResource("view/ReagentCatalogElementForm.fxml"));
@@ -26,6 +26,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
         try {
             //windowPane = FXMLLoader.load(Main.class.getResource("view/ReagentCatalogElementForm.fxml"));
             windowPane = loader.load();
+            elementController = loader.getController();
         }catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,10 +80,10 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
 
         formWindow = InternalWindow.constructWindow(posX, posY, windowPane);
 
-        ReagentElementController controller = loader.getController();
-        controller.setForm(this);
-        controller.setFields();
-        controller.customizeWindow(formWindow);
+        //ReagentElementController controller = loader.getController();
+        elementController.setForm(this);
+        elementController.setFields();
+        elementController.customizeWindow(formWindow);
 
         WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().add(formWindow);
 
@@ -111,6 +112,11 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
 
     public void save() {
         reagentElement.save();
+        reagentElement.readElement();
+        elementController.setFields();
+        WindowManager.getInstance().getMainWindow().getController().updateCatalogWindowLink(reagentElement);
+        elementController.setHeader();
+        //elementController = loader.getController();
     }
 
     public void closeWindow() {
@@ -128,6 +134,8 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     public ReagentCatalog getCatalogElement() {
         return reagentElement;
     }
+
+
 
     //    private final void fillCentral() {
 //        Label idLabel = new Label("ID:");

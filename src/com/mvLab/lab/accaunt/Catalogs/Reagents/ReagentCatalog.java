@@ -55,7 +55,12 @@ public class ReagentCatalog extends Catalog {
 
     @Override
     public String getHeader() {
-        return "Reagent #" + super.getHeader();
+        if (isNew()) {
+            return "*new Reagent";
+        }
+        else {
+            return "Reagent #" + super.getHeader();
+        }
     }
 
     @Override

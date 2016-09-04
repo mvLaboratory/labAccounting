@@ -246,4 +246,16 @@ public class MV_Window {
             }
         }
     }
+
+    //=====new mechanizns
+    protected boolean newElement = false;
+
+    public boolean isNewElement() {
+        return newElement;
+    }
+
+    public void setNewElement(boolean newElement) {
+        this.newElement = newElement;
+    }
+    //===============
 }
