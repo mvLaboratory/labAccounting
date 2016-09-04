@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class ReagentCatalog extends Catalog {
 
@@ -66,10 +67,9 @@ public class ReagentCatalog extends Catalog {
 
         //if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
         if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        if (!getUuid().equals(that.getUuid())) return false;
+        if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getName() != null) return false;
         if (getTableName() != null ? !getTableName().equals(that.getTableName()) : that.getTableName() != null)
             return false;
-
         return getDescription() != null ? getDescription().equals(that.getDescription()) : that.getDescription() == null;
     }
 
@@ -77,7 +77,7 @@ public class ReagentCatalog extends Catalog {
     public int hashCode() {
         int result = getName() != null ? getName().hashCode() : 0;
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
-        result = 31 * result + getUuid().hashCode();
+        result = 31 * result + (getUuid() != null ? getUuid().hashCode() : 0);
         result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
 
         return result;

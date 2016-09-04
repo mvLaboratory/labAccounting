@@ -23,7 +23,7 @@ public class WindowManager {
     private Stage primaryStage;
     private MainWindow mainWindow;
     private HashMap<String, MV_Window> windowsmap = new HashMap<>();
-    private ArrayList<MV_Window> innerWindowsList = new ArrayList<>();// TODO: 02.09.2016 delete
+    //private ArrayList<MV_Window> innerWindowsList = new ArrayList<>();// TODO: 02.09.2016 delete
     private HashMap<Object, MV_Window> innerWindowsMap = new HashMap<>();
 
     private WindowManager() {
@@ -223,10 +223,12 @@ public class WindowManager {
     public void closeCatalogWindow(InternalWindow window, Catalog element, String formName) {
         getMainWindow().getRootLayout().getChildren().remove(window);
         innerWindowsMap.remove(element);
-        getMainWindow().getController().removeCatalogWindowLink(element);
+        //getMainWindow().getController().removeCatalogWindowLink(element);
         if  (formName.equals("ReagentList")) {
             updateReagentCatalogListForm((ReagentCatalog) element);
         }
+
+        getMainWindow().getController().updateCatalogWindowLinks();
     }
 
     public void closeNewCatalogWindow(InternalWindow window, Catalog element, String formName) {
@@ -266,6 +268,10 @@ public class WindowManager {
 
     public int getInnerWindowsCount() {
         return innerWindowsMap.size();
+    }
+
+    public HashMap<Object, MV_Window> getInnerWindowsMap() {
+        return innerWindowsMap;
     }
 
     public MV_Window getInnerWindowsFromTB(Object data) {// TODO: 02.09.2016 delete
