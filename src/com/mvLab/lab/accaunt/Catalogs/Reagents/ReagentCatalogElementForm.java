@@ -36,13 +36,21 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
         this.posX = (WindowManager.getInstance().getStageWidth() / 2) - (windowPane.getPrefWidth() / 2) + 50;
         this.posY = WindowManager.getInstance().getStageHeight() / 4;
 
+        this.posX += (WindowManager.getInstance().getInnerWindowsCount() * 20);
+        this.posY += (WindowManager.getInstance().getInnerWindowsCount() * 20);
+
         newElement = true;
     }
 
     public ReagentCatalogElementForm(ReagentCatalog reagentElement, double posX, double posY) {
         this.reagentElement = reagentElement;
-        this.posX = posX;
-        this.posY = posY;
+//        this.posX = posX;
+//        this.posY = posY;
+        this.posX = (WindowManager.getInstance().getStageWidth() / 2) - (windowPane.getPrefWidth() / 2) + 50;
+        this.posY = WindowManager.getInstance().getStageHeight() / 4;
+
+        this.posX += (WindowManager.getInstance().getInnerWindowsCount() * 20);
+        this.posY += (WindowManager.getInstance().getInnerWindowsCount() * 20);
 
 //        super(ReagentCatalog.class, "Reagent", 450, 250);
 //        fillCentral();

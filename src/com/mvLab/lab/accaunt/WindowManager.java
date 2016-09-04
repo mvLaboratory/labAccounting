@@ -170,14 +170,14 @@ public class WindowManager {
 //        listForm.elementToForm();
         ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(reagentElement, posX, posY);
         try {
-            ellForm.display();
-            //innerWindowsList.add(ellForm);// TODO: 02.09.2016  delete
-            innerWindowsMap.put(reagentElement, ellForm);
-            mainWindow.getController().addCatalogWindowLink(reagentElement);
-
-//            innerWindowsmap.put("1", ellForm);
-//            BorderPane borderPane = getMainWindow().getRootLayout();
-//            borderPane.
+            if (innerWindowsMap.containsKey(reagentElement)) {
+                ((ReagentCatalogElementForm) innerWindowsMap.get(reagentElement)).show();
+            }
+            else {
+                ellForm.display();
+                innerWindowsMap.put(reagentElement, ellForm);
+                mainWindow.getController().addCatalogWindowLink(reagentElement);
+            }
         }
         catch (IOException e) {
             openErrorWindow("Sorry! Can't open catalog element form.");
@@ -223,12 +223,13 @@ public class WindowManager {
     public void closeCatalogWindow(InternalWindow window, Catalog element, String formName) {
         getMainWindow().getRootLayout().getChildren().remove(window);
         innerWindowsMap.remove(element);
-        //getMainWindow().getController().removeCatalogWindowLink(element);
-//        if  (formName.equals("ReagentList")) {
-//            updateReagentCatalogListForm((ReagentCatalog) element);
-//        }
+        getMainWindow().getController().removeCatalogWindowLink(element);
+        if  (formName.equals("ReagentList")) {
+            updateReagentCatalogListForm((ReagentCatalog) element);
+        }
 
-        getMainWindow().getController().updateCatalogWindowLinks();
+//        getMainWindow().getController().updateCatalogWindowLinks();
+//        getMainWindow().getController().updateCatalogWindowLinks();
     }
 
     public void closeNewCatalogWindow(InternalWindow window, Catalog element, String formName) {

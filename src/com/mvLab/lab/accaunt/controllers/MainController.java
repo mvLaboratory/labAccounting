@@ -58,15 +58,15 @@ public class MainController implements EventHandler {
         for (Map.Entry<Object, MV_Window> elements : innerWindowsMap.entrySet()) {
             Catalog element = (Catalog) elements.getKey();
 //            if (element instanceof Class)
-//                String linkText = element.getHeader();
-//                linkText = linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText;
+            String linkText = element.getHeader();
+            linkText = linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText;
 
-            //Hyperlink windowLink = new Hyperlink(linkText);
-//            windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
-//            windowLink.setUserData(element);
-//            windowLink.setOnMouseClicked(this);
-//
-//            innerWindowTB.getItems().add(windowLink);
+            Hyperlink windowLink = new Hyperlink(linkText);
+            windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
+            windowLink.setUserData(element);
+            windowLink.setOnMouseClicked(this);
+
+            innerWindowTB.getItems().add(windowLink);
         }
     }
 
