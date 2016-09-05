@@ -81,7 +81,7 @@ public class MainController implements EventHandler {
         }
     }
 
-    public void admissiontButtonOnClicked()  {
+    public void admissionButtonOnClicked()  {
        // WindowManager.getInstance().openReagentAdmissionForm();
     }
 
