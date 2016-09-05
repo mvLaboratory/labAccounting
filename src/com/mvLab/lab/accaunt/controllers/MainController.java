@@ -82,7 +82,7 @@ public class MainController implements EventHandler {
     }
 
     public void admissionButtonOnClicked()  {
-       // WindowManager.getInstance().openReagentAdmissionForm();
+        WindowManager.getInstance().openReagentAdmissionForm();
     }
 
     public void menuOnExitClick() {

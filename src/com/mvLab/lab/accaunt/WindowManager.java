@@ -4,6 +4,7 @@ import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogListForm;
+import com.mvLab.lab.accaunt.documents.reagentAdmission.ReagentAdmissionForm;
 import com.mvLab.lab.accaunt.documents.reagentConsumption.ReagentConsumptionListForm;
 import com.mvLab.lab.accaunt.windows.ErrorWindow;
 import com.mvLab.lab.accaunt.windows.InternalWindow;
@@ -209,28 +210,21 @@ public class WindowManager {
             return;
         }
 
-        ReagentCatalogListForm reagentCatalogListForm = (ReagentCatalogListForm) windowsmap.get("reagentCatalogList");
-        if (reagentCatalogListForm == null) {
-            reagentCatalogListForm = new ReagentCatalogListForm(mainWindow.getRootLayout());
+        ReagentAdmissionForm reagentAdmissionForm = (ReagentAdmissionForm) windowsmap.get("reagentAdmissionForm");
+        if (reagentAdmissionForm == null) {
+            reagentAdmissionForm = new ReagentAdmissionForm(mainWindow.getRootLayout());
 
             try {
-                reagentCatalogListForm.display();
-                windowsmap.put("reagentCatalogList", reagentCatalogListForm);
+                reagentAdmissionForm.display();
+                windowsmap.put("reagentAdmissionForm", reagentAdmissionForm);
             } catch (IOException e) {
-                openErrorWindow("Sorry! Can't open reagent catalog list form!");
+                openErrorWindow("Sorry! Can't open reagent admission list form!");
             }
         }
         else {
-            reagentCatalogListForm.update();
-            reagentCatalogListForm.activate();
+            reagentAdmissionForm.update();
+            reagentAdmissionForm.activate();
         }
-//        ReagentAdmissionForm docForm = new ReagentAdmissionForm("Reagent arrival", 800, 400);
-//        try {
-//            docForm.display();
-//        }
-//        catch (IOException e) {
-//            openErrorWindow("Sorry! Can't open document list form.");
-//        }
     }
     //******Reagent admission---
 
