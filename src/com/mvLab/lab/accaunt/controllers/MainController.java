@@ -51,6 +51,10 @@ public class MainController implements EventHandler {
             innerWindowTB.getItems().remove(delNode);
     }
 
+    public void reagentButtonOnClick()  {
+            WindowManager.getInstance().openReagentCatalogListForm();
+    }
+
     public void updateCatalogWindowLink(Catalog element) {
         Node editNode = null;
         for (Node link : innerWindowTB.getItems()) {
@@ -61,7 +65,7 @@ public class MainController implements EventHandler {
         if (editNode != null) {
             String linkText = element.getHeader();
             linkText = linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText;
-            ((Hyperlink)editNode).setText(linkText);
+            ((Hyperlink) editNode).setText(linkText);
             editNode.setUserData(element);
 
             HashMap<Object, MV_Window> innerWindowsMap = WindowManager.getInstance().getInnerWindowsMap();
@@ -75,27 +79,10 @@ public class MainController implements EventHandler {
             elementWindow.setNewElement(false);
 
         }
-//
-//        innerWindowTB.getItems().remove(0, innerWindowTB.getItems().size());
-//
-//        HashMap<Object, MV_Window> innerWindowsMap = WindowManager.getInstance().getInnerWindowsMap();
-//        for (Map.Entry<Object, MV_Window> elements : innerWindowsMap.entrySet()) {
-//            Catalog element = (Catalog) elements.getKey();
-////            if (element instanceof Class)
-//            String linkText = element.getHeader();
-//            linkText = linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText;
-//
-//            Hyperlink windowLink = new Hyperlink(linkText);
-//            windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
-//            windowLink.setUserData(element);
-//            windowLink.setOnMouseClicked(this);
-//
-//            innerWindowTB.getItems().add(windowLink);
-//        }
     }
 
-    public void reagentButtonOnClick()  {
-            WindowManager.getInstance().openReagentCatalogListForm();
+    public void admissiontButtonOnClicked()  {
+       // WindowManager.getInstance().openReagentAdmissionForm();
     }
 
     public void menuOnExitClick() {

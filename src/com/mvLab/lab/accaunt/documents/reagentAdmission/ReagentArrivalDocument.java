@@ -1,4 +1,4 @@
-package com.mvLab.lab.accaunt.documents.reagentArrival;
+package com.mvLab.lab.accaunt.documents.reagentAdmission;
 
 import com.mvLab.lab.accaunt.documents.Document;
 

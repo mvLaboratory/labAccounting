@@ -1,7 +1,6 @@
-package com.mvLab.lab.accaunt.documents.reagentArrival;
+package com.mvLab.lab.accaunt.documents.reagentAdmission;
 
 import com.mvLab.lab.accaunt.documents.DocumentForm;
-import javafx.stage.Stage;
 
 public class ReagentArrivalDocumentForm extends DocumentForm {
     public ReagentArrivalDocumentForm(String title, int windowWidth, int windowHeight) {

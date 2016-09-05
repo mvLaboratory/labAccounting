@@ -25,7 +25,7 @@
             </effect>
             <items>
               <Button fx:id="reagentButton" mnemonicParsing="false" onAction="#reagentButtonOnClick" prefWidth="101.0" text="Reagents" />
-              <Button mnemonicParsing="false" prefWidth="101.0" text="Admission" />
+              <Button fx:id="addmissiontButton" mnemonicParsing="false" onMouseClicked="#admissiontButtonOnClicked" prefWidth="101.0" text="Admission" />
             </items>
           </ToolBar>
             <ToolBar fx:id="innerWindowTB" orientation="VERTICAL" prefHeight="171.0" prefWidth="122.0" VBox.vgrow="ALWAYS" />

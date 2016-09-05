@@ -25,8 +25,8 @@ public class MainWindow {
     }
 
     public void display() throws IOException {
-        //rootLayout = FXMLLoader.load(Main.class.getResource("view/MainView.fxml"));
-        loader = new FXMLLoader(Main.class.getResource("view/MainView.fxml"));
+        //rootLayout = FXMLLoader.load(Main.class.getResource("view/MainForm.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("view/MainForm.fxml"));
         rootLayout = loader.load();
 
         primaryStage.setTitle("Laboratory accountant");
