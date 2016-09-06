@@ -8,47 +8,37 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ReagentAdmission extends Document {
 
-    private String description = "";
-
     {
-        this.tableName = "Reagents";
+        this.tableName = "Admission";
     }
 
     public ReagentAdmission() {
     }
 
-    public ReagentAdmission(Integer id, String name, String description) {
-        super(id, name);
-        this.description = description;
+
+    public ReagentAdmission(Integer number, Date date) {
+        super(number, date);
     }
 
-    public ReagentAdmission(Integer id, String name, String description, String uuid) {
-        super(id, name, uuid);
-        this.description = description;
+    public ReagentAdmission(Integer number, Date date, String uuid) {
+        super(number, date, uuid);
     }
 
     public ReagentAdmission getElement() {
         return this;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public static ObservableList<ReagentAdmission> getCatalogData() {
         ObservableList<ReagentAdmission> catalogData = FXCollections.observableArrayList();
-        ArrayList<HashMap<String, Object>> catalogElements = DB_Manager.ReadReagentCatalog();
-        for (HashMap<String, Object> element : catalogElements) {
-            catalogData.add(new ReagentAdmission((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
-        }
+//        ArrayList<HashMap<String, Object>> catalogElements = DB_Manager.ReadReagentCatalog();
+//        for (HashMap<String, Object> element : catalogElements) {
+//            //catalogData.add(new ReagentAdmission((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
+//        }
         return catalogData;
     }
 
@@ -69,18 +59,14 @@ public class ReagentAdmission extends Document {
 
         ReagentAdmission that = (ReagentAdmission) o;
 
-        //if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
-        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getName() != null) return false;
-        if (getTableName() != null ? !getTableName().equals(that.getTableName()) : that.getTableName() != null)
-            return false;
-        return getDescription() != null ? getDescription().equals(that.getDescription()) : that.getDescription() == null;
+        if (getDate() != null ? !getDate().equals(that.getDate()) : that.getDate() != null) return false;
+        if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getUuid() != null) return false;
+        return getTableName() != null ? getTableName().equals(that.getTableName()) : that.getTableName() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getName() != null ? getName().hashCode() : 0;
-        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        int result = getDate() != null ? getDate().hashCode() : 0;
         result = 31 * result + (getUuid() != null ? getUuid().hashCode() : 0);
         result = 31 * result + (getTableName() != null ? getTableName().hashCode() : 0);
 
@@ -111,5 +97,15 @@ public class ReagentAdmission extends Document {
         }
 
         return fields;
+    }
+
+    @Override
+    public void save() {
+
+    }
+
+    @Override
+    public void readElement() {
+
     }
 }

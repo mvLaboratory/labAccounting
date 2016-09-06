@@ -72,7 +72,7 @@ public class ReagentCatalog extends Catalog {
 
         //if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null) return false;
         if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getName() != null) return false;
+        if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getUuid() != null) return false;
         if (getTableName() != null ? !getTableName().equals(that.getTableName()) : that.getTableName() != null)
             return false;
         return getDescription() != null ? getDescription().equals(that.getDescription()) : that.getDescription() == null;
