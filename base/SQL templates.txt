@@ -1,0 +1,9 @@
+create table REAGENTS (
+   id INT NOT NULL auto_increment,
+   uuid UUID NOT NULL UNIQUE,
+   name VARCHAR(200) default NULL,
+   description CLOB default NULL,
+   precursor BOOLEAN  default false,
+   PRIMARY KEY (id)
+);
+

@@ -32,7 +32,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
         formTab.setOnClosed(event -> {
             WindowManager.getInstance().closeReagentCatalogListForm();
         });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("view/ReagentCatalogForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentCatalogForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
         catalogController = new ReagentCatalogController<>();

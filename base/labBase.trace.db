@@ -1,0 +1,35 @@
+2016-09-12 16:09:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец  не найден
+Column  not found; SQL statement:
+create table REAGENTS (
+   id INT NOT NULL auto_increment,
+   uuid UUID NOT NULL UNIQUE,
+   name VARCHAR(200) default "",
+   description CLOB default "",
+   precursor BOOLEAN  default false,
+   PRIMARY KEY (id)
+) [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.table.Column.setDefaultExpression(Column.java:215)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3956)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5972)
+	at org.h2.command.Parser.parseCreate(Parser.java:4237)
+	at org.h2.command.Parser.parsePrepared(Parser.java:362)
+	at org.h2.command.Parser.parse(Parser.java:317)
+	at org.h2.command.Parser.parse(Parser.java:289)
+	at org.h2.command.Parser.prepareCommand(Parser.java:254)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)

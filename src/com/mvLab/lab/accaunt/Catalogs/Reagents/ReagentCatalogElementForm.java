@@ -21,7 +21,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     private ReagentElementController elementController;
 
     {
-        loader = new FXMLLoader(Main.class.getResource("view/ReagentCatalogElementForm.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("/view/ReagentCatalogElementForm.fxml"));
 
         try {
             //windowPane = FXMLLoader.load(Main.class.getResource("view/ReagentCatalogElementForm.fxml"));

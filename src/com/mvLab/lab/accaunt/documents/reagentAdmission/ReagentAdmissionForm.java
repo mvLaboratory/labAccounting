@@ -30,7 +30,7 @@ public class ReagentAdmissionForm extends MV_Window {
         formTab.setOnClosed(event -> {
             WindowManager.getInstance().closeReagentCatalogListForm();
         });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("view/ReagentAdmissionDocumentForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentAdmissionDocumentForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
         catalogController = new ReagentCatalogController<>();
