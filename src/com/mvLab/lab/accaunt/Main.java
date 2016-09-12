@@ -14,6 +14,12 @@ public class Main extends Application {
         windowManager.openMainWindow();
     }
 
+    @Override
+    public void stop() throws Exception {
+        DB_Manager.close();
+        super.stop();
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

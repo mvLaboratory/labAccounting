@@ -25,6 +25,7 @@ public class MainWindow {
     }
 
     public void display() throws IOException {
+//        primaryStage.setOn
         //rootLayout = FXMLLoader.load(Main.class.getResource("view/MainForm.fxml"));
         loader = new FXMLLoader(Main.class.getResource("/view/MainForm.fxml"));
         rootLayout = loader.load();

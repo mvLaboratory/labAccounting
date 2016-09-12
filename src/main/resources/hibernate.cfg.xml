@@ -9,7 +9,7 @@
         </property>
 
         <property name="hibernate.connection.url">
-            jdbc:h2:./base/lab
+            jdbc:h2:./base/labBase
         </property>
 
         <property name="hibernate.connection.username">
@@ -29,5 +29,6 @@
         <!-- List of XML mapping files -->
         <!--<mapping class="com.mvLab.account.lab.models.Employee"></mapping>
         <mapping class="com.mvLab.account.lab.models.Department"></mapping>-->
+        <mapping class="com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog"></mapping>
     </session-factory>
 </hibernate-configuration>
