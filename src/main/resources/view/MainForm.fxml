@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<BorderPane prefHeight="572.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.accaunt.controllers.MainController">
+<BorderPane prefHeight="572.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.MainController">
   <center>
     <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="background" tabClosingPolicy="UNAVAILABLE" />
   </center>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<BorderPane prefHeight="508.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.accaunt.controllers.ReagentCatalogController">
+<BorderPane prefHeight="508.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.ReagentCatalogController">
   <center>
     <TableView prefHeight="369.0" prefWidth="600.0" tableMenuButtonVisible="true">
       <columnResizePolicy>

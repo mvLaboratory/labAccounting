@@ -29,6 +29,6 @@
         <!-- List of XML mapping files -->
         <!--<mapping class="com.mvLab.account.lab.models.Employee"></mapping>
         <mapping class="com.mvLab.account.lab.models.Department"></mapping>-->
-        <mapping class="com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalog"></mapping>
+        <mapping class="com.mvLab.lab.account.catalogs.reagents.ReagentCatalog"></mapping>
     </session-factory>
 </hibernate-configuration>
