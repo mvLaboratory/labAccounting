@@ -5,11 +5,15 @@ import com.mvLab.lab.accaunt.WindowManager;
 import com.mvLab.lab.accaunt.catalogs.Catalog;
 import com.mvLab.lab.accaunt.catalogs.CatalogListForm;
 import com.mvLab.lab.accaunt.controllers.ReagentCatalogController;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.io.ObjectInput;
@@ -32,7 +36,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
         formTab.setOnClosed(event -> {
             WindowManager.getInstance().closeReagentCatalogListForm();
         });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("view/ReagentCatalogForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentCatalogForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
         catalogController = new ReagentCatalogController<>();
@@ -42,7 +46,21 @@ public class ReagentCatalogListForm extends CatalogListForm {
 
         for (TableColumn coll : reagentTableView.getColumns()) {
             String collName = coll.getText();
-            coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
+
+            if (collName.equals("Precursor")) {
+                coll.setCellValueFactory(cellValue -> new SimpleBooleanProperty(((ReagentCatalog)((TableColumn.CellDataFeatures)cellValue).getValue()).isPrecursor()));
+
+                coll.setCellFactory(new Callback<TableColumn<ReagentCatalog, Boolean>, TableCell<ReagentCatalog, Boolean>>() {
+                    @Override
+                    public TableCell<ReagentCatalog, Boolean> call(TableColumn<ReagentCatalog, Boolean> tableColumn) {
+                        return new CheckBoxTableCell<ReagentCatalog, Boolean>();
+                    }
+                });
+
+            }
+            else {
+                coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
+            }
         }
         formTab.setContent(tabView);
 

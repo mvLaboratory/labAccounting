@@ -25,8 +25,9 @@ public class MainWindow {
     }
 
     public void display() throws IOException {
+//        primaryStage.setOn
         //rootLayout = FXMLLoader.load(Main.class.getResource("view/MainForm.fxml"));
-        loader = new FXMLLoader(Main.class.getResource("view/MainForm.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("/view/MainForm.fxml"));
         rootLayout = loader.load();
 
         primaryStage.setTitle("Laboratory accountant");
@@ -35,7 +36,7 @@ public class MainWindow {
         primaryStage.show();
 
         Tab nTab = new Tab("Main");
-        nTab.setContent(FXMLLoader.load(Main.class.getResource("view/ReportView.fxml")));
+        nTab.setContent(FXMLLoader.load(Main.class.getResource("/view/ReportView.fxml")));
         TabPane centralPane = new TabPane();
         centralPane.getTabs().add(nTab);
         rootLayout.setCenter(centralPane);

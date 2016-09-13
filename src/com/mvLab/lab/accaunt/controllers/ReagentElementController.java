@@ -5,10 +5,7 @@ import com.mvLab.lab.accaunt.catalogs.Reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.accaunt.windows.InternalWindow;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import javax.print.attribute.standard.MediaSize;
@@ -20,6 +17,7 @@ public class ReagentElementController {
     @FXML Label windowHeaderLbl;
     @FXML Button windowCloseButton;
     @FXML BorderPane windowHeader;
+    @FXML CheckBox Precursor;
 
     private ReagentCatalogElementForm form;
         //implements EventHandler<ActionEvent> {
@@ -34,6 +32,7 @@ public class ReagentElementController {
         ID.setText("" + (ellID == null || ellID == 0 ? "" : ellID));
         Name.setText("" + form.getCatalogElement().getName());
         Description.setText("" + form.getCatalogElement().getDescription());
+        Precursor.setSelected(form.getCatalogElement().isPrecursor());
     }
 
     public void customizeWindow(InternalWindow internalWindow) {
@@ -52,6 +51,7 @@ public class ReagentElementController {
     public void save() {
         form.getCatalogElement().setName(Name.getText());
         form.getCatalogElement().setDescription(Description.getText());
+        form.getCatalogElement().setPrecursor(Precursor.isSelected());
         form.save();
     }
 
