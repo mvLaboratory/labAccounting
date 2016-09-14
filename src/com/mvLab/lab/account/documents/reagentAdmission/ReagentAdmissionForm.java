@@ -2,8 +2,7 @@ package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
-import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
-import com.mvLab.lab.account.controllers.ReagentCatalogController;
+import com.mvLab.lab.account.controllers.ReagentAdmissionController;
 import com.mvLab.lab.account.windows.MV_Window;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -17,8 +16,8 @@ public class ReagentAdmissionForm extends MV_Window {
     private Tab formTab;
     private BorderPane rootLayout;
     private SingleSelectionModel tabSelectionModel;
-    private TableView<ReagentCatalog> reagentTableView;
-    private ReagentCatalogController catalogController;
+    private TableView<ReagentAdmission> reagentTableView;
+    private ReagentAdmissionController admissionController;
 
     public ReagentAdmissionForm(BorderPane rootLayout) {
         this.rootLayout = rootLayout;
@@ -27,15 +26,15 @@ public class ReagentAdmissionForm extends MV_Window {
     public void display() throws IOException {
         formTab = new Tab("Admission");
         formTab.setOnClosed(event -> {
-            WindowManager.getInstance().closeReagentCatalogListForm();
+            WindowManager.getInstance().closeReagentAdmissionForm();
         });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentAdmissionDocumentForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentAdmissionForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
-        catalogController = new ReagentCatalogController<>();
-        catalogController.setTable(reagentTableView);
-        reagentTableView.setRowFactory(catalogController);
-        reagentTableView.setItems(ReagentCatalog.getCatalogData());
+        admissionController = new ReagentAdmissionController<>();
+        admissionController.setTable(reagentTableView);
+        reagentTableView.setRowFactory(admissionController);
+        reagentTableView.setItems(ReagentAdmission.getDocumentData());
 
         for (TableColumn coll : reagentTableView.getColumns()) {
             String collName = coll.getText();
@@ -55,15 +54,15 @@ public class ReagentAdmissionForm extends MV_Window {
 
     public void update() {
 
-        reagentTableView.setItems(ReagentCatalog.getCatalogData());
+        reagentTableView.setItems(ReagentAdmission.getDocumentData());
         reagentTableView.refresh();
     }
 
-    public void selectRow(ReagentCatalog element, boolean scrollToRow) {
-        if  (catalogController == null) {
+    public void selectRow(ReagentAdmission document, boolean scrollToRow) {
+        if  (admissionController == null) {
             WindowManager.openErrorWindow("Catalog for is not initialized!");
             return;
         }
-        catalogController.selectRow(element, scrollToRow);
+        admissionController.selectRow(document, scrollToRow);
     }
 }

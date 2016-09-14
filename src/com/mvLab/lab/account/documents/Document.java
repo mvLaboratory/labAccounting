@@ -1,9 +1,11 @@
 package com.mvLab.lab.account.documents;
 
+import com.mvLab.lab.account.windows.Header;
+
 import java.util.Date;
 import java.util.UUID;
 
-public abstract class Document {
+public abstract class Document implements Header {
     public abstract Integer getNumber();
 
     public abstract void setNumber(Integer number);

@@ -1,9 +1,11 @@
 package com.mvLab.lab.account.catalogs;
 
 import com.mvLab.lab.account.DB_Manager;
+import com.mvLab.lab.account.windows.Header;
+
 import java.util.UUID;
 
-public abstract class Catalog {
+public abstract class Catalog implements Header {
 
     public abstract Integer getId();
 

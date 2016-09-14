@@ -2,6 +2,8 @@ package com.mvLab.lab.account.controllers;
 
 import com.mvLab.lab.account.WindowManager;
 import com.mvLab.lab.account.catalogs.Catalog;
+import com.mvLab.lab.account.documents.Document;
+import com.mvLab.lab.account.windows.Header;
 import com.mvLab.lab.account.windows.MV_Window;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -28,7 +30,7 @@ public class MainController implements EventHandler {
         innerWindowTB.getItems().add(windowLink);
     }
 
-    public void addCatalogWindowLink(Class elementClass, String linkText) {
+    public void addWindowLink(Class elementClass, String linkText) {
         Hyperlink windowLink = new Hyperlink(linkText);
         windowLink.setId("newWindowLink");
         windowLink.setUserData(elementClass);
@@ -52,7 +54,7 @@ public class MainController implements EventHandler {
             WindowManager.getInstance().openReagentCatalogListForm();
     }
 
-    public void updateCatalogWindowLink(Catalog element) {
+    public void updateWindowLink(Header element) {
         Node editNode = null;
         for (Node link : innerWindowTB.getItems()) {
             if (link.getUserData().equals(element.getClass()))
@@ -91,12 +93,6 @@ public class MainController implements EventHandler {
         if (event.getSource() instanceof Hyperlink) {
             Hyperlink link = (Hyperlink) event.getSource();
             WindowManager.getInstance().showInnerWindow(link.getUserData());
-//            WindowManager.getInstance().getInnerWindowsFromTB(data);
-//
-//            String linkID = link.getId();
-//            int linkIndex = Integer.parseInt(linkID.substring(10));
-//
-//            WindowManager.getInstance().showInnerWindow(linkIndex - 1);
         }
     }
 }

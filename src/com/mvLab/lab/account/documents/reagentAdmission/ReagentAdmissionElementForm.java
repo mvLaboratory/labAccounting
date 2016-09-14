@@ -1,37 +1,42 @@
-package com.mvLab.lab.account.catalogs.reagents;
+package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
 import com.mvLab.lab.account.catalogs.CatalogElementForm;
+import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
+import com.mvLab.lab.account.controllers.ReagentAdmissionDocumentController;
 import com.mvLab.lab.account.controllers.ReagentElementController;
+import com.mvLab.lab.account.documents.DocumentForm;
 import com.mvLab.lab.account.windows.InternalWindow;
+import com.mvLab.lab.account.windows.MV_Window;
+import com.mvLab.lab.account.windows.Showable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
-public class ReagentCatalogElementForm extends CatalogElementForm {
+public class ReagentAdmissionElementForm extends DocumentForm implements Showable {
 
-    private ReagentCatalog reagentElement;
+    private ReagentAdmission document;
     private double posX, posY;
     private InternalWindow formWindow;
     private BorderPane windowPane;
     private FXMLLoader loader;
-    private ReagentElementController elementController;
+    private ReagentAdmissionDocumentController documentController;
 
     {
-        loader = new FXMLLoader(Main.class.getResource("/view/ReagentCatalogElementForm.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("/view/ReagentAdmissionDocumentForm.fxml"));
 
         try {
             windowPane = loader.load();
-            elementController = loader.getController();
+            documentController = loader.getController();
         }catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public ReagentCatalogElementForm() {
-        this.reagentElement = new ReagentCatalog();
+    public ReagentAdmissionElementForm() {
+        this.document = new ReagentAdmission();
         this.posX = (WindowManager.getInstance().getStageWidth() / 2) - (windowPane.getPrefWidth() / 2) + 50;
         this.posY = WindowManager.getInstance().getStageHeight() / 4;
 
@@ -41,8 +46,8 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
         newElement = true;
     }
 
-    public ReagentCatalogElementForm(ReagentCatalog reagentElement, double posX, double posY) {
-        this.reagentElement = reagentElement;
+    public ReagentAdmissionElementForm(ReagentAdmission document, double posX, double posY) {
+        this.document = document;
 
         this.posX = (WindowManager.getInstance().getStageWidth() / 2) - (windowPane.getPrefWidth() / 2) + 50;
         this.posY = WindowManager.getInstance().getStageHeight() / 4;
@@ -62,9 +67,9 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
         formWindow = InternalWindow.constructWindow(posX, posY, windowPane);
 
         //ReagentElementController controller = loader.getController();
-        elementController.setForm(this);
-        elementController.setFields();
-        elementController.customizeWindow(formWindow);
+        documentController.setForm(this);
+        documentController.setFields();
+        documentController.customizeWindow(formWindow);
 
         WindowManager.getInstance().getMainWindow().getRootLayout().getChildren().add(formWindow);
 
@@ -92,28 +97,26 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     }
 
     public void save() {
-        reagentElement.save();
-        reagentElement.readElement();
-        elementController.setFields();
-        WindowManager.getInstance().getMainWindow().getController().updateWindowLink(reagentElement);
-        elementController.setHeader();
-        //elementController = loader.getController();
+        document.save();
+        document.readElement();
+        documentController.setFields();
+        WindowManager.getInstance().getMainWindow().getController().updateWindowLink(document);
+        documentController.setHeader();
     }
 
     public void closeWindow() {
         if (newElement) {
-            WindowManager.getInstance().closeNewCatalogWindow(formWindow, reagentElement, "ReagentList");
+            WindowManager.getInstance().closeNewAdmissionWindow(formWindow, document, "ReagentList");
         }
         else
         {
-            WindowManager.getInstance().closeCatalogWindow(formWindow, reagentElement, "ReagentList");
+           WindowManager.getInstance().closeAdmissionWindow(formWindow, document, "ReagentList");
         }
-        //WindowManager.getInstance().updateReagentCatalogListForm();
     }
 
     @Override
-    public ReagentCatalog getCatalogElement() {
-        return reagentElement;
+    public ReagentAdmission getDocument() {
+        return document;
     }
 
 }

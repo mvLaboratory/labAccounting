@@ -84,24 +84,4 @@ public class ReagentCatalogListForm extends CatalogListForm {
         }
         catalogController.selectRow(element, scrollToRow);
     }
-
-    //    public ReagentCatalogListForm(String title, int windowWidth, int windowHeight) {
-//        super(title, windowWidth, windowHeight);
-//    }
-
-
-
-//    public static ObservableList<ReagentCatalog> getCatalogData() {
-//        ObservableList<ReagentCatalog> catalogData = FXCollections.observableArrayList();
-//        ArrayList<HashMap<String, Object>> catalogElements = DB_Manager.ReadReagentCatalog();
-//        for (HashMap<String, Object> element : catalogElements) {
-//            catalogData.add(new ReagentCatalog((Integer) element.get("id"), (String)element.get("name"), (String)element.get("description"), (String)element.get("uuid")));
-//        }
-//        return catalogData;
-//    }
-
-//    public static Catalog getPresentRowData() {
-//        presentRowData = reagentTable.getSelectionModel().getSelectedItem();
-//        return presentRowData;
-//    }
 }
