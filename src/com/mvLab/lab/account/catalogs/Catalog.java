@@ -1,7 +1,7 @@
 package com.mvLab.lab.account.catalogs;
 
 import com.mvLab.lab.account.DB_Manager;
-import com.mvLab.lab.account.windows.Header;
+import com.mvLab.lab.account.windows.interfaces.Header;
 
 import java.util.UUID;
 

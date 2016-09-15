@@ -1,9 +1,7 @@
 package com.mvLab.lab.account.controllers;
 
 import com.mvLab.lab.account.WindowManager;
-import com.mvLab.lab.account.catalogs.Catalog;
-import com.mvLab.lab.account.documents.Document;
-import com.mvLab.lab.account.windows.Header;
+import com.mvLab.lab.account.windows.interfaces.Header;
 import com.mvLab.lab.account.windows.MV_Window;
 import javafx.event.Event;
 import javafx.event.EventHandler;

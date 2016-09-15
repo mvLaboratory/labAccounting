@@ -8,8 +8,8 @@ import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionElementForm;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionForm;
-import com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumptionListForm;
 import com.mvLab.lab.account.windows.*;
+import com.mvLab.lab.account.windows.interfaces.Showable;
 import javafx.stage.Stage;
 
 import java.io.IOException;

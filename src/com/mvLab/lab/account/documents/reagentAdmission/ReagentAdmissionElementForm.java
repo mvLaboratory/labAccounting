@@ -2,14 +2,10 @@ package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
-import com.mvLab.lab.account.catalogs.CatalogElementForm;
-import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.controllers.ReagentAdmissionDocumentController;
-import com.mvLab.lab.account.controllers.ReagentElementController;
 import com.mvLab.lab.account.documents.DocumentForm;
 import com.mvLab.lab.account.windows.InternalWindow;
-import com.mvLab.lab.account.windows.MV_Window;
-import com.mvLab.lab.account.windows.Showable;
+import com.mvLab.lab.account.windows.interfaces.Showable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 

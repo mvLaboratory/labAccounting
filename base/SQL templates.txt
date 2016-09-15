@@ -19,8 +19,8 @@ create table REAGENT_ADMISSION (
 create table REAGENT_ADMISSION_TABLE_PART_ROW (
    rowID INT NOT NULL auto_increment,
    rowNumber INT NOT NULL,
-   document  INT NOT NULL UNIQUE,
-   reagent INT NOT NULL UNIQUE,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
    quantity DOUBLE default 0,
    price DOUBLE default 0,
    sum DOUBLE default 0,

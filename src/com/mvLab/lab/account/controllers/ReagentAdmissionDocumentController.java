@@ -12,11 +12,14 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import javafx.util.converter.DoubleStringConverter;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -26,6 +29,7 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
     @FXML TextField number;
     @FXML DatePicker date;
     @FXML TableView<ReagentAdmissionTablePartRow> reagentTable;
+    @FXML TableColumn quantity;
 
     @FXML Label windowHeaderLbl;
     @FXML Button windowCloseButton;
@@ -43,6 +47,7 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
             date.setValue(LocalDate.now());
         }
 
+        number.setText("" + form.getDocument().getNumber());
 //        Integer ellID = form.getCatalogElement().getId();
 //        ID.setText("" + (ellID == null || ellID == 0 ? "" : ellID));
 //        Name.setText("" + form.getCatalogElement().getName());
@@ -52,6 +57,19 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
         for (ReagentAdmissionTablePartRow tableRow : form.getDocument().getRowSet()) {
             reagentTable.getItems().add(tableRow);
         }
+        reagentTable.setEditable(true);
+
+        quantity.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("quantity"));
+        quantity.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        quantity.setOnEditCommit(
+                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
+                    @Override
+                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
+                       ( t.getTableView().getItems().get(t.getTablePosition().getRow())
+                        ).setQuantity(t.getNewValue());
+                    }
+                }
+        );
     }
 
     public void customizeWindow(InternalWindow internalWindow) {
@@ -83,9 +101,10 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
 
     @FXML
     public void newRowButtonOnClick(Event event) {
-//        ObservableList lst = reagentTable.getItems();
-//        lst.add(new ReagentAdmissionTablePartRow(1, new ReagentAdmission(), 1, new ReagentCatalog(), 1, 1, 1));
-//        reagentTable.setItems(lst);
+        ReagentAdmissionTablePartRow newRowElement = new ReagentAdmissionTablePartRow();
+        newRowElement.setRowNumber((form.getDocument().getRowSet().size() + 1));
+        form.getDocument().getRowSet().add(newRowElement);
+        reagentTable.getItems().add(newRowElement);
     }
 
     @FXML
