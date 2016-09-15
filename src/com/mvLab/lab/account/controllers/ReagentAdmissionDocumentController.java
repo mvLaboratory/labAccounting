@@ -6,19 +6,26 @@ import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionElementForm;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionTablePartRow;
 import com.mvLab.lab.account.windows.InternalWindow;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.ZoneId;
 
-public class ReagentAdmissionDocumentController {
+public class ReagentAdmissionDocumentController implements EventHandler<MouseEvent>, Callback<TableView<ReagentAdmissionTablePartRow>, TableRow<ReagentAdmissionTablePartRow>> {
     @FXML TextField number;
     @FXML DatePicker date;
-    @FXML TableView reagentTable;
+    @FXML TableView<ReagentAdmissionTablePartRow> reagentTable;
 
     @FXML Label windowHeaderLbl;
     @FXML Button windowCloseButton;
@@ -32,11 +39,19 @@ public class ReagentAdmissionDocumentController {
     }
 
     public void setFields() {
+        if (date.getValue() == null) {
+            date.setValue(LocalDate.now());
+        }
+
 //        Integer ellID = form.getCatalogElement().getId();
 //        ID.setText("" + (ellID == null || ellID == 0 ? "" : ellID));
 //        Name.setText("" + form.getCatalogElement().getName());
 //        Description.setText("" + form.getCatalogElement().getDescription());
 //        Precursor.setSelected(form.getCatalogElement().isPrecursor());
+//        form.getDocument().getRowSet().add(new ReagentAdmissionTablePartRow(1, form.getDocument(), 1, new ReagentCatalog(2, "reagent", ""), 3, 4, 5));
+        for (ReagentAdmissionTablePartRow tableRow : form.getDocument().getRowSet()) {
+            reagentTable.getItems().add(tableRow);
+        }
     }
 
     public void customizeWindow(InternalWindow internalWindow) {
@@ -47,7 +62,11 @@ public class ReagentAdmissionDocumentController {
         internalWindow.makeDragable(windowHeader);
         internalWindow.makeDragable(windowHeaderLbl);
 
-        //reagentTable.getItems().add(new ReagentAdmissionTablePartRow());
+        reagentTable.setRowFactory(this);
+        for (TableColumn coll : reagentTable.getColumns()) {
+            String collName = coll.getId();
+            coll.setCellValueFactory(new PropertyValueFactory(collName));
+        }
     }
 
     public void setHeader() {
@@ -59,7 +78,7 @@ public class ReagentAdmissionDocumentController {
 //        reagentTable.getItems()
 //        form.getCatalogElement().setDescription(Description.getText());
 //        form.getCatalogElement().setPrecursor(Precursor.isSelected());
-//        form.save();
+        form.save();
     }
 
     @FXML
@@ -100,4 +119,17 @@ public class ReagentAdmissionDocumentController {
     }
 
 
+    @Override
+    public void handle(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+
+        }
+    }
+
+    @Override
+    public TableRow call(TableView param) {
+        TableRow<ReagentAdmissionTablePartRow> row = new TableRow<>();
+        row.setOnMouseClicked(this);
+        return row;
+    }
 }

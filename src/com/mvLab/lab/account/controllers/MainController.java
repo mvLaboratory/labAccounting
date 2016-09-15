@@ -20,11 +20,11 @@ public class MainController implements EventHandler {
     @FXML Button reagentButton;
     private final int LINK_TEXT_LENGTH = 15;
 
-    public void addCatalogWindowLink(Catalog catalogElement) {
-        String linkText = catalogElement.getHeader();
+    public void addWindowLink(Header element) {
+        String linkText = element.getHeader();
         Hyperlink windowLink = new Hyperlink(linkText.length() > LINK_TEXT_LENGTH ? linkText.substring(0, LINK_TEXT_LENGTH) + "..." : linkText);
         windowLink.setId("windowLink" + WindowManager.getInstance().getInnerWindowsCount());
-        windowLink.setUserData(catalogElement);
+        windowLink.setUserData(element);
         windowLink.setOnMouseClicked(this);
 
         innerWindowTB.getItems().add(windowLink);

@@ -33,7 +33,7 @@ public class ReagentAdmission extends Document implements Serializable {
 //    @Column(name = "documentSum")
 //    private double documentSum;
 
-    @OneToMany(mappedBy="document")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="document")
     private Set<ReagentAdmissionTablePartRow> rowSet  = new HashSet<>();
 
     public ReagentAdmission() {
@@ -84,7 +84,7 @@ public class ReagentAdmission extends Document implements Serializable {
 
     @Override
     public void setNewUUID() {
-
+        this.uuid = UUID.randomUUID();
     }
 
     public Set<ReagentAdmissionTablePartRow> getRowSet() {
@@ -109,6 +109,13 @@ public class ReagentAdmission extends Document implements Serializable {
         ObservableList<ReagentAdmission> documentData = FXCollections.observableArrayList();
         documentData.addAll(DB_Manager.readReagentAdmission());
         return documentData;
+    }
+
+    @Override
+    public void save() {
+        super.save();
+        getRowSet().forEach(ReagentAdmissionTablePartRow::save);
+        //super.save();
     }
 
     @Override

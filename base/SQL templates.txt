@@ -7,3 +7,23 @@ create table REAGENTS (
    PRIMARY KEY (id)
 );
 
+create table REAGENT_ADMISSION (
+   number INT NOT NULL auto_increment,
+   uuid UUID NOT NULL UNIQUE,
+   date DATE default NULL,
+
+   PRIMARY KEY (number )
+);
+
+
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNumber INT NOT NULL,
+   document  INT NOT NULL UNIQUE,
+   reagent INT NOT NULL UNIQUE,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID)
+);

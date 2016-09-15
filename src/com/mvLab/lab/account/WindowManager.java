@@ -191,7 +191,7 @@ public class WindowManager {
             else {
                 ellForm.display();
                 innerWindowsMap.put(reagentElement, ellForm);
-                mainWindow.getController().addCatalogWindowLink(reagentElement);
+                mainWindow.getController().addWindowLink(reagentElement);
             }
         }
         catch (IOException e) {
@@ -313,16 +313,16 @@ public class WindowManager {
 
     }
 
-    public void openReagentAdmissionElementForm(ReagentCatalog reagentElement, double posX, double posY) {
-        ReagentCatalogElementForm ellForm = new ReagentCatalogElementForm(reagentElement, posX, posY);
+    public void openReagentAdmissionElementForm(ReagentAdmission document, double posX, double posY) {
+        ReagentAdmissionElementForm docForm = new ReagentAdmissionElementForm(document, posX, posY);
         try {
-            if (innerWindowsMap.containsKey(reagentElement)) {
-                ((ReagentCatalogElementForm) innerWindowsMap.get(reagentElement)).show();
+            if (innerWindowsMap.containsKey(document)) {
+                ((ReagentAdmissionElementForm) innerWindowsMap.get(document)).show();
             }
             else {
-                ellForm.display();
-                innerWindowsMap.put(reagentElement, ellForm);
-                mainWindow.getController().addCatalogWindowLink(reagentElement);
+                docForm.display();
+                innerWindowsMap.put(document, docForm);
+                mainWindow.getController().addWindowLink(document);
             }
         }
         catch (IOException e) {

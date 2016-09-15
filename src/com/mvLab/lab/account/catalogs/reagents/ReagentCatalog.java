@@ -173,4 +173,9 @@ public class ReagentCatalog extends Catalog implements Serializable {
         result = 31 * result + (isPrecursor() ? 1 : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

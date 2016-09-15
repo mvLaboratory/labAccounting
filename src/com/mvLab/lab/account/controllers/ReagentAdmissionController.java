@@ -38,18 +38,18 @@ public class ReagentAdmissionController<Type> implements EventHandler<MouseEvent
 
     @Override
     public void handle(MouseEvent event) {
-//        if (event.getClickCount() == 2) {
-//            ReagentCatalog rowData = ((TableRow<ReagentCatalog>) event.getSource()).getItem();
+        if (event.getClickCount() == 2) {
+            ReagentAdmission rowData = ((TableRow<ReagentAdmission>) event.getSource()).getItem();
 //            //WindowManager.openReagentCatalogElementForm((Catalog) rowData);
 //
-//            double mouseX = event.getSceneX();
-//            double mouseY = event.getSceneY();
-//            WindowManager.getInstance().openReagentCatalogElementForm(rowData, mouseX, mouseY);
+            double mouseX = event.getSceneX();
+            double mouseY = event.getSceneY();
+            WindowManager.getInstance().openReagentAdmissionElementForm(rowData, mouseX, mouseY);
 //        }
 //        else if (event.getClickCount() == 1) {
 //            // TODO: 02.09.2016 to front main wndow
 ////            WindowManager.getInstance().getMainWindow().getRootLayout().toFront();
-//        }
+        }
     }
 
     public void setTable(TableView table) {

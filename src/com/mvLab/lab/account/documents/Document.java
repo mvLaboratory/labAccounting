@@ -1,5 +1,6 @@
 package com.mvLab.lab.account.documents;
 
+import com.mvLab.lab.account.DB_Manager;
 import com.mvLab.lab.account.windows.Header;
 
 import java.util.Date;
@@ -23,12 +24,13 @@ public abstract class Document implements Header {
     public abstract Boolean isNew();
 
     public void save() {
-//        if (!isNew())
-//            DB_Manager.getInstance().updateCatalogElement(this);
-//        else {
-//            setNewUUID();
-//            this.setId(DB_Manager.getInstance().saveCatalogElement(this));
-//        }
+        if (!isNew()) {
+            DB_Manager.getInstance().updateDocumentElement(this);
+        }
+        else {
+            setNewUUID();
+            this.setNumber(DB_Manager.getInstance().saveDocumentElement(this));
+        }
     }
 
     public abstract void readElement();

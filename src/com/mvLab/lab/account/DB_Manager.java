@@ -3,6 +3,7 @@ package com.mvLab.lab.account;
 import com.mvLab.lab.account.catalogs.Catalog;
 import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.documents.Document;
+import com.mvLab.lab.account.documents.Savable;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -185,6 +186,24 @@ public class DB_Manager {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
             WindowManager.openErrorWindow("Error with saving " + element.getHeader());
+        }finally {
+            session.close();
+        }
+        return docID;
+    }
+
+    public Integer saveElement(Savable element){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Integer docID = null;
+        try{
+            tx = session.beginTransaction();
+            docID = (Integer) session.save(element);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with saving element");
         }finally {
             session.close();
         }

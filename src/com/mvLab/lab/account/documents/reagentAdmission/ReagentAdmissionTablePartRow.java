@@ -1,13 +1,15 @@
 package com.mvLab.lab.account.documents.reagentAdmission;
 
+import com.mvLab.lab.account.DB_Manager;
 import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
+import com.mvLab.lab.account.documents.Savable;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "REAGENT_ADMISSION_TABLE_PART_ROW")
-public class ReagentAdmissionTablePartRow implements Serializable {
+public class ReagentAdmissionTablePartRow implements Serializable, Savable {
     @Id
     @GeneratedValue
     @Column(name = "rowID")
@@ -135,5 +137,10 @@ public class ReagentAdmissionTablePartRow implements Serializable {
         temp = Double.doubleToLongBits(getSum());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public void save() {
+        DB_Manager.getInstance().saveElement(this);
     }
 }

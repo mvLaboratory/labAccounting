@@ -486,3 +486,776 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/lab
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
 	... 57 more
+2016-09-14 19:58:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+);"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+);"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+); [42000-192]
+2016-09-14 19:58:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID),
+   KEY(DOCUMENT, REAGENT)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID),
+   KEY(DOCUMENT, REAGENT)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+) [42001-192]
+2016-09-14 19:58:56 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID),
+   KEY(DOCUMENT, REAGENT)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID),
+   KEY(DOCUMENT, REAGENT)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+) [42001-192]
+2016-09-14 19:59:21 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID)
+) [42001-192]
+2016-09-14 20:00:20 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+);"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+);"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+); [42000-192]
+2016-09-14 20:00:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+)"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+)"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+) [42000-192]
+2016-09-14 20:00:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+)"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+)"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+) [42000-192]
+2016-09-14 20:00:39 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+)"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+)"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+) [42000-192]
+2016-09-14 20:00:49 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+)"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+)"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+) [42000-192]
+2016-09-14 20:00:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+
+   PRIMARY KEY (rowID)
+)"
+Syntax error in SQL statement "create table [*]""REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+
+   PRIMARY KEY (rowID)
+)"; SQL statement:
+create table "REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+
+   PRIMARY KEY (rowID)
+) [42000-192]
+2016-09-14 20:01:14 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID),
+   KEY(DOCUMENT, REAGENT)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID),
+   KEY(DOCUMENT, REAGENT)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+) [42001-192]
+2016-09-14 20:01:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID)
+) [42001-192]
+2016-09-14 20:01:39 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+
+
+   PRIMARY KEY (ROWID)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+
+
+   PRIMARY KEY (ROWID)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+
+
+   PRIMARY KEY (rowID)
+) [42001-192]
+2016-09-14 20:01:49 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   PRIMARY KEY (ROWID)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   PRIMARY KEY (ROWID)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   PRIMARY KEY (rowID)
+) [42001-192]
+2016-09-14 20:01:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+
+   PRIMARY KEY (ROWID)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+
+   PRIMARY KEY (ROWID)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+
+   PRIMARY KEY (rowID)
+) [42001-192]
+2016-09-14 20:03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Неизвестный тип данных: "("
+Unknown data type: "("; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+) [50004-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4079)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3937)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5972)
+	at org.h2.command.Parser.parseCreate(Parser.java:4237)
+	at org.h2.command.Parser.parsePrepared(Parser.java:362)
+	at org.h2.command.Parser.parse(Parser.java:317)
+	at org.h2.command.Parser.parse(Parser.java:289)
+	at org.h2.command.Parser.prepareCommand(Parser.java:254)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-09-14 20:03:47 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID)
+) "; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE REAGENT_ADMISSION_TABLE_PART_ROW (
+   ROWID INT NOT NULL AUTO_INCREMENT,
+   ROWNUM[*] INT NOT NULL,
+   DOCUMENT  INT NOT NULL,
+   REAGENT INT NOT NULL,
+   QUANTITY DOUBLE DEFAULT 0,
+   PRICE DOUBLE DEFAULT 0,
+   SUM DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (ROWID)
+) "; expected "identifier"; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNum INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID)
+) [42001-192]
+2016-09-14 20:05:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Неизвестный тип данных: "("
+Unknown data type: "("; SQL statement:
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNumber INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID),
+   KEY(document, reagent)
+) [50004-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4079)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3937)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5972)
+	at org.h2.command.Parser.parseCreate(Parser.java:4237)
+	at org.h2.command.Parser.parsePrepared(Parser.java:362)
+	at org.h2.command.Parser.parse(Parser.java:317)
+	at org.h2.command.Parser.parse(Parser.java:289)
+	at org.h2.command.Parser.prepareCommand(Parser.java:254)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-09-14 20:10:10 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:21)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:34)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more
+2016-09-14 20:10:30 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:21)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:34)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more
+2016-09-14 20:10:48 jdbc[5]: null
+org.h2.message.DbException: Незакрытое приложением соединение уничтожено сборщиком мусора
+The connection was not closed by the application and is garbage collected [90018-192]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:187)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:129)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.login(WebApp.java:955)
+	at org.h2.server.web.WebApp.process(WebApp.java:211)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: Незакрытое приложением соединение уничтожено сборщиком мусора
+The connection was not closed by the application and is garbage collected [90018-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 14 more
+2016-09-15 11:21:39 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:24)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:37)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more

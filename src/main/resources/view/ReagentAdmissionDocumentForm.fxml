@@ -32,11 +32,11 @@
             <DatePicker fx:id="date" GridPane.columnIndex="5" />
             <TableView fx:id="reagentTable" prefHeight="227.0" prefWidth="784.0" styleClass="tablePart" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" GridPane.rowSpan="2147483647">
               <columns>
-                <TableColumn id="rowNumCol" prefWidth="50.0" text="N" />
-                <TableColumn id="reafentCol" minWidth="0.0" prefWidth="298.0" text="Reagent" />
-                  <TableColumn id="quantityCol" prefWidth="164.0" text="Quantity" />
-                  <TableColumn id="pricCol" prefWidth="113.0" text="Price" />
-                  <TableColumn id="sumCol" prefWidth="151.0" text="Sum" />
+                <TableColumn id="rowNumber" fx:id="rowNumber" prefWidth="50.0" text="N" />
+                <TableColumn id="reagent" fx:id="reagent" minWidth="0.0" prefWidth="298.0" text="Reagent" />
+                  <TableColumn id="quantity" fx:id="quantity" prefWidth="164.0" text="Quantity" />
+                  <TableColumn id="price" fx:id="price" prefWidth="113.0" text="Price" />
+                  <TableColumn id="sum" fx:id="sum" prefWidth="151.0" text="Sum" />
               </columns>
             </TableView>
             <ToolBar prefHeight="48.0" prefWidth="737.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
