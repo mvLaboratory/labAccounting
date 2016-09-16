@@ -40,6 +40,7 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
     @FXML BorderPane windowHeader;
 
     private ReagentAdmissionElementForm form;
+    //public ReagentAdmissionTablePartRow editedRow;
 
     @FXML
     private void initialize() {
@@ -182,9 +183,12 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
 
     @Override
     public void handle(MouseEvent event) {
-        if (event.getClickCount() == 2) {
-
-        }
+//        if (event.getClickCount() == 2) {
+//            editedRow = ((TableRow<ReagentAdmissionTablePartRow>) event.getSource()).getItem();
+//        }
+//        else {
+//            System.out.println("2");
+//        }
     }
 
     @Override
