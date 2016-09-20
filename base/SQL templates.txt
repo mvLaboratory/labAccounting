@@ -11,6 +11,8 @@ create table REAGENT_ADMISSION (
    number INT NOT NULL auto_increment,
    uuid UUID NOT NULL UNIQUE,
    date DATE default NULL,
+   posted BOOLEAN default FALSE,
+   supplier VARCHAR(200) default NULL,
 
    PRIMARY KEY (number )
 );

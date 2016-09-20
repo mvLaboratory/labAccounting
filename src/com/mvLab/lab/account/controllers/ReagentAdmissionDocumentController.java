@@ -31,6 +31,7 @@ import java.time.ZoneId;
 public class ReagentAdmissionDocumentController implements EventHandler<MouseEvent>, Callback<TableView<ReagentAdmissionTablePartRow>, TableRow<ReagentAdmissionTablePartRow>> {
     @FXML TextField number;
     @FXML DatePicker date;
+    @FXML TextField supplier;
     @FXML TableView<ReagentAdmissionTablePartRow> reagentTable;
     @FXML TableColumn quantity;
     @FXML TableColumn price;
@@ -54,9 +55,14 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
             date.setValue(LocalDate.now());
         }
 
-        number.setText("" + form.getDocument().getNumber());
+        if  (form.getDocument().getNumber() != null) {
+            number.setText("" + form.getDocument().getNumber());
+        }
+
+        supplier.setText(form.getDocument().getSupplier());
 
 //        form.getDocument().getRowSet().add(new ReagentAdmissionTablePartRow(1, form.getDocument(), 1, new ReagentCatalog(2, "reagent", ""), 3, 4, 5));
+        form.getDocument().getRowSet().clear();
         for (ReagentAdmissionTablePartRow tableRow : form.getDocument().getRowSet()) {
             reagentTable.getItems().add(tableRow);
         }
@@ -137,6 +143,7 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
 
     public void save() {
         form.getDocument().setDate(Date.from(date.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        form.getDocument().setSupplier(supplier.getText());
 //        reagentTable.getItems()
 //        form.getCatalogElement().setDescription(Description.getText());
 //        form.getCatalogElement().setPrecursor(Precursor.isSelected());
@@ -146,6 +153,7 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
     @FXML
     public void newRowButtonOnClick(Event event) {
         ReagentAdmissionTablePartRow newRowElement = new ReagentAdmissionTablePartRow();
+        newRowElement.setDocument(form.getDocument());
         newRowElement.setRowNumber((form.getDocument().getRowSet().size() + 1));
         form.getDocument().getRowSet().add(newRowElement);
         reagentTable.getItems().add(newRowElement);

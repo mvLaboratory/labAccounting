@@ -1,7 +1,6 @@
 package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.DB_Manager;
-import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.documents.Document;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,8 +26,8 @@ public class ReagentAdmission extends Document implements Serializable {
     @Column(name = "uuid")
     private UUID uuid;
 
-    @Column(name = "provider")
-    private String provider = "";
+    @Column(name = "supplier")
+    private String supplier = "";
 
     @Column(name = "posted")
     private boolean posted = false;
@@ -78,12 +77,12 @@ public class ReagentAdmission extends Document implements Serializable {
         this.date = date;
     }
 
-    public String getProvider() {
-        return provider;
+    public String getSupplier() {
+        return supplier;
     }
 
-    public void setProvider(String provider) {
-        this.provider = provider;
+    public void setSupplier(String supplier) {
+        this.supplier = supplier;
     }
 
     public boolean isPosted() {
@@ -158,23 +157,18 @@ public class ReagentAdmission extends Document implements Serializable {
         ReagentAdmission that = (ReagentAdmission) o;
 
         if (isPosted() != that.isPosted()) return false;
-        if (getNumber() != null ? !getNumber().equals(that.getNumber()) : that.getNumber() != null) return false;
         if (getDate() != null ? !getDate().equals(that.getDate()) : that.getDate() != null) return false;
         if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getUuid() != null) return false;
-        if (getProvider() != null ? !getProvider().equals(that.getProvider()) : that.getProvider() != null)
-            return false;
-        return getRowSet() != null ? getRowSet().equals(that.getRowSet()) : that.getRowSet() == null;
+        return getSupplier() != null ? getSupplier().equals(that.getSupplier()) : that.getSupplier() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getNumber() != null ? getNumber().hashCode() : 0;
-        result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
+        int result = getDate() != null ? getDate().hashCode() : 0;
         result = 31 * result + (getUuid() != null ? getUuid().hashCode() : 0);
-        result = 31 * result + (getProvider() != null ? getProvider().hashCode() : 0);
+        result = 31 * result + (getSupplier() != null ? getSupplier().hashCode() : 0);
         result = 31 * result + (isPosted() ? 1 : 0);
-        result = 31 * result + (getRowSet() != null ? getRowSet().hashCode() : 0);
         return result;
     }
 }

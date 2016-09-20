@@ -304,7 +304,7 @@ public class WindowManager {
                 ReagentAdmissionElementForm ellForm = new ReagentAdmissionElementForm();
                 ellForm.display();
                 innerWindowsMap.put(ReagentAdmission.class, ellForm);
-                mainWindow.getController().addWindowLink(ReagentCatalog.class, "new Admission");
+                mainWindow.getController().addWindowLink(ReagentAdmission.class, "new Admission");
             }
         }
         catch (IOException e) {
