@@ -289,7 +289,7 @@ public class WindowManager {
         getMainWindow().getRootLayout().getChildren().remove(window);
         innerWindowsMap.remove(document.getClass());
         getMainWindow().getController().removeCatalogWindowLink(document.getClass());
-        if  (formName.equals("ReagentList")) {
+        if  (formName.equals("ReagentAdmissionList")) {
             updateReagentAdmissionForm((ReagentAdmission) document, true);
         }
     }

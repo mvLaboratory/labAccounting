@@ -39,6 +39,7 @@ public class ReagentAdmission extends Document implements Serializable {
 //    private double documentSum;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy="document")
+    @OrderBy("rowNumber ASC")
     private Set<ReagentAdmissionTablePartRow> rowSet  = new HashSet<>();
 
     public ReagentAdmission() {
@@ -123,7 +124,7 @@ public class ReagentAdmission extends Document implements Serializable {
 
     @Override
     public void readElement() {
-
+        DB_Manager.getInstance().readReagentAdmissionElement(this.getNumber());
     }
 
     public static ObservableList<ReagentAdmission> getDocumentData() {

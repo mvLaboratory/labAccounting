@@ -55,14 +55,14 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
             date.setValue(LocalDate.now());
         }
 
-        if  (form.getDocument().getNumber() != null) {
+        if  (form.getDocument() != null && form.getDocument().getNumber() != null) {
             number.setText("" + form.getDocument().getNumber());
         }
 
         supplier.setText(form.getDocument().getSupplier());
 
 //        form.getDocument().getRowSet().add(new ReagentAdmissionTablePartRow(1, form.getDocument(), 1, new ReagentCatalog(2, "reagent", ""), 3, 4, 5));
-        form.getDocument().getRowSet().clear();
+        reagentTable.getItems().clear();
         for (ReagentAdmissionTablePartRow tableRow : form.getDocument().getRowSet()) {
             reagentTable.getItems().add(tableRow);
         }

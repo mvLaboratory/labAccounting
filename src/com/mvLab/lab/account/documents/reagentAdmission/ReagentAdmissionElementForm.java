@@ -94,7 +94,8 @@ public class ReagentAdmissionElementForm extends DocumentForm implements Showabl
 
     public void save() {
         document.save();
-        document.readElement();
+//        document.getRowSet().clear();
+//        document.readElement();
         documentController.setFields();
         WindowManager.getInstance().getMainWindow().getController().updateWindowLink(document);
         documentController.setHeader();
@@ -102,11 +103,11 @@ public class ReagentAdmissionElementForm extends DocumentForm implements Showabl
 
     public void closeWindow() {
         if (newElement) {
-            WindowManager.getInstance().closeNewAdmissionWindow(formWindow, document, "ReagentList");
+            WindowManager.getInstance().closeNewAdmissionWindow(formWindow, document, "ReagentAdmissionList");
         }
         else
         {
-           WindowManager.getInstance().closeAdmissionWindow(formWindow, document, "ReagentList");
+           WindowManager.getInstance().closeAdmissionWindow(formWindow, document, "ReagentAdmissionList");
         }
     }
 
