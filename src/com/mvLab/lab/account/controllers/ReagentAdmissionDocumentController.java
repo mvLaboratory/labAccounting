@@ -9,12 +9,14 @@ import com.mvLab.lab.account.utils.ControlTableCell;
 import com.mvLab.lab.account.windows.InternalWindow;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
@@ -62,80 +64,56 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
 
         ReagentAdmissionDocumentController thisController = this;
 
-//        quantity.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("quantity"));
-//        quantity.setCellFactory(new Callback<TableColumn<ReagentAdmissionTablePartRow, Double>, TableCell<ReagentAdmissionTablePartRow, Double>>() {
-//            @Override
-//            public TableCell<ReagentAdmissionTablePartRow, Double> call(TableColumn<ReagentAdmissionTablePartRow, Double> arg0) {
-//                return new ControlTableCell<ReagentAdmissionTablePartRow, Double>(thisController, false);
-//            }
-//        });
-//        quantity.setOnEditCommit(
-//                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
-//                    @Override
-//                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
-////                       ( t.getTableView().getItems().get(t.getTablePosition().getRow())
-////                        ).setQuantity(t.getNewValue());
-//                        System.out.println("new " + t.getNewValue());
-//                    }
-//                }
-//        );
+        quantity.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("quantity"));
+        quantity.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        quantity.setOnEditCommit(
+                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
+                    @Override
+                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
+                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
+                        ).setQuantity(t.getNewValue());
+                    }
+                }
+        );
 
-//        sum.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("sum"));
-//        sum.setCellFactory(new Callback<TableColumn<ReagentAdmissionTablePartRow, Double>, TableCell<ReagentAdmissionTablePartRow, Double>>() {
-//            @Override
-//            public TableCell<ReagentAdmissionTablePartRow, Double> call(TableColumn<ReagentAdmissionTablePartRow, Double> arg0) {
-//                return new ControlTableCell<ReagentAdmissionTablePartRow, Double>(thisController, false);
-//            }
-//        });
-//        sum.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-//        sum.setOnEditCommit(
-//                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
-//                    @Override
-//                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
-//                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
-//                        ).setSum(t.getNewValue());
-//                    }
-//                }
-//        );
+        sum.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("sum"));
+        sum.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        sum.setOnEditCommit(
+                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
+                    @Override
+                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
+                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
+                        ).setSum(t.getNewValue());
+                    }
+                }
+        );
 
-//        price.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("price"));
-//        price.setCellFactory(new Callback<TableColumn<ReagentAdmissionTablePartRow, Double>, TableCell<ReagentAdmissionTablePartRow, Double>>() {
-//            @Override
-//            public TableCell<ReagentAdmissionTablePartRow, Double> call(TableColumn<ReagentAdmissionTablePartRow, Double> arg0) {
-//                return new ControlTableCell<ReagentAdmissionTablePartRow, Double>(thisController, false);
-//            }
-//        });
-//       price.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-//        price.setOnEditCommit(
-//                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
-//                    @Override
-//                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
-//                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
-//                        ).setPrice(t.getNewValue());
-//                    }
-//                }
-//        );
+       price.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, Double>("price"));
+       price.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+       price.setOnEditCommit(
+                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, Double>>() {
+                    @Override
+                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, Double> t) {
+                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
+                        ).setPrice(t.getNewValue());
+                    }
+                }
+        );
+
 
 
         reagent.setEditable(true);
         reagent.setCellValueFactory(new PropertyValueFactory<ReagentAdmissionTablePartRow, ReagentCatalog>("reagent"));
-        reagent.setCellFactory( new Callback<TableColumn<ReagentAdmissionTablePartRow, ReagentCatalog>, TableCell<ReagentAdmissionTablePartRow, ReagentCatalog>>() {
-            @Override
-            public TableCell<ReagentAdmissionTablePartRow, ReagentCatalog> call(TableColumn<ReagentAdmissionTablePartRow, ReagentCatalog> arg0) {
-                return new ControlTableCell<ReagentAdmissionTablePartRow, ReagentCatalog>(thisController, true);
-            }
-        });
-
-
-//        reagent.setOnEditCommit(
-//                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, ReagentCatalog>>() {
-//                    @Override
-//                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, ReagentCatalog> t) {
-//                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
-//                        ).setReagent(t.getNewValue());
-//                    }
-//                }
-//        );
+        reagent.setCellFactory(ComboBoxTableCell.forTableColumn(ReagentCatalog.getCatalogData()));
+        reagent.setOnEditCommit(
+                new EventHandler<CellEditEvent<ReagentAdmissionTablePartRow, ReagentCatalog>>() {
+                    @Override
+                    public void handle(CellEditEvent<ReagentAdmissionTablePartRow, ReagentCatalog> t) {
+                        ( t.getTableView().getItems().get(t.getTablePosition().getRow())
+                        ).setReagent(t.getNewValue());
+                    }
+                }
+        );
     }
 
     public void customizeWindow(InternalWindow internalWindow) {

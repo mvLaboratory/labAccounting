@@ -126,14 +126,14 @@ public abstract class MV_Window {
      * @param alignment 1 - Left; 2 - Center; 3 - Right.
      */
     public void setBottomCommandPanelAligment(Integer alignment) {
-        switch (alignment) {
-            case 1:  bottomCommandPanel.setAlignment(Pos.BOTTOM_LEFT);
-                break;
-            case 2:  bottomCommandPanel.setAlignment(Pos.BOTTOM_CENTER);
-                break;
-            case 3:  bottomCommandPanel.setAlignment(Pos.BOTTOM_RIGHT);
-                break;
-        }
+//        switch (alignment) {
+//            case 1:  bottomCommandPanel.setAlignment(Pos.BOTTOM_LEFT);
+//                break;
+//            case 2:  bottomCommandPanel.setAlignment(Pos.BOTTOM_CENTER);
+//                break;
+//            case 3:  bottomCommandPanel.setAlignment(Pos.BOTTOM_RIGHT);
+//                break;
+//        }
     }
 
 //    /**

@@ -27,6 +27,12 @@ public class ReagentAdmission extends Document implements Serializable {
     @Column(name = "uuid")
     private UUID uuid;
 
+    @Column(name = "provider")
+    private String provider = "";
+
+    @Column(name = "posted")
+    private boolean posted = false;
+
 //    @Column(name = "posted")
 //    private boolean posted;
 //
@@ -70,6 +76,22 @@ public class ReagentAdmission extends Document implements Serializable {
     @Override
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public boolean isPosted() {
+        return posted;
+    }
+
+    public void setPosted(boolean posted) {
+        this.posted = posted;
     }
 
     @Override
@@ -126,5 +148,33 @@ public class ReagentAdmission extends Document implements Serializable {
         else {
             return "Admission #" + super.getHeader();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ReagentAdmission)) return false;
+
+        ReagentAdmission that = (ReagentAdmission) o;
+
+        if (isPosted() != that.isPosted()) return false;
+        if (getNumber() != null ? !getNumber().equals(that.getNumber()) : that.getNumber() != null) return false;
+        if (getDate() != null ? !getDate().equals(that.getDate()) : that.getDate() != null) return false;
+        if (getUuid() != null ? !getUuid().equals(that.getUuid()) : that.getUuid() != null) return false;
+        if (getProvider() != null ? !getProvider().equals(that.getProvider()) : that.getProvider() != null)
+            return false;
+        return getRowSet() != null ? getRowSet().equals(that.getRowSet()) : that.getRowSet() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getNumber() != null ? getNumber().hashCode() : 0;
+        result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
+        result = 31 * result + (getUuid() != null ? getUuid().hashCode() : 0);
+        result = 31 * result + (getProvider() != null ? getProvider().hashCode() : 0);
+        result = 31 * result + (isPosted() ? 1 : 0);
+        result = 31 * result + (getRowSet() != null ? getRowSet().hashCode() : 0);
+        return result;
     }
 }
