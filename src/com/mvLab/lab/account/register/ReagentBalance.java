@@ -1,15 +1,32 @@
 package com.mvLab.lab.account.register;
 
 import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
-import javax.persistence.Column;
+import com.mvLab.lab.account.documents.Document;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
+@Table(name = "REAGENT_BALANCE")
 public class ReagentBalance implements Register, Serializable {
+    @Id
+    @GeneratedValue
+    @Column(name = "recordID")
+    private int recordID;
+
+    @Column(name = "direction")
+    private int direction;
+
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "reagent")
+    @ManyToOne
+    @JoinColumn(name="document")
+    private Document document;
+
+    @ManyToOne
+    @JoinColumn(name="reagent")
     private ReagentCatalog reagent;
 
     @Column(name = "quantity")
@@ -18,10 +35,12 @@ public class ReagentBalance implements Register, Serializable {
     public ReagentBalance() {
     }
 
-    public ReagentBalance(Date date, ReagentCatalog reagent, double quantity) {
+    public ReagentBalance(int direction, Date date, Document document, ReagentCatalog reagent, double quantity) {
+        this.direction = direction;
         this.date = date;
         this.reagent = reagent;
         this.quantity = quantity;
+        this.document = document;
     }
 
     public Date getDate() {
@@ -46,5 +65,29 @@ public class ReagentBalance implements Register, Serializable {
 
     public void setQuantity(double quantity) {
         this.quantity = quantity;
+    }
+
+    public int getDirection() {
+        return direction;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public int getRecordID() {
+        return recordID;
+    }
+
+    public void setRecordID(int recordID) {
+        this.recordID = recordID;
+    }
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
     }
 }

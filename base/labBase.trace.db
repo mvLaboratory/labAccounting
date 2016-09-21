@@ -1493,3 +1493,326 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/lab
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
 	... 23 more
+2016-09-21 17:32:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:32:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:38:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:39:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:39:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:39:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:41:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:41:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 17:49:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-192]
+2016-09-21 22:42:50 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.login(WebApp.java:955)
+	at org.h2.server.web.WebApp.process(WebApp.java:211)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 28 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 23 more
+2016-09-21 22:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, date, direction, quantity, reagent) values (null, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4) [22018-192]
+2016-09-21 22:50:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, date, direction, quantity, reagent) values (null, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4) [22018-192]
+2016-09-21 23:00:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, date, direction, quantity, reagent) values (null, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4) [22018-192]
+2016-09-21 23:01:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, date, direction, quantity, reagent) values (null, ?, ?, ?, ?) -- (NULL, ?1, ?2, ?3, ?4) [22018-192]
+2016-09-21 23:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "2555655" в тип "DATE"
+Cannot parse "DATE" constant "2555655"; SQL statement:
+insert into REAGENT_BALANCE (recordID, date, direction, quantity, reagent) values (null, 2555655, 1, 2, 3) -- (NULL, 2555655, 1, 2, 3) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 2555655
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-21 23:05:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "255" в тип "DATE"
+Cannot parse "DATE" constant "255"; SQL statement:
+insert into REAGENT_BALANCE (recordID, date, direction, quantity, reagent) values (null, 255, 1, 2, 3) -- (NULL, 255, 1, 2, 3) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 255
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-21 23:06:23 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:26)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:39)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more
+2016-09-21 23:07:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, direction, quantity, reagent) values (null, ?, ?, ?) -- (NULL, ?1, ?2, ?3) [22018-192]
+2016-09-21 23:10:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT NOT NULL)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT NOT NULL)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, direction, quantity, reagent) values (null, ?, ?, ?) -- (NULL, ?1, ?2, ?3) [22018-192]
+2016-09-21 23:11:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DROP TABLE CREATE TABLE[*] REAGENT_BALANCE (
+   RECORDID INT NOT NULL AUTO_INCREMENT,
+   DIRECTION INT NOT NULL,
+   DATE DATE DEFAULT NULL,
+   REAGENT INT,
+   QUANTITY DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (RECORDID)
+) "
+Syntax error in SQL statement "DROP TABLE CREATE TABLE[*] REAGENT_BALANCE (
+   RECORDID INT NOT NULL AUTO_INCREMENT,
+   DIRECTION INT NOT NULL,
+   DATE DATE DEFAULT NULL,
+   REAGENT INT,
+   QUANTITY DOUBLE DEFAULT 0,
+
+   PRIMARY KEY (RECORDID)
+) "; SQL statement:
+drop table create table REAGENT_BALANCE (
+   recordID INT NOT NULL auto_increment,
+   direction INT NOT NULL,
+   date DATE default NULL,
+   reagent INT,
+   quantity DOUBLE default 0,
+
+   PRIMARY KEY (recordID)
+) [42000-192]
+2016-09-21 23:13:18 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:26)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:39)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more
+2016-09-21 23:14:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"
+Data conversion error converting "X'aced000573720036636f6d2e6d764c61622e6c61622e6163636f756e742e636174616c6f67732e72656167656e74732e52656167656e74436174616c6f679f2e8b277e549ac90200055a0009707265637572736f724c000b6465736372697074696f6e7400124c6a6176612f6c616e672f537472696e673b4c000269647400134c6a6176612f6c616e672f496e74656765723b4c00046e616d6571007e00014c0004757569647400104c6a6176612f7574696c2f555549443b78700174000464656331737200116a6176612e6c616e672e496e746567657212e2a0a4f781873802000149000576616c7565787200106a6176612e6c616e672e4e756d62657286ac951d0b94e08b020000787000000002740004746573747372000e6a6176612e7574696c2e55554944bc9903f7986d852f0200024a000c6c65617374536967426974734a000b6d6f73745369674269747378709cf0e84451c5bbb12d1ebc5b7d274197' (REAGENT_BALANCE: REAGENT INT)"; SQL statement:
+insert into REAGENT_BALANCE (recordID, direction, quantity, reagent) values (null, ?, ?, ?) -- (NULL, ?1, ?2, ?3) [22018-192]

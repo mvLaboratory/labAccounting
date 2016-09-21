@@ -262,7 +262,7 @@ public class DB_Manager {
     //Reagent Admission---
 
     //RegisterRecordSet+++
-    public void saverecordSet(RecordSet recordSet){
+    public void saveRecordSet(RecordSet recordSet){
         Session session = factory.openSession();
         Transaction tx = null;
         //Integer docID = null;
@@ -280,6 +280,24 @@ public class DB_Manager {
             session.close();
         }
        // return docID;
+    }
+
+    public Integer saveRegisterRecord(Register record){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Integer recordID = null;
+        try{
+            tx = session.beginTransaction();
+            recordID = (Integer) session.save(record);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with saving record set");
+        }finally {
+            session.close();
+        }
+        return recordID;
     }
     //RegisterRecordSet---
 

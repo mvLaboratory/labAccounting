@@ -2,6 +2,9 @@ package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.DB_Manager;
 import com.mvLab.lab.account.documents.Document;
+import com.mvLab.lab.account.register.ReagentBalance;
+import com.mvLab.lab.account.register.RecordSet;
+import com.mvLab.lab.account.register.Register;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -150,6 +153,22 @@ public class ReagentAdmission extends Document implements Serializable {
         getDelRowSet().clear();
 
         getRowSet().forEach(ReagentAdmissionTablePartRow::save);
+        //super.save();
+    }
+
+    public void post() {
+        RecordSet reagentRS = new RecordSet();
+        for (ReagentAdmissionTablePartRow row : getRowSet()) {
+            reagentRS.add(new ReagentBalance(1, getDate(), this, row.getReagent(), row.getQuantity()));
+//            ReagentBalance record = new ReagentBalance(1, getDate(), row.getReagent(), row.getQuantity());
+//            DB_Manager.getInstance().saveRegisterRecord(record);
+        }
+        reagentRS.save();
+//        super.save();
+//        getDelRowSet().forEach(ReagentAdmissionTablePartRow::delete);
+//        getDelRowSet().clear();
+//
+//        getRowSet().forEach(ReagentAdmissionTablePartRow::save);
         //super.save();
     }
 

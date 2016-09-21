@@ -153,6 +153,7 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
 
     public void post() {
         form.getDocument().setPosted(true);
+        form.getDocument().post();
         save();
     }
 
