@@ -226,6 +226,22 @@ public class DB_Manager {
         }
     }
 
+    public void updateElement(Object element){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.update(element);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with updating.");
+        }finally {
+            session.close();
+        }
+    }
+
     public void deleteDocumentElement(Catalog element){
         Session session = factory.openSession();
         Transaction tx = null;

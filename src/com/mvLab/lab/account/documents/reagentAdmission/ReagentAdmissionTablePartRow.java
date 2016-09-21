@@ -104,6 +104,10 @@ public class ReagentAdmissionTablePartRow implements Serializable, Savable {
         this.sum = sum;
     }
 
+    public boolean isNew() {
+        return getRowID() == 0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -141,6 +145,11 @@ public class ReagentAdmissionTablePartRow implements Serializable, Savable {
 
     @Override
     public void save() {
-        DB_Manager.getInstance().saveElement(this);
+        if (isNew()) {
+            setRowID(DB_Manager.getInstance().saveElement(this));
+        }
+        else {
+            DB_Manager.getInstance().updateElement(this);
+        }
     }
 }
