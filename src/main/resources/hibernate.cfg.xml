@@ -32,5 +32,6 @@
         <mapping class="com.mvLab.lab.account.catalogs.reagents.ReagentCatalog"></mapping>
         <mapping class="com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission"></mapping>
         <mapping class="com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionTablePartRow"></mapping>
+        <mapping class="com.mvLab.lab.account.register.ReagentBalance"></mapping>
     </session-factory>
 </hibernate-configuration>

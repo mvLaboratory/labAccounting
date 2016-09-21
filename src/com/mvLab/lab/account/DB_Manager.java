@@ -5,6 +5,8 @@ import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.documents.Savable;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
+import com.mvLab.lab.account.register.RecordSet;
+import com.mvLab.lab.account.register.Register;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -258,6 +260,44 @@ public class DB_Manager {
         }
     }
     //Reagent Admission---
+
+    //RegisterRecordSet+++
+    public void saverecordSet(RecordSet recordSet){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        //Integer docID = null;
+        try{
+            tx = session.beginTransaction();
+            for (Register record : recordSet.getRecordSet()) {
+                session.save(record);
+            }
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with saving record set");
+        }finally {
+            session.close();
+        }
+       // return docID;
+    }
+    //RegisterRecordSet---
+
+    public void deleteElement(Object element){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.delete(element);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with deleting element");
+        }finally {
+            session.close();
+        }
+    }
 
     public static void close() {
         factory.close();

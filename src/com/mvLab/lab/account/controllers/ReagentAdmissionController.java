@@ -42,9 +42,10 @@ public class ReagentAdmissionController<Type> implements EventHandler<MouseEvent
             ReagentAdmission rowData = ((TableRow<ReagentAdmission>) event.getSource()).getItem();
 //            //WindowManager.openReagentCatalogElementForm((Catalog) rowData);
 //
+            ReagentAdmission document = ReagentAdmission.readElement(rowData.getNumber());
             double mouseX = event.getSceneX();
             double mouseY = event.getSceneY();
-            WindowManager.getInstance().openReagentAdmissionElementForm(rowData, mouseX, mouseY);
+            WindowManager.getInstance().openReagentAdmissionElementForm(document, mouseX, mouseY);
 //        }
 //        else if (event.getClickCount() == 1) {
 //            // TODO: 02.09.2016 to front main wndow

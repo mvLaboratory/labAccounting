@@ -44,6 +44,7 @@
             <ToolBar prefHeight="48.0" prefWidth="737.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="3">
               <items>
                 <Button fx:id="rowAddButton" mnemonicParsing="false" onMouseClicked="#newRowButtonOnClick" text="+" />
+                <Button fx:id="rowDelButton" mnemonicParsing="false" onMouseClicked="#rowDelButtonOnClick" text="-" />
               </items>
             </ToolBar>
             <Label id="supplierLbl" fx:id="supplierLbl" styleClass="label-bright" text="Supplier:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -54,9 +55,10 @@
    <bottom>
       <ToolBar id="catalog-toll-bar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="catalog-toll-bar" BorderPane.alignment="BOTTOM_RIGHT">
         <items>
-          <Button fx:id="closeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#closeButtonOnClicked" text="Close" />
+            <Button fx:id="closeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#closeButtonOnClicked" text="Close" />
             <Button fx:id="saveButton" mnemonicParsing="false" onMouseClicked="#saveButtonOnClicked" text="Save" />
             <Button fx:id="okButton" mnemonicParsing="false" onMouseClicked="#okButtonOnClick" text="OK" />
+            <Button fx:id="postButton" visible="false" mnemonicParsing="false" onMouseClicked="#postButtonOnClick" text="Post" />
         </items>
       </ToolBar>
    </bottom>

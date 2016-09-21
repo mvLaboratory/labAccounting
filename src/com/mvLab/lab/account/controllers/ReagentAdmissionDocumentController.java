@@ -62,10 +62,11 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
         supplier.setText(form.getDocument().getSupplier());
 
 //        form.getDocument().getRowSet().add(new ReagentAdmissionTablePartRow(1, form.getDocument(), 1, new ReagentCatalog(2, "reagent", ""), 3, 4, 5));
-        reagentTable.getItems().clear();
-        for (ReagentAdmissionTablePartRow tableRow : form.getDocument().getRowSet()) {
-            reagentTable.getItems().add(tableRow);
-        }
+//        reagentTable.getItems().clear();
+//        for (ReagentAdmissionTablePartRow tableRow : form.getDocument().getRowSet()) {
+//            reagentTable.getItems().add(tableRow);
+//        }
+        updateRows();
         reagentTable.setEditable(true);
 
         ReagentAdmissionDocumentController thisController = this;
@@ -150,13 +151,37 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
         form.save();
     }
 
+    public void post() {
+        form.getDocument().setPosted(true);
+        save();
+    }
+
     @FXML
     public void newRowButtonOnClick(Event event) {
         ReagentAdmissionTablePartRow newRowElement = new ReagentAdmissionTablePartRow();
         newRowElement.setDocument(form.getDocument());
         newRowElement.setRowNumber((form.getDocument().getRowSet().size() + 1));
         form.getDocument().getRowSet().add(newRowElement);
-        reagentTable.getItems().add(newRowElement);
+        //reagentTable.getItems().add(newRowElement);
+        updateRows();
+    }
+
+    @FXML
+    public void rowDelButtonOnClick(Event event) {
+        ReagentAdmissionTablePartRow selectedRow = reagentTable.getSelectionModel().getSelectedItem();
+        //reagentTable.getItems().remove(selectedRow);
+        form.getDocument().getRowSet().remove(selectedRow);
+        form.getDocument().getDelRowSet().add(selectedRow);
+        updateRows();
+    }
+
+    public void updateRows() {
+        reagentTable.getItems().clear();
+        int rowNum = 0;
+        for (ReagentAdmissionTablePartRow row : form.getDocument().getRowSet()) {
+            row.setRowNumber(++rowNum);
+            reagentTable.getItems().add(row);
+        }
     }
 
     @FXML
@@ -182,7 +207,16 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
     @FXML
     public void okButtonOnClick (Event event) {
         save();
+       // if (form.getDocument().isPosted()) {
+            post();
+        //}
         form.closeWindow();
+    }
+
+    @FXML
+    public void postButtonOnClick (Event event) {
+        save();
+        post();
     }
 
     public void setForm(ReagentAdmissionElementForm form) {

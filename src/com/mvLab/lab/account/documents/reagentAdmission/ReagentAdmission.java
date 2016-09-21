@@ -42,6 +42,9 @@ public class ReagentAdmission extends Document implements Serializable {
     @OrderBy("rowNumber ASC")
     private Set<ReagentAdmissionTablePartRow> rowSet  = new HashSet<>();
 
+    @Transient
+    private Set<ReagentAdmissionTablePartRow> delRowSet  = new HashSet<>();
+
     public ReagentAdmission() {
     }
 
@@ -94,6 +97,14 @@ public class ReagentAdmission extends Document implements Serializable {
         this.posted = posted;
     }
 
+    public Set<ReagentAdmissionTablePartRow> getDelRowSet() {
+        return delRowSet;
+    }
+
+    public void setDelRowSet(Set<ReagentAdmissionTablePartRow> delRowSet) {
+        this.delRowSet = delRowSet;
+    }
+
     @Override
     public UUID getUuid() {
         return uuid;
@@ -122,9 +133,8 @@ public class ReagentAdmission extends Document implements Serializable {
         return uuid == null || uuid.toString().isEmpty();
     }
 
-    @Override
-    public void readElement() {
-        DB_Manager.getInstance().readReagentAdmissionElement(this.getNumber());
+    public static ReagentAdmission readElement(int number) {
+        return (ReagentAdmission) DB_Manager.getInstance().readReagentAdmissionElement(number);
     }
 
     public static ObservableList<ReagentAdmission> getDocumentData() {
@@ -136,6 +146,9 @@ public class ReagentAdmission extends Document implements Serializable {
     @Override
     public void save() {
         super.save();
+        getDelRowSet().forEach(ReagentAdmissionTablePartRow::delete);
+        getDelRowSet().clear();
+
         getRowSet().forEach(ReagentAdmissionTablePartRow::save);
         //super.save();
     }

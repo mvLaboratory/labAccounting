@@ -33,8 +33,6 @@ public abstract class Document implements Header {
         }
     }
 
-    public abstract void readElement();
-
     public String getHeader() {
         if (isNew()) {
             return "*new ";

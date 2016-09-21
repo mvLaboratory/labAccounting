@@ -116,7 +116,6 @@ public class ReagentAdmissionTablePartRow implements Serializable, Savable {
         ReagentAdmissionTablePartRow that = (ReagentAdmissionTablePartRow) o;
 
         if (getRowID() != that.getRowID()) return false;
-        if (getRowNumber() != that.getRowNumber()) return false;
         if (Double.compare(that.getQuantity(), getQuantity()) != 0) return false;
         if (Double.compare(that.getPrice(), getPrice()) != 0) return false;
         if (Double.compare(that.getSum(), getSum()) != 0) return false;
@@ -132,7 +131,6 @@ public class ReagentAdmissionTablePartRow implements Serializable, Savable {
         long temp;
         result = getRowID();
         result = 31 * result + (getDocument() != null ? getDocument().hashCode() : 0);
-        result = 31 * result + getRowNumber();
         result = 31 * result + (getReagent() != null ? getReagent().hashCode() : 0);
         temp = Double.doubleToLongBits(getQuantity());
         result = 31 * result + (int) (temp ^ (temp >>> 32));
@@ -151,5 +149,9 @@ public class ReagentAdmissionTablePartRow implements Serializable, Savable {
         else {
             DB_Manager.getInstance().updateElement(this);
         }
+    }
+
+    public void delete() {
+        DB_Manager.getInstance().deleteElement(this);
     }
 }

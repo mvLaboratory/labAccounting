@@ -2,12 +2,16 @@ package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
+import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.controllers.ReagentAdmissionController;
 import com.mvLab.lab.account.windows.MV_Window;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 
 
 import java.io.IOException;
@@ -38,8 +42,22 @@ public class ReagentAdmissionForm extends MV_Window {
 
         for (TableColumn coll : reagentTableView.getColumns()) {
             String collName = coll.getText();
-            coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
+            if (collName.equals("V")) {
+                coll.setCellValueFactory(cellValue -> new SimpleBooleanProperty(((ReagentAdmission)((TableColumn.CellDataFeatures)cellValue).getValue()).isPosted()));
+
+                coll.setCellFactory(new Callback<TableColumn<ReagentAdmission, Boolean>, TableCell<ReagentAdmission, Boolean>>() {
+                    @Override
+                    public TableCell<ReagentAdmission, Boolean> call(TableColumn<ReagentAdmission, Boolean> tableColumn) {
+                        return new CheckBoxTableCell<ReagentAdmission, Boolean>();
+                    }
+                });
+            }
+            else {
+                coll.setCellValueFactory(new PropertyValueFactory(collName.toLowerCase()));
+            }
         }
+
+
         formTab.setContent(tabView);
 
         TabPane centralPane = (TabPane) rootLayout.getCenter();
