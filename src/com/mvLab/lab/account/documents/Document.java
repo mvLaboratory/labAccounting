@@ -3,13 +3,25 @@ package com.mvLab.lab.account.documents;
 import com.mvLab.lab.account.DB_Manager;
 import com.mvLab.lab.account.windows.interfaces.Header;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-public abstract class Document implements Header {
+@Entity
+@Table(name = "DOCUMENT")
+@Inheritance(strategy= InheritanceType.JOINED)
+public abstract class Document implements Header, Serializable {
+    @Id
+    @GeneratedValue
+    @Column(name = "docNumber")
+    private Integer number;
+
     public abstract Integer getNumber();
 
-    public abstract void setNumber(Integer number);
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 
     public abstract Date getDate();
 

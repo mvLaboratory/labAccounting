@@ -18,10 +18,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "REAGENT_ADMISSION")
 public class ReagentAdmission extends Document implements Serializable {
-    @Id
-    @GeneratedValue
-    @Column(name = "number")
-    private Integer number;
+//    @Id
+//    @GeneratedValue
+//    @Column(name = "number")
+//    private Integer number;
 
     @Column(name = "date")
     private Date date;
@@ -52,13 +52,13 @@ public class ReagentAdmission extends Document implements Serializable {
     }
 
     public ReagentAdmission(Integer number, Date date, UUID uuid) {
-        this.number = number;
+        setNumber(number);
         this.date = date;
         this.uuid = uuid;
     }
 
     public ReagentAdmission(Integer number, Date date, UUID uuid, Set<ReagentAdmissionTablePartRow> rowSet) {
-        this.number = number;
+        setNumber(number);
         this.date = date;
         this.uuid = uuid;
         this.rowSet = rowSet;
@@ -66,12 +66,7 @@ public class ReagentAdmission extends Document implements Serializable {
 
     @Override
     public Integer getNumber() {
-        return number;
-    }
-
-    @Override
-    public void setNumber(Integer number) {
-        this.number = number;
+        return getNumber();
     }
 
     @Override
