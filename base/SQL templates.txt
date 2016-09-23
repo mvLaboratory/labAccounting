@@ -7,3 +7,42 @@ create table REAGENTS (
    PRIMARY KEY (id)
 );
 
+create table REAGENT_ADMISSION (
+   number INT NOT NULL auto_increment,
+   uuid UUID NOT NULL UNIQUE,
+   date DATE default NULL,
+   posted BOOLEAN default FALSE,
+   supplier VARCHAR(200) default NULL,
+
+   PRIMARY KEY (number )
+);
+
+
+create table REAGENT_ADMISSION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNumber INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID)
+);
+
+create table REAGENT_BALANCE (
+   recordID INT NOT NULL auto_increment,
+   direction INT NOT NULL,
+   document INT NOT NULL,
+   date DATE default NULL,
+   reagent INT,
+   quantity DOUBLE default 0,
+
+   PRIMARY KEY (recordID)
+);
+
+create table DOCUMENT (
+   docNumber INT NOT NULL auto_increment,
+
+   PRIMARY KEY (docNumber)
+);
