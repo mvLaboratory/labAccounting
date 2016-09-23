@@ -1,28 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
-<?import java.util.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.5403508771929825" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<SplitPane dividerPositions="0.5380116959064327" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.reports.ReagentBalanceController">
   <items>
-    <AnchorPane minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
-      <children>
-        <TableView cache="false" editable="true" prefHeight="-1.0" prefWidth="-1.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane styleClass="grid" stylesheets="@DarkTheme.css">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="213.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="577.0" minHeight="10.0" prefHeight="547.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ToolBar prefHeight="43.0" prefWidth="488.0" GridPane.rowIndex="1">
+              <items>
+                <Button mnemonicParsing="false" prefHeight="6.0" prefWidth="78.0" text="Update" />
+              </items>
+            </ToolBar>
+        <TableView fx:id="balanceReport" cache="false" editable="true" prefHeight="569.0" prefWidth="457.0" tableMenuButtonVisible="true" GridPane.rowIndex="2" GridPane.rowSpan="2147483647">
           <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
           </columnResizePolicy>
           <columns>
-            <TableColumn minWidth="250.0" prefWidth="900.0" text="Reagent" />
-            <TableColumn text="Balance" />
+            <TableColumn fx:id="reagentCol" minWidth="250.0" prefWidth="900.0" text="Reagent" />
+            <TableColumn fx:id="balanceCol" text="Balance" />
           </columns>
         </TableView>
-      </children>
-    </AnchorPane>
+            <Label id="Report-header" text="Reagent balance:" textAlignment="CENTER" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <GridPane.margin>
+                  <Insets left="1.0" top="1.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="1.0" right="1.0" />
+               </padding>
+            </Label>
+         </children>
+      </GridPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="215.0">
       <children>
         <LineChart id="LineChart" minWidth="191.0" prefHeight="602.0" prefWidth="390.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">

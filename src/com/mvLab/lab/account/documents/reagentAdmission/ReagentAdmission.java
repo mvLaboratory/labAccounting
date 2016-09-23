@@ -133,7 +133,7 @@ public class ReagentAdmission extends Document implements Serializable {
 
     public static ObservableList<ReagentAdmission> getDocumentData() {
         ObservableList<ReagentAdmission> documentData = FXCollections.observableArrayList();
-        documentData.addAll(DB_Manager.readReagentAdmission());
+        documentData.addAll(DB_Manager.getInstance().readReagentAdmission());
         return documentData;
     }
 
@@ -148,19 +148,11 @@ public class ReagentAdmission extends Document implements Serializable {
     }
 
     public void post() {
-        RecordSet reagentRS = new RecordSet();
+        RecordSet reagentRS = new RecordSet(this);
         for (ReagentAdmissionTablePartRow row : getRowSet()) {
             reagentRS.add(new ReagentBalance(1, getDate(), this, row.getReagent(), row.getQuantity()));
-//            ReagentBalance record = new ReagentBalance(1, getDate(), row.getReagent(), row.getQuantity());
-//            DB_Manager.getInstance().saveRegisterRecord(record);
         }
         reagentRS.save();
-//        super.save();
-//        getDelRowSet().forEach(ReagentAdmissionTablePartRow::delete);
-//        getDelRowSet().clear();
-//
-//        getRowSet().forEach(ReagentAdmissionTablePartRow::save);
-        //super.save();
     }
 
     @Override

@@ -5,13 +5,17 @@ import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.documents.Savable;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
+import com.mvLab.lab.account.register.ReagentBalance;
 import com.mvLab.lab.account.register.RecordSet;
 import com.mvLab.lab.account.register.Register;
+import com.mvLab.lab.account.reports.BalanceReport;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -138,7 +142,7 @@ public class DB_Manager {
     //Reagent Catalog---
 
     //Reagent Admission+++
-    public static List readReagentAdmission() {
+    public List readReagentAdmission() {
         List catalog = new ArrayList();
         Session session = factory.openSession();
         Transaction tx = null;
@@ -279,7 +283,31 @@ public class DB_Manager {
         }finally {
             session.close();
         }
-       // return docID;
+    }
+
+    public List readReagentBalance() {
+        List balance = new ArrayList();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+//            Query query = session.getNamedQuery("reagentBalance");
+//            balance = query.list();
+
+//            String queryString = "Select max(recordID) as id, balance.reagent as reagent, Sum(balance.quantity) as balance from REAGENT_BALANCE balance group by balance.reagent";
+            String queryString = BalanceReport.getQueryString();
+            balance = session.createNativeQuery(queryString, BalanceReport.class).list();
+       //     balance = session.createQuery("Select balance.reagent as reagent, Sum(balance.quantity) as balance from ReagentBalance balance group by balance.reagent").list();
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error selecting reagents.");
+        }finally {
+            session.close();
+        }
+        return balance;
     }
 
     public Integer saveRegisterRecord(Register record){
@@ -298,6 +326,25 @@ public class DB_Manager {
             session.close();
         }
         return recordID;
+    }
+
+    public void deleteDocPosts(Document doc){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+//            session.createQuery("Select balance.reagent as reagent, Sum(balance.quantity) as balance from ReagentBalance balance group by balance.reagent")
+            Query query = session.createQuery("delete from ReagentBalance where document = :doc");
+            query.setParameter("doc", doc);
+            int result = query.executeUpdate();
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with deleting element");
+        }finally {
+            session.close();
+        }
     }
     //RegisterRecordSet---
 
