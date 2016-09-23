@@ -40,3 +40,9 @@ create table REAGENT_BALANCE (
 
    PRIMARY KEY (recordID)
 );
+
+create table DOCUMENT (
+   docNumber INT NOT NULL auto_increment,
+
+   PRIMARY KEY (docNumber)
+);

@@ -17,6 +17,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "REAGENT_ADMISSION")
+@PrimaryKeyJoinColumn(name="Number")
 public class ReagentAdmission extends Document implements Serializable {
 //    @Id
 //    @GeneratedValue
@@ -62,11 +63,6 @@ public class ReagentAdmission extends Document implements Serializable {
         this.date = date;
         this.uuid = uuid;
         this.rowSet = rowSet;
-    }
-
-    @Override
-    public Integer getNumber() {
-        return getNumber();
     }
 
     @Override

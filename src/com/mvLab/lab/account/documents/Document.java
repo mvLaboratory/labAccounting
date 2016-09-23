@@ -17,7 +17,9 @@ public abstract class Document implements Header, Serializable {
     @Column(name = "docNumber")
     private Integer number;
 
-    public abstract Integer getNumber();
+    public Integer getNumber() {
+        return number;
+    }
 
     public void setNumber(Integer number) {
         this.number = number;
