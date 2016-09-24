@@ -285,19 +285,14 @@ public class DB_Manager {
         }
     }
 
-    public List readReagentBalance() {
+    public List<ReagentBalance> readReagentBalance() {
         List balance = new ArrayList();
         Session session = factory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-//            Query query = session.getNamedQuery("reagentBalance");
-//            balance = query.list();
-
-//            String queryString = "Select max(recordID) as id, balance.reagent as reagent, Sum(balance.quantity) as balance from REAGENT_BALANCE balance group by balance.reagent";
             String queryString = BalanceReport.getQueryString();
             balance = session.createNativeQuery(queryString, BalanceReport.class).list();
-       //     balance = session.createQuery("Select balance.reagent as reagent, Sum(balance.quantity) as balance from ReagentBalance balance group by balance.reagent").list();
             tx.commit();
         }catch (HibernateException e) {
             if (tx != null)

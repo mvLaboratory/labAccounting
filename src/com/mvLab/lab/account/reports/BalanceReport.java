@@ -51,6 +51,17 @@ public class BalanceReport implements Serializable {
     }
 
     public static String getQueryString() {
-        return "Select max(recordID) as id, balance.reagent as reagent, Sum(balance.quantity) as balance from REAGENT_BALANCE balance group by balance.reagent";
+        String queryString = "Select max(balance.ID) as id, balance.reagent as reagent, Sum(balance.balance) as balance ";
+        queryString = queryString + " from (Select";
+        queryString = queryString + " max(recordID) as id, balanceADD.reagent as reagent, Sum(balanceADD.quantity) as balance";
+        queryString = queryString + " from REAGENT_BALANCE balanceADD where DIRECTION = 1 group by balanceADD.reagent";
+        queryString = queryString + " Union all";
+        queryString = queryString + " Select";
+        queryString = queryString + " max(recordID) as id, balanceCons.reagent as reagent, Sum(balanceCons.quantity) * -1 as balance";
+        queryString = queryString + " from REAGENT_BALANCE balanceCons where DIRECTION = 0 group by balanceCons.reagent";
+        queryString = queryString + ") balance";
+        queryString = queryString + " group by balance.reagent";
+
+        return queryString;
     }
 }

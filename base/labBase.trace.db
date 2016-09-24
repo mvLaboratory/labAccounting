@@ -2568,3 +2568,343 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/lab
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
 	... 57 more
+2016-09-24 23:02:22 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:30)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:43)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more
+2016-09-24 23:02:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT MAX(RECORDID) AS ID, BALANCE.REAGENT AS REAGENT, SUM(BALANCE.QUANTITY) AS BALANCE FROM REAGENT_BALANCE WHERE DIRECTION = 1 BALANCE[*] GROUP BY BALANCE.REAGENT "
+Syntax error in SQL statement "SELECT MAX(RECORDID) AS ID, BALANCE.REAGENT AS REAGENT, SUM(BALANCE.QUANTITY) AS BALANCE FROM REAGENT_BALANCE WHERE DIRECTION = 1 BALANCE[*] GROUP BY BALANCE.REAGENT "; SQL statement:
+Select max(recordID) as id, balance.reagent as reagent, Sum(balance.quantity) as balance from REAGENT_BALANCE where DIRECTION = 1 balance group by balance.reagent [42000-192]
+2016-09-24 23:13:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT MAX(BALANCE.RECORDID) AS ID, BALANCE.REAGENT AS REAGENT, SUM(BALANCE.QUANTITY) AS BALANCE FROM ( MAX(RECORDID) AS[*] ID, BALANCEADD.REAGENT AS REAGENT, SUM(BALANCEADD.QUANTITY) AS BALANCE FROM REAGENT_BALANCE BALANCEADD WHERE DIRECTION = 1 GROUP BY BALANCEADD.REAGENT UNION ALL MAX(RECORDID) AS ID, BALANCECONS.REAGENT AS REAGENT, SUM(BALANCECONS.QUANTITY) * -1 AS BALANCE FROM REAGENT_BALANCE BALANCECONS WHERE DIRECTION = 0 GROUP BY BALANCECONS.REAGENT) BALANCE GROUP BY BALANCE.REAGENT "
+Syntax error in SQL statement "SELECT MAX(BALANCE.RECORDID) AS ID, BALANCE.REAGENT AS REAGENT, SUM(BALANCE.QUANTITY) AS BALANCE FROM ( MAX(RECORDID) AS[*] ID, BALANCEADD.REAGENT AS REAGENT, SUM(BALANCEADD.QUANTITY) AS BALANCE FROM REAGENT_BALANCE BALANCEADD WHERE DIRECTION = 1 GROUP BY BALANCEADD.REAGENT UNION ALL MAX(RECORDID) AS ID, BALANCECONS.REAGENT AS REAGENT, SUM(BALANCECONS.QUANTITY) * -1 AS BALANCE FROM REAGENT_BALANCE BALANCECONS WHERE DIRECTION = 0 GROUP BY BALANCECONS.REAGENT) BALANCE GROUP BY BALANCE.REAGENT "; SQL statement:
+Select max(balance.recordID) as id, balance.reagent as reagent, Sum(balance.quantity) as balance from ( max(recordID) as id, balanceADD.reagent as reagent, Sum(balanceADD.quantity) as balance from REAGENT_BALANCE balanceADD where DIRECTION = 1 group by balanceADD.reagent Union all max(recordID) as id, balanceCons.reagent as reagent, Sum(balanceCons.quantity) * -1 as balance from REAGENT_BALANCE balanceCons where DIRECTION = 0 group by balanceCons.reagent) balance group by balance.reagent [42000-192]
+2016-09-24 23:15:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT MAX(BALANCE.RECORDID) AS ID, BALANCE.REAGENT AS REAGENT, SUM(BALANCE.QUANTITY) AS BALANCE  FROM (SELECT MAX(RECORDID) AS ID, BALANCEADD.REAGENT AS REAGENT, SUM(BALANCEADD.QUANTITY) AS BALANCE FROM REAGENT_BALANCE BALANCEADD WHERE DIRECTION = 1 GROUP BY BALANCEADD.REAGENT UNION ALL MAX[*](RECORDID) AS ID, BALANCECONS.REAGENT AS REAGENT, SUM(BALANCECONS.QUANTITY) * -1 AS BALANCE FROM REAGENT_BALANCE BALANCECONS WHERE DIRECTION = 0 GROUP BY BALANCECONS.REAGENT) BALANCE GROUP BY BALANCE.REAGENT "; ожидалось "(, SELECT, FROM"
+Syntax error in SQL statement "SELECT MAX(BALANCE.RECORDID) AS ID, BALANCE.REAGENT AS REAGENT, SUM(BALANCE.QUANTITY) AS BALANCE  FROM (SELECT MAX(RECORDID) AS ID, BALANCEADD.REAGENT AS REAGENT, SUM(BALANCEADD.QUANTITY) AS BALANCE FROM REAGENT_BALANCE BALANCEADD WHERE DIRECTION = 1 GROUP BY BALANCEADD.REAGENT UNION ALL MAX[*](RECORDID) AS ID, BALANCECONS.REAGENT AS REAGENT, SUM(BALANCECONS.QUANTITY) * -1 AS BALANCE FROM REAGENT_BALANCE BALANCECONS WHERE DIRECTION = 0 GROUP BY BALANCECONS.REAGENT) BALANCE GROUP BY BALANCE.REAGENT "; expected "(, SELECT, FROM"; SQL statement:
+Select max(balance.recordID) as id, balance.reagent as reagent, Sum(balance.quantity) as balance  from (Select max(recordID) as id, balanceADD.reagent as reagent, Sum(balanceADD.quantity) as balance from REAGENT_BALANCE balanceADD where DIRECTION = 1 group by balanceADD.reagent Union all max(recordID) as id, balanceCons.reagent as reagent, Sum(balanceCons.quantity) * -1 as balance from REAGENT_BALANCE balanceCons where DIRECTION = 0 group by balanceCons.reagent) balance group by balance.reagent [42001-192]
+2016-09-24 23:19:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "BALANCE.RECORDID" не найден
+Column "BALANCE.RECORDID" not found; SQL statement:
+SELECT 
+MAX(BALANCE.RECORDID) AS ID, 
+BALANCE.REAGENT AS REAGENT, 
+SUM(BALANCE.QUANTITY) AS BALANCE  
+FROM (
+       SELECT 
+          MAX(RECORDID) AS ID, 
+          BALANCEADD.REAGENT AS REAGENT, 
+          SUM(BALANCEADD.QUANTITY) AS BALANCE 
+      FROM REAGENT_BALANCE BALANCEADD 
+      WHERE DIRECTION = 1 
+      GROUP BY BALANCEADD.REAGENT 
+
+       UNION ALL 
+      
+       select
+          MAX(RECORDID) AS ID, 
+          BALANCECONS.REAGENT AS REAGENT, 
+          SUM(BALANCECONS.QUANTITY) * -1 AS BALANCE 
+       FROM REAGENT_BALANCE BALANCECONS 
+       WHERE DIRECTION = 0 
+       GROUP BY BALANCECONS.REAGENT)     BALANCE 
+GROUP BY BALANCE.REAGENT [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.expression.Alias.optimize(Alias.java:51)
+	at org.h2.command.dml.Select.prepare(Select.java:852)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2016-09-24 23:31:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "1984" в тип "DATE"
+Cannot parse "DATE" constant "1984"; SQL statement:
+insert into REAGENT_BALANCE values (26, 0, 4, 2016-09-23, 3, 1) -- (26, 0, 4, 1984, 3, 1) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 1984
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-24 23:32:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "-2002" в тип "DATE"
+Cannot parse "DATE" constant "-2002"; SQL statement:
+insert into REAGENT_BALANCE values (26, 0, 4, 23-09-2016, 3, 1) -- (26, 0, 4, -2002, 3, 1) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: -2002
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-24 23:32:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "-2004" в тип "DATE"
+Cannot parse "DATE" constant "-2004"; SQL statement:
+insert into REAGENT_BALANCE values (26, 0, 4, 23-09-2018, 3, 1) -- (26, 0, 4, -2004, 3, 1) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: -2004
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-24 23:32:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "-91995" в тип "DATE"
+Cannot parse "DATE" constant "-91995"; SQL statement:
+insert into REAGENT_BALANCE values (26, 0, 4, 23-092018, 3, 1) -- (26, 0, 4, -91995, 3, 1) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: -91995
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-24 23:33:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "23.09.2018"
+Data conversion error converting "23.09.2018"; SQL statement:
+insert into REAGENT_BALANCE values (26, 0, 4, 23.09.2018, 3, 1) [22018-192]
+2016-09-24 23:33:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Невозможно преобразование строки "1997" в тип "DATE"
+Cannot parse "DATE" constant "1997"; SQL statement:
+insert into REAGENT_BALANCE values (26, 0, 4, 2016-09-10, 3, 1) -- (26, 0, 4, 1997, 3, 1) [22007-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:965)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 1997
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:305)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 15 more
+2016-09-24 23:34:27 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:94)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:375)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:358)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2893)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:154)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:99)
+	at org.h2.engine.Database.getPageStore(Database.java:2463)
+	at org.h2.engine.Database.open(Database.java:692)
+	at org.h2.engine.Database.openDatabase(Database.java:270)
+	at org.h2.engine.Database.<init>(Database.java:264)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:349)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:118)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:42)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:20)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:161)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:109)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:72)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:257)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:231)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:240)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:210)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:691)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:726)
+	at com.mvLab.lab.account.DB_Manager.<init>(DB_Manager.java:30)
+	at com.mvLab.lab.account.DB_Manager.initialize(DB_Manager.java:43)
+	at com.mvLab.lab.account.Main.start(Main.java:10)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$162(LauncherImpl.java:863)
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$175(PlatformImpl.java:326)
+	at com.sun.javafx.application.PlatformImpl.lambda$null$173(PlatformImpl.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$174(PlatformImpl.java:294)
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]" [50000-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 62 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/labAccounting/base/labBase.mv.db [1.4.192/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:344)
+	... 57 more
