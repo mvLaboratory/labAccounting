@@ -54,4 +54,26 @@ public class ReportController {
         balanceReport.getItems().clear();
         balanceReport.getItems().addAll(DB_Manager.getInstance().readReport(new BalanceReport()));
     }
+
+    @FXML
+    private void usageUpdateButtonOnClick() {
+        usageChart.getData().clear();
+
+        ReagentUsageReport report = new ReagentUsageReport();
+        Map<ReagentCatalog, List<ReagentUsageReport>> usageTree = report.getUsageTree(DB_Manager.getInstance().readReport(report));
+
+        ReagentCatalog presentReagent = null;
+        XYChart.Series<Date, Double> series = new XYChart.Series();
+        series.setName("unknown reagent");
+
+        for (Map.Entry<ReagentCatalog, List<ReagentUsageReport>> usageData : usageTree.entrySet()) {
+            series = new XYChart.Series();
+            series.setName(usageData.getKey().toString());
+
+            for (ReagentUsageReport reportDataRecord : usageData.getValue()) {
+                series.getData().add(new XYChart.Data(reportDataRecord.getDate().toString(), reportDataRecord.getUsage()));
+            }
+            usageChart.getData().add(series);
+        }
+    }
 }
