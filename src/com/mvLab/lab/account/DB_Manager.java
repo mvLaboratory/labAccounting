@@ -5,6 +5,7 @@ import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.documents.Savable;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
+import com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumption;
 import com.mvLab.lab.account.register.ReagentBalance;
 import com.mvLab.lab.account.register.RecordSet;
 import com.mvLab.lab.account.register.Register;
@@ -154,7 +155,7 @@ public class DB_Manager {
             if (tx != null)
                 tx.rollback();
             e.printStackTrace();
-            WindowManager.openErrorWindow("Error selecting reagents.");
+            WindowManager.openErrorWindow("Error selecting reagent admission.");
         }finally {
             session.close();
         }
@@ -172,14 +173,56 @@ public class DB_Manager {
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
-            WindowManager.openErrorWindow("Error reading reagent catalog id: " + id + "from DB!");
+            WindowManager.openErrorWindow("Error reading reagent admission id: " + id + "from DB!");
         }finally {
             session.close();
         }
 
         return element;
     }
+    //Reagent Admission---
 
+    //Reagent Consumption+++
+    public List readReagentConsumption() {
+        List docList = new ArrayList();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            docList = session.createQuery("FROM ReagentConsumption").list();
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error selecting consumption document.");
+        }finally {
+            session.close();
+        }
+        return docList;
+    }
+
+    public Document readReagentConsumptionElement(Integer id){
+        ReagentConsumption document = null;
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            document = session.get(ReagentConsumption.class, id);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error reading reagent consumption document: id: " + id + "from DB!");
+        }finally {
+            session.close();
+        }
+
+        return document;
+    }
+    //Reagent Consumption---
+
+    //Documents+++
     public Integer saveDocumentElement(Document element){
         Session session = factory.openSession();
         Transaction tx = null;
@@ -231,39 +274,7 @@ public class DB_Manager {
             session.close();
         }
     }
-
-    public void updateElement(Object element){
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.update(element);
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-            WindowManager.openErrorWindow("Error with updating.");
-        }finally {
-            session.close();
-        }
-    }
-
-    public void deleteDocumentElement(Catalog element){
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.delete(element);
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-            WindowManager.openErrorWindow("Error with deleting " + element.getHeader());
-        }finally {
-            session.close();
-        }
-    }
-    //Reagent Admission---
+    //Documents---
 
     //RegisterRecordSet+++
     public void saveRecordSet(RecordSet recordSet){
@@ -342,6 +353,22 @@ public class DB_Manager {
         }
     }
     //RegisterRecordSet---
+
+    public void updateElement(Object element){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            session.update(element);
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with updating.");
+        }finally {
+            session.close();
+        }
+    }
 
     public void deleteElement(Object element){
         Session session = factory.openSession();

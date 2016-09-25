@@ -4,8 +4,7 @@ import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
 import com.mvLab.lab.account.catalogs.Catalog;
 import com.mvLab.lab.account.catalogs.CatalogListForm;
-import com.mvLab.lab.account.controllers.ReagentCatalogController;
-import com.mvLab.lab.account.controllers.ReagentElementController;
+import com.mvLab.lab.account.controllers.catalogs.ReagentCatalogController;
 import com.mvLab.lab.account.windows.InternalWindow;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +34,7 @@ public class ReagentCatalogSelectionForm extends CatalogListForm {
 //        formTab.setOnClosed(event -> {
 //            WindowManager.getInstance().closeReagentCatalogListForm();
 //        });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentCatalogSelectionForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/catalog/ReagentCatalogSelectionForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
         catalogController = new ReagentCatalogController<>();

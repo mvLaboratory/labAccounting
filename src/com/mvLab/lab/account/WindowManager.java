@@ -8,6 +8,9 @@ import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionElementForm;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionForm;
+import com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumption;
+import com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumptionDocumentForm;
+import com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumptionListForm;
 import com.mvLab.lab.account.windows.*;
 import com.mvLab.lab.account.windows.interfaces.Showable;
 import javafx.stage.Stage;
@@ -235,19 +238,6 @@ public class WindowManager {
         }
     }
 
-    public void updateReagentAdmissionForm() {
-        if (!isInitialized()) {
-            openErrorWindow("Main window is not initialized yet.");
-            return;
-        }
-
-        ReagentCatalogListForm reagentCatalogListForm = (ReagentCatalogListForm) windowsmap.get("reagentCatalogList");
-        if (! (reagentCatalogListForm == null)) {
-            reagentCatalogListForm.update();
-            reagentCatalogListForm.activate();
-        }
-    }
-
     public void updateReagentAdmissionForm(ReagentAdmission document, boolean scrollToRow) {
         if (!isInitialized()) {
             openErrorWindow("Main window is not initialized yet.");
@@ -331,15 +321,122 @@ public class WindowManager {
     }
     //******Reagent admission---
 
-    public static void openReagentConsumptionListForm() {
-//        ReagentConsumptionListForm docForm = new ReagentConsumptionListForm("Reagent consumption", 800, 400);
-//        try {
-//            docForm.display();
-//        }
-//        catch (IOException e) {
-//            openErrorWindow("Sorry! Can't open document list form.");
-//        }
+    //******Reagent admission+++
+    public void openReagentConsumptionListForm() {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        ReagentConsumptionListForm reagentConsumptionListForm = (ReagentConsumptionListForm) windowsmap.get("reagentConsumptionListForm");
+        if (reagentConsumptionListForm == null) {
+            reagentConsumptionListForm = new ReagentConsumptionListForm(mainWindow.getRootLayout());
+
+            try {
+                reagentConsumptionListForm.display();
+                windowsmap.put("reagentConsumptionListForm", reagentConsumptionListForm);
+            } catch (IOException e) {
+                openErrorWindow("Sorry! Can't open reagent consumption list form!");
+            }
+        }
+        else {
+            reagentConsumptionListForm.update();
+            reagentConsumptionListForm.activate();
+        }
     }
+
+    public void closeReagentConsumptionListForm() {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        if (! (windowsmap.get("reagentConsumptionListForm") == null)) {
+            windowsmap.remove("reagentConsumptionListForm");
+        }
+    }
+
+    public void updateReagentConsumptionListForm(ReagentConsumption document, boolean scrollToRow) {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        ReagentConsumptionListForm reagentConsumptionListForm = (ReagentConsumptionListForm) windowsmap.get("reagentConsumptionListForm");
+        if (! (reagentConsumptionListForm == null)) {
+            reagentConsumptionListForm.update();
+            reagentConsumptionListForm.activate();
+            reagentConsumptionListForm.selectRow(document, scrollToRow);
+        }
+    }
+
+    public void updateReagentConsumptionListForm(ReagentConsumption document) {
+        if (!isInitialized()) {
+            openErrorWindow("Main window is not initialized yet.");
+            return;
+        }
+
+        ReagentConsumptionListForm reagentConsumptionListForm = (ReagentConsumptionListForm) windowsmap.get("reagentConsumptionListForm");
+        if (! (reagentConsumptionListForm == null)) {
+            reagentConsumptionListForm.update();
+            reagentConsumptionListForm.activate();
+            reagentConsumptionListForm.selectRow(document, false);
+        }
+    }
+
+    public void closeConsumptionWindow(InternalWindow window, Document document, String formName) {
+        getMainWindow().getRootLayout().getChildren().remove(window);
+        innerWindowsMap.remove(document);
+        getMainWindow().getController().removeCatalogWindowLink(document);
+        if  (formName.equals("ReagentConsumptionList")) {
+            updateReagentConsumptionListForm((ReagentConsumption) document);
+        }
+    }
+
+    public void closeNewConsumptionWindow(InternalWindow window, Document document, String formName) {
+        getMainWindow().getRootLayout().getChildren().remove(window);
+        innerWindowsMap.remove(document.getClass());
+        getMainWindow().getController().removeCatalogWindowLink(document.getClass());
+        if  (formName.equals("ReagentConsumptionList")) {
+            updateReagentConsumptionListForm((ReagentConsumption) document, true);
+        }
+    }
+
+    public void openReagentConsumptionElementForm() {
+        try {
+            if (innerWindowsMap.containsKey(ReagentConsumption.class)) {
+                ((ReagentConsumptionDocumentForm) innerWindowsMap.get(ReagentConsumption.class)).show();
+            }
+            else {
+                ReagentConsumptionDocumentForm ellForm = new ReagentConsumptionDocumentForm();
+                ellForm.display();
+                innerWindowsMap.put(ReagentConsumption.class, ellForm);
+                mainWindow.getController().addWindowLink(ReagentConsumption.class, "new Consumption");
+            }
+        }
+        catch (IOException e) {
+            openErrorWindow("Sorry! Can't open document element form.");
+        }
+    }
+
+    public void openReagentConsumptionElementForm(ReagentConsumption document, double posX, double posY) {
+        ReagentConsumptionDocumentForm docForm = new ReagentConsumptionDocumentForm(document, posX, posY);
+        try {
+            if (innerWindowsMap.containsKey(document)) {
+                ((ReagentConsumptionDocumentForm) innerWindowsMap.get(document)).show();
+            }
+            else {
+                docForm.display();
+                innerWindowsMap.put(document, docForm);
+                mainWindow.getController().addWindowLink(document);
+            }
+        }
+        catch (IOException e) {
+            openErrorWindow("Sorry! Can't open document element form.");
+        }
+    }
+    //******Reagent admission---
+
 
     public void closeCatalogWindow(InternalWindow window) {
         getMainWindow().getRootLayout().getChildren().remove(window);

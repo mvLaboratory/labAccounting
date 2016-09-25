@@ -3,7 +3,7 @@ package com.mvLab.lab.account.catalogs.reagents;
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
 import com.mvLab.lab.account.catalogs.CatalogElementForm;
-import com.mvLab.lab.account.controllers.ReagentElementController;
+import com.mvLab.lab.account.controllers.catalogs.ReagentElementController;
 import com.mvLab.lab.account.windows.InternalWindow;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
@@ -20,7 +20,7 @@ public class ReagentCatalogElementForm extends CatalogElementForm {
     private ReagentElementController elementController;
 
     {
-        loader = new FXMLLoader(Main.class.getResource("/view/ReagentCatalogElementForm.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("/view/catalog/ReagentCatalogElementForm.fxml"));
 
         try {
             windowPane = loader.load();

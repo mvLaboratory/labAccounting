@@ -4,10 +4,8 @@ import com.mvLab.lab.account.DB_Manager;
 import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.register.ReagentBalance;
 import com.mvLab.lab.account.register.RecordSet;
-import com.mvLab.lab.account.register.Register;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -19,11 +17,6 @@ import java.util.UUID;
 @Table(name = "REAGENT_ADMISSION")
 @PrimaryKeyJoinColumn(name="Number")
 public class ReagentAdmission extends Document implements Serializable {
-//    @Id
-//    @GeneratedValue
-//    @Column(name = "number")
-//    private Integer number;
-
     @Column(name = "date")
     private Date date;
 
@@ -35,12 +28,6 @@ public class ReagentAdmission extends Document implements Serializable {
 
     @Column(name = "posted")
     private boolean posted = false;
-
-//    @Column(name = "posted")
-//    private boolean posted;
-//
-//    @Column(name = "documentSum")
-//    private double documentSum;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy="document")
     @OrderBy("rowNumber ASC")

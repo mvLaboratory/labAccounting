@@ -57,6 +57,10 @@ public class MainController implements EventHandler {
             WindowManager.getInstance().openReagentCatalogListForm();
     }
 
+    public void consumptionButtonOnClicked()  {
+        WindowManager.getInstance().openReagentConsumptionListForm();
+    }
+
     public void updateWindowLink(Header element) {
         Node editNode = null;
         for (Node link : innerWindowTB.getItems()) {

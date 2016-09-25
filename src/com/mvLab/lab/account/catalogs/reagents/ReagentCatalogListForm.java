@@ -4,7 +4,7 @@ import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
 import com.mvLab.lab.account.catalogs.Catalog;
 import com.mvLab.lab.account.catalogs.CatalogListForm;
-import com.mvLab.lab.account.controllers.ReagentCatalogController;
+import com.mvLab.lab.account.controllers.catalogs.ReagentCatalogController;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -33,7 +33,7 @@ public class ReagentCatalogListForm extends CatalogListForm {
         formTab.setOnClosed(event -> {
             WindowManager.getInstance().closeReagentCatalogListForm();
         });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentCatalogForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/catalog/ReagentCatalogForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
         catalogController = new ReagentCatalogController<>();

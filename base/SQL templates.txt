@@ -46,3 +46,26 @@ create table DOCUMENT (
 
    PRIMARY KEY (docNumber)
 );
+
+
+create table REAGENT_CONSUMPTION (
+   number INT NOT NULL auto_increment,
+   uuid UUID NOT NULL UNIQUE,
+   date DATE default NULL,
+   posted BOOLEAN default FALSE,
+
+   PRIMARY KEY (number )
+);
+
+
+create table REAGENT_CONSUMPTION_TABLE_PART_ROW (
+   rowID INT NOT NULL auto_increment,
+   rowNumber INT NOT NULL,
+   document  INT NOT NULL,
+   reagent INT NOT NULL,
+   quantity DOUBLE default 0,
+   price DOUBLE default 0,
+   sum DOUBLE default 0,
+
+   PRIMARY KEY (rowID)
+);

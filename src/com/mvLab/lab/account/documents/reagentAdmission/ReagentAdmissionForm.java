@@ -2,8 +2,7 @@ package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
-import com.mvLab.lab.account.catalogs.reagents.ReagentCatalog;
-import com.mvLab.lab.account.controllers.ReagentAdmissionController;
+import com.mvLab.lab.account.controllers.documents.admission.ReagentAdmissionController;
 import com.mvLab.lab.account.windows.MV_Window;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +31,7 @@ public class ReagentAdmissionForm extends MV_Window {
         formTab.setOnClosed(event -> {
             WindowManager.getInstance().closeReagentAdmissionForm();
         });
-        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/ReagentAdmissionForm.fxml"));
+        BorderPane tabView = FXMLLoader.load(Main.class.getResource("/view/documents/admission/ReagentAdmissionForm.fxml"));
 
         reagentTableView = (TableView) tabView.getCenter();
         admissionController = new ReagentAdmissionController<>();
