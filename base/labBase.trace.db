@@ -3364,3 +3364,15 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/mvLab/lab
 org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT MAX(RECORDID) AS ID, USAGE.DATE AS DATE, USAGE.REAGENT AS REAGENT, SUM(USAGE.QUANTITY) AS USAGE FROM REAGENT_USAGE USAGE GROUP BY USAGE.REAGENT, USAGE.DATE SORT[*] BY USAGE.REAGENT, USAGE.DATE "
 Syntax error in SQL statement "SELECT MAX(RECORDID) AS ID, USAGE.DATE AS DATE, USAGE.REAGENT AS REAGENT, SUM(USAGE.QUANTITY) AS USAGE FROM REAGENT_USAGE USAGE GROUP BY USAGE.REAGENT, USAGE.DATE SORT[*] BY USAGE.REAGENT, USAGE.DATE "; SQL statement:
 Select max(recordID) as id, usage.date as date, usage.reagent as reagent, Sum(usage.quantity) as usage from REAGENT_USAGE usage group by usage.reagent, usage.date sort by usage.reagent, usage.date [42000-192]
+2016-09-25 17:54:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "REAGENT_USAGE" не найдена
+Table "REAGENT_USAGE" not found; SQL statement:
+Select max(recordID) as id, usage.date as date, usage.reagent as reagent, Sum(usage.quantity) as usage from REAGENT_USAGE usage group by usage.reagent, usage.date ORDER by usage.reagent, usage.date [42102-192]
+2016-09-25 17:54:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "REAGENT_CONSUMPTION" не найдена
+Table "REAGENT_CONSUMPTION" not found; SQL statement:
+select reagentcon0_.Number as docNumbe1_1_, reagentcon0_.date as date1_5_, reagentcon0_.posted as posted2_5_, reagentcon0_.uuid as uuid3_5_ from REAGENT_CONSUMPTION reagentcon0_ inner join DOCUMENT reagentcon0_1_ on reagentcon0_.Number=reagentcon0_1_.docNumber [42102-192]
+2016-09-25 17:54:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "REAGENT_CONSUMPTION" не найдена
+Table "REAGENT_CONSUMPTION" not found; SQL statement:
+select reagentcon0_.Number as docNumbe1_1_, reagentcon0_.date as date1_5_, reagentcon0_.posted as posted2_5_, reagentcon0_.uuid as uuid3_5_ from REAGENT_CONSUMPTION reagentcon0_ inner join DOCUMENT reagentcon0_1_ on reagentcon0_.Number=reagentcon0_1_.docNumber [42102-192]
