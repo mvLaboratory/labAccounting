@@ -7,6 +7,12 @@ create table REAGENTS (
    PRIMARY KEY (id)
 );
 
+create table DOCUMENT (
+   docNumber INT NOT NULL auto_increment,
+
+   PRIMARY KEY (docNumber)
+);
+
 create table REAGENT_ADMISSION (
    number INT NOT NULL auto_increment,
    uuid UUID NOT NULL UNIQUE,
@@ -30,24 +36,6 @@ create table REAGENT_ADMISSION_TABLE_PART_ROW (
    PRIMARY KEY (rowID)
 );
 
-create table REAGENT_BALANCE (
-   recordID INT NOT NULL auto_increment,
-   direction INT NOT NULL,
-   document INT NOT NULL,
-   date DATE default NULL,
-   reagent INT,
-   quantity DOUBLE default 0,
-
-   PRIMARY KEY (recordID)
-);
-
-create table DOCUMENT (
-   docNumber INT NOT NULL auto_increment,
-
-   PRIMARY KEY (docNumber)
-);
-
-
 create table REAGENT_CONSUMPTION (
    number INT NOT NULL auto_increment,
    uuid UUID NOT NULL UNIQUE,
@@ -68,4 +56,25 @@ create table REAGENT_CONSUMPTION_TABLE_PART_ROW (
    sum DOUBLE default 0,
 
    PRIMARY KEY (rowID)
+);
+
+create table REAGENT_BALANCE (
+   recordID INT NOT NULL auto_increment,
+   direction INT NOT NULL,
+   document INT NOT NULL,
+   date DATE default NULL,
+   reagent INT,
+   quantity DOUBLE default 0,
+
+   PRIMARY KEY (recordID)
+);
+
+create table REAGENT_USAGE (
+   recordID INT NOT NULL auto_increment,
+   document INT NOT NULL,
+   date DATE default NULL,
+   reagent INT,
+   quantity DOUBLE default 0,
+
+   PRIMARY KEY (recordID)
 );

@@ -135,6 +135,8 @@ public class ReagentAdmission extends Document implements Serializable {
     }
 
     public void post() {
+        DB_Manager.getInstance().deleteDocPosts(this);
+
         RecordSet reagentRS = new RecordSet(this);
         for (ReagentAdmissionTablePartRow row : getRowSet()) {
             reagentRS.add(new ReagentBalance(1, getDate(), this, row.getReagent(), row.getQuantity()));

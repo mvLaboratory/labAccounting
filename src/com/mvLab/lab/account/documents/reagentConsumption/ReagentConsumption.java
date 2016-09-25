@@ -3,15 +3,13 @@ package com.mvLab.lab.account.documents.reagentConsumption;
 import com.mvLab.lab.account.DB_Manager;
 import com.mvLab.lab.account.documents.Document;
 import com.mvLab.lab.account.register.ReagentBalance;
+import com.mvLab.lab.account.register.ReagentUsage;
 import com.mvLab.lab.account.register.RecordSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "REAGENT_CONSUMPTION")
@@ -123,11 +121,29 @@ public class ReagentConsumption extends Document implements Serializable {
     }
 
     public void post() {
+        DB_Manager.getInstance().deleteDocPosts(this);
+
         RecordSet reagentRS = new RecordSet(this);
         for (ReagentConsumptionTablePartRow row : getRowSet()) {
             reagentRS.add(new ReagentBalance(0, getDate(), this, row.getReagent(), row.getQuantity()));
         }
         reagentRS.save();
+
+        RecordSet reagentUsage = new RecordSet(this);
+        for (ReagentConsumptionTablePartRow row : getRowSet()) {
+            reagentUsage.add(new ReagentUsage(getStartOfDay(getDate()), this, row.getReagent(), row.getQuantity()));
+        }
+        reagentUsage.save();
+    }
+
+    public static Date getStartOfDay(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
     }
 
     @Override

@@ -7,9 +7,12 @@ import com.mvLab.lab.account.documents.Savable;
 import com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission;
 import com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumption;
 import com.mvLab.lab.account.register.ReagentBalance;
+import com.mvLab.lab.account.register.ReagentUsage;
 import com.mvLab.lab.account.register.RecordSet;
 import com.mvLab.lab.account.register.Register;
 import com.mvLab.lab.account.reports.BalanceReport;
+import com.mvLab.lab.account.reports.ReagentUsageReport;
+import com.mvLab.lab.account.reports.Report;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -291,29 +294,15 @@ public class DB_Manager {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
             WindowManager.openErrorWindow("Error with saving record set");
-        }finally {
-            session.close();
         }
-    }
-
-    public List<ReagentBalance> readReagentBalance() {
-        List balance = new ArrayList();
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            String queryString = BalanceReport.getQueryString();
-            balance = session.createNativeQuery(queryString, BalanceReport.class).list();
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx != null)
-                tx.rollback();
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
             e.printStackTrace();
-            WindowManager.openErrorWindow("Error selecting reagents.");
-        }finally {
+            WindowManager.openErrorWindow("Error with saving record set");
+        }
+        finally {
             session.close();
         }
-        return balance;
     }
 
     public Integer saveRegisterRecord(Register record){
@@ -343,6 +332,11 @@ public class DB_Manager {
             Query query = session.createQuery("delete from ReagentBalance where document = :doc");
             query.setParameter("doc", doc);
             int result = query.executeUpdate();
+
+            Query queryUsage = session.createQuery("delete from ReagentUsage where document = :doc");
+            queryUsage.setParameter("doc", doc);
+            int resultUsage = queryUsage.executeUpdate();
+
             tx.commit();
         }catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -353,6 +347,54 @@ public class DB_Manager {
         }
     }
     //RegisterRecordSet---
+
+    //Reports+++
+//    public List<ReagentBalance> readReagentBalance() {
+//        List balance = new ArrayList();
+//        Session session = factory.openSession();
+//        Transaction tx = null;
+//        try{
+//            tx = session.beginTransaction();
+//            String queryString = BalanceReport.getQueryString();
+//            balance = session.createNativeQuery(queryString, BalanceReport.class).list();
+//            tx.commit();
+//        }catch (HibernateException e) {
+//            if (tx != null)
+//                tx.rollback();
+//            e.printStackTrace();
+//            WindowManager.openErrorWindow("Error building report.");
+//        }finally {
+//            session.close();
+//        }
+//        return balance;
+//    }
+
+    public <T> List<T> readReport(Report report) {
+        List usage = new ArrayList();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String queryString = report.getQueryString();
+            usage = session.createNativeQuery(queryString, report.getClass()).list();
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx != null)
+                tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error building report.");
+        }
+        catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error building report.");
+        }
+        finally {
+            session.close();
+        }
+        return usage;
+    }
+    //Reports---
 
     public void updateElement(Object element){
         Session session = factory.openSession();

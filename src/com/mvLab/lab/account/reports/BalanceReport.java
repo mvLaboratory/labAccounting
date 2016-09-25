@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class BalanceReport implements Serializable {
+public class BalanceReport implements Serializable, Report {
     @Id
     @Column(name = "id")
     private int id;
@@ -50,7 +50,8 @@ public class BalanceReport implements Serializable {
         this.id = id;
     }
 
-    public static String getQueryString() {
+    @Override
+    public String getQueryString() {
         String queryString = "Select max(balance.ID) as id, balance.reagent as reagent, Sum(balance.balance) as balance ";
         queryString = queryString + " from (Select";
         queryString = queryString + " max(recordID) as id, balanceADD.reagent as reagent, Sum(balanceADD.quantity) as balance";

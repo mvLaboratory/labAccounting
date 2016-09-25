@@ -16,7 +16,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.32748538011695905" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.reports.ReagentBalanceController">
+<SplitPane dividerPositions="0.32748538011695905" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.reports.ReportController">
   <items>
     <AnchorPane prefHeight="632.0" prefWidth="511.0" SplitPane.resizableWithParent="false">
          <children>
@@ -60,15 +60,15 @@
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="215.0">
       <children>
-        <LineChart id="LineChart" minWidth="191.0" prefHeight="602.0" prefWidth="390.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+        <LineChart id="LineChart" fx:id="usageChart" layoutY="37.0" minWidth="191.0" prefHeight="597.0" prefWidth="572.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
           <xAxis>
-            <CategoryAxis side="BOTTOM" visible="true" />
+            <CategoryAxis fx:id="chartCategoryAxis" side="BOTTOM" visible="true" />
           </xAxis>
           <yAxis>
-            <NumberAxis animated="true" autoRanging="true" side="LEFT" tickLabelFill="#006299" />
+            <NumberAxis fx:id="chartNumberAxis" animated="true" autoRanging="true" side="LEFT" tickLabelFill="#006299" />
           </yAxis>
         </LineChart>
-        <Label id="Report-header" alignment="CENTER" focusTraversable="false" layoutY="-8.0" minHeight="-Infinity" pickOnBounds="false" prefHeight="39.999900817871094" prefWidth="390.0" text="Reagent usage:" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Label id="Report-header" alignment="CENTER" focusTraversable="false" layoutY="-1.0" minHeight="-Infinity" pickOnBounds="false" prefHeight="38.0" prefWidth="572.0" text="Reagent usage:" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
           <stylesheets>
             <URL value="@DarkTheme.css" />
           </stylesheets>
