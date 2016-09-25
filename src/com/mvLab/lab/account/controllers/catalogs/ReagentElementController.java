@@ -1,4 +1,4 @@
-package com.mvLab.lab.account.controllers;
+package com.mvLab.lab.account.controllers.catalogs;
 
 import com.mvLab.lab.account.catalogs.reagents.ReagentCatalogElementForm;
 import com.mvLab.lab.account.windows.InternalWindow;

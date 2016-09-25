@@ -47,7 +47,7 @@ public class RecordSet {
     }
 
     public void save() {
-        DB_Manager.getInstance().deleteDocPosts(registrator);
+//        DB_Manager.getInstance().deleteDocPosts(registrator);
         DB_Manager.getInstance().saveRecordSet(this);
     }
 }

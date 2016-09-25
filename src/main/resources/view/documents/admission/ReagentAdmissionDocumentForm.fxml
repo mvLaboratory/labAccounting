@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="812.0" styleClass="background" stylesheets="@../../DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.documents.admission.ReagentAdmissionDocumentController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="17.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="128.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="21.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="54.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="177.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="164.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="173.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="561.0" minWidth="10.0" prefWidth="21.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="158.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="274.0" minHeight="10.0" prefHeight="274.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="numberLable" prefHeight="21.0" prefWidth="170.0" styleClass="label-bright" text="Number:" GridPane.columnIndex="1" />
+            <TextField fx:id="number" editable="false" prefHeight="37.0" prefWidth="486.0" GridPane.columnIndex="2" />
+            <Label fx:id="dateLable" styleClass="label-bright" text="from" GridPane.columnIndex="4" />
+            <DatePicker fx:id="date" GridPane.columnIndex="5" />
+            <TableView fx:id="reagentTable" prefHeight="227.0" prefWidth="784.0" styleClass="tablePart" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="4" GridPane.rowSpan="2147483647">
+              <columns>
+                <TableColumn id="rowNumber" fx:id="rowNumber" prefWidth="50.0" text="N" />
+                <TableColumn id="reagent" fx:id="reagent" minWidth="0.0" prefWidth="298.0" text="Reagent" />
+                  <TableColumn id="quantity" fx:id="quantity" prefWidth="164.0" text="Quantity" />
+                  <TableColumn id="price" fx:id="price" prefWidth="113.0" text="Price" />
+                  <TableColumn id="sum" fx:id="sum" prefWidth="151.0" text="Sum" />
+              </columns>
+            </TableView>
+            <ToolBar prefHeight="48.0" prefWidth="737.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.rowIndex="3">
+              <items>
+                <Button fx:id="rowAddButton" mnemonicParsing="false" onMouseClicked="#newRowButtonOnClick" text="+" />
+                <Button fx:id="rowDelButton" mnemonicParsing="false" onMouseClicked="#rowDelButtonOnClick" text="-" />
+              </items>
+            </ToolBar>
+            <Label id="supplierLbl" fx:id="supplierLbl" styleClass="label-bright" text="Supplier:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField id="supplier" fx:id="supplier" GridPane.columnIndex="2" GridPane.columnSpan="6" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <ToolBar id="catalog-toll-bar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="catalog-toll-bar" BorderPane.alignment="BOTTOM_RIGHT">
+        <items>
+            <Button fx:id="closeButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#closeButtonOnClicked" text="Close" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onMouseClicked="#saveButtonOnClicked" text="Save" />
+            <Button fx:id="okButton" mnemonicParsing="false" onMouseClicked="#okButtonOnClick" text="OK" />
+            <Button fx:id="postButton" visible="false" mnemonicParsing="false" onMouseClicked="#postButtonOnClick" text="Post" />
+        </items>
+      </ToolBar>
+   </bottom>
+   <top>
+      <BorderPane fx:id="windowHeader" prefHeight="43.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <left>
+            <Label fx:id="windowHeaderLbl" text="Label" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <HBox>
+               <children>
+                  <Button fx:id="windowHideButton" mnemonicParsing="false" onMouseClicked="#windowHideButtonOnClicked" text="_" />
+                  <Button fx:id="windowCloseButton" mnemonicParsing="false" onMouseClicked="#windowCloseButtonOnClicked" prefHeight="36.0" prefWidth="7.0" text="X" BorderPane.alignment="CENTER" />
+               </children>
+            </HBox>
+         </right>
+      </BorderPane>
+   </top>
+</BorderPane>

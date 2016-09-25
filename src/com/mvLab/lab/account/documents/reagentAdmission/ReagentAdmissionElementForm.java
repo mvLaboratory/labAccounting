@@ -2,7 +2,7 @@ package com.mvLab.lab.account.documents.reagentAdmission;
 
 import com.mvLab.lab.account.Main;
 import com.mvLab.lab.account.WindowManager;
-import com.mvLab.lab.account.controllers.ReagentAdmissionDocumentController;
+import com.mvLab.lab.account.controllers.documents.admission.ReagentAdmissionDocumentController;
 import com.mvLab.lab.account.documents.DocumentForm;
 import com.mvLab.lab.account.windows.InternalWindow;
 import com.mvLab.lab.account.windows.interfaces.Showable;
@@ -21,7 +21,7 @@ public class ReagentAdmissionElementForm extends DocumentForm implements Showabl
     private ReagentAdmissionDocumentController documentController;
 
     {
-        loader = new FXMLLoader(Main.class.getResource("/view/ReagentAdmissionDocumentForm.fxml"));
+        loader = new FXMLLoader(Main.class.getResource("/view/documents/admission/ReagentAdmissionDocumentForm.fxml"));
 
         try {
             windowPane = loader.load();

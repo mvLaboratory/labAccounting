@@ -1,18 +1,11 @@
 package com.mvLab.lab.account.utils;
 
 
-import com.mvLab.lab.account.WindowManager;
-import com.mvLab.lab.account.catalogs.reagents.ReagentCatalogSelectionForm;
-import com.mvLab.lab.account.controllers.ReagentAdmissionDocumentController;
+import com.mvLab.lab.account.controllers.documents.admission.ReagentAdmissionDocumentController;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
-import javafx.util.StringConverter;
-import javafx.util.converter.FormatStringConverter;
-
-import java.io.IOException;
 
 public class ControlTableCell<S,T> extends TableCell<S,T> implements EventHandler {
    // MV_Window parentWindow;

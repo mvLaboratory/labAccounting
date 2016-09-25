@@ -33,7 +33,11 @@
         <mapping class="com.mvLab.lab.account.documents.Document"></mapping>
         <mapping class="com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission"></mapping>
         <mapping class="com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionTablePartRow"></mapping>
+        <mapping class="com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumption"></mapping>
+        <mapping class="com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumptionTablePartRow"></mapping>
         <mapping class="com.mvLab.lab.account.register.ReagentBalance"></mapping>
+        <mapping class="com.mvLab.lab.account.register.ReagentUsage"></mapping>
         <mapping class="com.mvLab.lab.account.reports.BalanceReport"></mapping>
+        <mapping class="com.mvLab.lab.account.reports.ReagentUsageReport"></mapping>
     </session-factory>
 </hibernate-configuration>

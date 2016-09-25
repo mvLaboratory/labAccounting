@@ -24,11 +24,12 @@
               <Bloom threshold="1.0" />
             </effect>
             <items>
-              <Button fx:id="reagentButton" mnemonicParsing="false" onAction="#reagentButtonOnClick" prefWidth="101.0" text="Reagents" />
-              <Button fx:id="addmissiontButton" mnemonicParsing="false" onMouseClicked="#admissionButtonOnClicked" prefWidth="101.0" text="Admission" />
+              <Button fx:id="consumptionButton" mnemonicParsing="false" onMouseClicked="#consumptionButtonOnClicked" prefHeight="32.0" prefWidth="114.0" text="Consumption" />
+              <Button fx:id="addmissiontButton" mnemonicParsing="false" onMouseClicked="#admissionButtonOnClicked" prefHeight="32.0" prefWidth="113.0" text="Admission" />
+              <Button fx:id="reagentButton" mnemonicParsing="false" onAction="#reagentButtonOnClick" prefHeight="32.0" prefWidth="113.0" text="Reagents" />
             </items>
           </ToolBar>
-            <ToolBar fx:id="innerWindowTB" orientation="VERTICAL" prefHeight="171.0" prefWidth="122.0" VBox.vgrow="ALWAYS" />
+            <ToolBar fx:id="innerWindowTB" orientation="VERTICAL" prefHeight="130.0" prefWidth="130.0" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
   </left>
