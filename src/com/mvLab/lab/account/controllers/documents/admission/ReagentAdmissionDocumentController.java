@@ -44,6 +44,9 @@ public class ReagentAdmissionDocumentController implements EventHandler<MouseEve
     }
 
     public void setFields() {
+        if (form.getDocument().getDate() != null)
+            date.setValue(form.getDocument().getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+
         if (date.getValue() == null) {
             date.setValue(LocalDate.now());
         }

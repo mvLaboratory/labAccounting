@@ -45,6 +45,8 @@ public class ReagentConsumptionDocumentController implements EventHandler<MouseE
     }
 
     public void setFields() {
+        if (form.getDocument().getDate() != null)
+            date.setValue(form.getDocument().getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         if (date.getValue() == null) {
             date.setValue(LocalDate.now());
         }
