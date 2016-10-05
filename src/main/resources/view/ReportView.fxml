@@ -16,7 +16,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.32748538011695905" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.lab.account.controllers.reports.ReportController">
+<SplitPane dividerPositions="0.32748538011695905" focusTraversable="true" prefHeight="635.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mvLab.account.controllers.reports.ReportController">
   <items>
     <AnchorPane prefHeight="632.0" prefWidth="511.0" SplitPane.resizableWithParent="false">
          <children>

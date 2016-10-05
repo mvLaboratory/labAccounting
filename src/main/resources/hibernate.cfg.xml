@@ -25,19 +25,20 @@
         </property>
 
         <property name="hibernate.id.new_generator_mappings">false</property>
+        <property name="hibernate.hbm2ddl">update</property>
 
         <!-- List of XML mapping files -->
         <!--<mapping class="com.mvLab.account.lab.models.Employee"></mapping>
         <mapping class="com.mvLab.account.lab.models.Department"></mapping>-->
-        <mapping class="com.mvLab.lab.account.catalogs.reagents.ReagentCatalog"></mapping>
-        <mapping class="com.mvLab.lab.account.documents.Document"></mapping>
-        <mapping class="com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmission"></mapping>
-        <mapping class="com.mvLab.lab.account.documents.reagentAdmission.ReagentAdmissionTablePartRow"></mapping>
-        <mapping class="com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumption"></mapping>
-        <mapping class="com.mvLab.lab.account.documents.reagentConsumption.ReagentConsumptionTablePartRow"></mapping>
-        <mapping class="com.mvLab.lab.account.register.ReagentBalance"></mapping>
-        <mapping class="com.mvLab.lab.account.register.ReagentUsage"></mapping>
-        <mapping class="com.mvLab.lab.account.reports.BalanceReport"></mapping>
-        <mapping class="com.mvLab.lab.account.reports.ReagentUsageReport"></mapping>
+        <mapping class="com.mvLab.account.catalogs.reagents.ReagentCatalog"></mapping>
+        <mapping class="com.mvLab.account.documents.Document"></mapping>
+        <mapping class="com.mvLab.account.documents.reagentAdmission.ReagentAdmission"></mapping>
+        <mapping class="com.mvLab.account.documents.reagentAdmission.ReagentAdmissionTablePartRow"></mapping>
+        <mapping class="com.mvLab.account.documents.reagentConsumption.ReagentConsumption"></mapping>
+        <mapping class="com.mvLab.account.documents.reagentConsumption.ReagentConsumptionTablePartRow"></mapping>
+        <mapping class="com.mvLab.account.register.ReagentBalance"></mapping>
+        <mapping class="com.mvLab.account.register.ReagentUsage"></mapping>
+        <mapping class="com.mvLab.account.reports.BalanceReport"></mapping>
+        <mapping class="com.mvLab.account.reports.ReagentUsageReport"></mapping>
     </session-factory>
 </hibernate-configuration>
