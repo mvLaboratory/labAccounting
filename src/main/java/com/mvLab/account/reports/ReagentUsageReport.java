@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class ReagentUsageReport implements Serializable, Report {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "date")
@@ -91,10 +92,10 @@ public class ReagentUsageReport implements Serializable, Report {
 
     public String getQueryString() {
         String queryString = "Select";
-        queryString = queryString + " max(recordID) as id, usage.date as date, usage.reagent as reagent, Sum(usage.quantity) as usage";
-        queryString = queryString + " from REAGENT_USAGE usage";
-        queryString = queryString + " group by usage.reagent, usage.date";
-        queryString = queryString + " ORDER by usage.reagent, usage.date";
+        queryString = queryString + " max(recordID) as id, `usage`.date as date, `usage`.reagent as reagent, Sum(`usage`.quantity) as `usage`";
+        queryString = queryString + " from REAGENT_USAGE `usage`";
+        queryString = queryString + " group by `usage`.reagent, `usage`.date";
+        queryString = queryString + " ORDER by `usage`.reagent, `usage`.date";
 
         return queryString;
     }

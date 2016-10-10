@@ -4,6 +4,7 @@ import com.mvLab.account.DB_Manager;
 import com.mvLab.account.catalogs.Catalog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ import java.util.UUID;
 public class ReagentCatalog extends Catalog implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -22,6 +23,7 @@ public class ReagentCatalog extends Catalog implements Serializable {
     private String name = "";
 
     @Column(name = "uuid")
+    @Type(type="uuid-char")
     private UUID uuid;
 
     @Column(name = "description")
@@ -118,7 +120,7 @@ public class ReagentCatalog extends Catalog implements Serializable {
 
     @Override
     public Boolean isNew() {
-        return uuid == null || uuid.toString().isEmpty();
+        return id == null || id.toString().isEmpty() || id == 0;
     }
 
     public ReagentCatalog getElement() {

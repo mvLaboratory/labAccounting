@@ -24,7 +24,6 @@ public class WindowManager {
     private Stage primaryStage;
     private MainWindow mainWindow;
     private HashMap<String, MV_Window> windowsmap = new HashMap<>();
-    //private ArrayList<MV_Window> innerWindowsList = new ArrayList<>();// TODO: 02.09.2016 delete
     private HashMap<Object, MV_Window> innerWindowsMap = new HashMap<>();
 
     private WindowManager() {

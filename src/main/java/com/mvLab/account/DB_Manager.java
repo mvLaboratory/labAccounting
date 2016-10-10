@@ -37,7 +37,6 @@ public class DB_Manager {
         }
     }
 
-
     public static void initialize() {
         if (instance == null)
             instance = new DB_Manager();
@@ -48,7 +47,6 @@ public class DB_Manager {
             instance = new DB_Manager();
         return instance;
     }
-
 
     //Reagent Catalog+++
     public static List readReagentCatalog() {
@@ -279,17 +277,12 @@ public class DB_Manager {
     public void saveRecordSet(RecordSet recordSet){
         Session session = factory.openSession();
         Transaction tx = null;
-        //Integer docID = null;
         try{
             tx = session.beginTransaction();
             for (Register record : recordSet.getRecordSet()) {
                 session.save(record);
             }
             tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-            WindowManager.openErrorWindow("Error with saving record set");
         }
         catch (Exception e) {
             if (tx!=null) tx.rollback();
@@ -297,6 +290,29 @@ public class DB_Manager {
             WindowManager.openErrorWindow("Error with saving record set");
         }
         finally {
+            session.close();
+        }
+    }
+
+    public void deleteDocPosts(Document doc){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            Query query = session.createQuery("delete from ReagentBalance where document = :doc");
+            query.setParameter("doc", doc);
+            int result = query.executeUpdate();
+
+            Query queryUsage = session.createQuery("delete from ReagentUsage where document = :doc");
+            queryUsage.setParameter("doc", doc);
+            int resultUsage = queryUsage.executeUpdate();
+
+            tx.commit();
+        }catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+            WindowManager.openErrorWindow("Error with deleting element");
+        }finally {
             session.close();
         }
     }
@@ -318,53 +334,9 @@ public class DB_Manager {
         }
         return recordID;
     }
-
-    public void deleteDocPosts(Document doc){
-        Session session = factory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-//            session.createQuery("Select balance.reagent as reagent, Sum(balance.quantity) as balance from ReagentBalance balance group by balance.reagent")
-            Query query = session.createQuery("delete from ReagentBalance where document = :doc");
-            query.setParameter("doc", doc);
-            int result = query.executeUpdate();
-
-            Query queryUsage = session.createQuery("delete from ReagentUsage where document = :doc");
-            queryUsage.setParameter("doc", doc);
-            int resultUsage = queryUsage.executeUpdate();
-
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-            WindowManager.openErrorWindow("Error with deleting element");
-        }finally {
-            session.close();
-        }
-    }
     //RegisterRecordSet---
 
     //Reports+++
-//    public List<ReagentBalance> readReagentBalance() {
-//        List balance = new ArrayList();
-//        Session session = factory.openSession();
-//        Transaction tx = null;
-//        try{
-//            tx = session.beginTransaction();
-//            String queryString = BalanceReport.getQueryString();
-//            balance = session.createNativeQuery(queryString, BalanceReport.class).list();
-//            tx.commit();
-//        }catch (HibernateException e) {
-//            if (tx != null)
-//                tx.rollback();
-//            e.printStackTrace();
-//            WindowManager.openErrorWindow("Error building report.");
-//        }finally {
-//            session.close();
-//        }
-//        return balance;
-//    }
-
     public <T> List<T> readReport(Report report) {
         List usage = new ArrayList();
         Session session = factory.openSession();

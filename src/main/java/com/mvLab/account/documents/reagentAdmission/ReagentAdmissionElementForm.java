@@ -89,7 +89,6 @@ public class ReagentAdmissionElementForm extends DocumentForm implements Showabl
 
         windowPane.setVisible(true);
         formWindow.focus();
-
     }
 
     public void save() {

@@ -6,6 +6,8 @@ import com.mvLab.account.register.ReagentBalance;
 import com.mvLab.account.register.RecordSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,6 +23,7 @@ public class ReagentAdmission extends Document implements Serializable {
     private Date date;
 
     @Column(name = "uuid")
+    @Type(type="uuid-char")
     private UUID uuid;
 
     @Column(name = "supplier")

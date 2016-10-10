@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Table(name = "REAGENT_CONSUMPTION_TABLE_PART_ROW")
 public class ReagentConsumptionTablePartRow implements Serializable, Savable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rowID")
     private int rowID;
 

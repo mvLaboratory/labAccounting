@@ -3,6 +3,7 @@ package com.mvLab.account.documents.reagentAdmission;
 import com.mvLab.account.DB_Manager;
 import com.mvLab.account.catalogs.reagents.ReagentCatalog;
 import com.mvLab.account.documents.Savable;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +12,7 @@ import java.io.Serializable;
 @Table(name = "REAGENT_ADMISSION_TABLE_PART_ROW")
 public class ReagentAdmissionTablePartRow implements Serializable, Savable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rowID")
     private int rowID;
 

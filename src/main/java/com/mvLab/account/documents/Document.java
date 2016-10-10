@@ -13,7 +13,7 @@ import java.util.UUID;
 @Inheritance(strategy= InheritanceType.JOINED)
 public abstract class Document implements Header, Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "docNumber")
     private Integer number;
 

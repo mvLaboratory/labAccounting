@@ -64,7 +64,6 @@ public class InternalWindow extends Region {
                 RESIZE_RIGHT = false;
                 this.setCursor(Cursor.DEFAULT);
             }
-
         });
         this.setOnMouseDragged(mouseEvent -> {
             //resize root
@@ -83,31 +82,11 @@ public class InternalWindow extends Region {
     public static InternalWindow constructWindow(double posX, double posY, BorderPane windowLayout) {
         // content
         InternalWindow internalWindow = new InternalWindow();
-
-//        BorderPane titleBar = new BorderPane();
-//        titleBar.setId("windowHeader");
-//
-//        Label headerLbl = new Label(header);
-//        headerLbl.setId("windowHeaderLbl");
-//        titleBar.setLeft(headerLbl);
-//
-//        Button closeButton = new Button("x");
-//        closeButton.setId("windowCloseButton");
-//        closeButton.setOnAction(event -> {
-//            WindowManager.getInstance().closeCatalogWindow(internalWindow, "ReagentList");
-//        });
-//
-//        titleBar.setRight(closeButton);
-//
-//        windowLayout.setTop(titleBar);
         internalWindow.setRoot(windowLayout);
 
         //drag only by title
-//        internalWindow.makeDragable(titleBar);
-//        internalWindow.makeDragable(headerLbl);
         internalWindow.makeResizable(20);
         internalWindow.makeFocusable();
-
         internalWindow.setLayoutX(posX - 50);
         internalWindow.setLayoutY(posY - 50);
 

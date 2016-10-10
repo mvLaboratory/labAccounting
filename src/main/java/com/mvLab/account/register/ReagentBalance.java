@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "REAGENT_BALANCE")
 public class ReagentBalance implements Register, Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "recordID")
     private int recordID;
 
